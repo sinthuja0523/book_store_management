@@ -38,17 +38,17 @@ namespace BookStoreMgt
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FmDashboard));
             pnlVerticalMenu = new Panel();
-            button2 = new Button();
+            panel1 = new Panel();
             button1 = new Button();
             btnNickUser = new Button();
             pbShutDownDash = new PictureBox();
             pnlBtnAbout = new Panel();
             pnlBtnProductos = new Panel();
-            pnlBtnSale = new Panel();
             btnAbout = new Button();
             btnProductos = new Button();
             btnSale = new Button();
             pbLogoDash = new PictureBox();
+            pnlBtnSale = new Panel();
             pnlTop = new Panel();
             lblTitleDashboard = new Label();
             pbMinimizeDash = new PictureBox();
@@ -58,8 +58,8 @@ namespace BookStoreMgt
             pbMenuDash = new PictureBox();
             pnlContainers = new Panel();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
-            panel1 = new Panel();
             panel2 = new Panel();
+            button2 = new Button();
             pnlVerticalMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbShutDownDash).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbLogoDash).BeginInit();
@@ -75,42 +75,33 @@ namespace BookStoreMgt
             // 
             pnlVerticalMenu.BackColor = Color.MidnightBlue;
             pnlVerticalMenu.Controls.Add(panel2);
-            pnlVerticalMenu.Controls.Add(panel1);
             pnlVerticalMenu.Controls.Add(button2);
+            pnlVerticalMenu.Controls.Add(panel1);
             pnlVerticalMenu.Controls.Add(button1);
             pnlVerticalMenu.Controls.Add(btnNickUser);
             pnlVerticalMenu.Controls.Add(pbShutDownDash);
             pnlVerticalMenu.Controls.Add(pnlBtnAbout);
             pnlVerticalMenu.Controls.Add(pnlBtnProductos);
-            pnlVerticalMenu.Controls.Add(pnlBtnSale);
             pnlVerticalMenu.Controls.Add(btnAbout);
             pnlVerticalMenu.Controls.Add(btnProductos);
             pnlVerticalMenu.Controls.Add(btnSale);
             pnlVerticalMenu.Controls.Add(pbLogoDash);
+            pnlVerticalMenu.Controls.Add(pnlBtnSale);
             pnlVerticalMenu.Dock = DockStyle.Left;
             pnlVerticalMenu.Location = new Point(0, 0);
             pnlVerticalMenu.Margin = new Padding(4, 3, 4, 3);
             pnlVerticalMenu.Name = "pnlVerticalMenu";
-            pnlVerticalMenu.Size = new Size(292, 750);
+            pnlVerticalMenu.Size = new Size(247, 750);
             pnlVerticalMenu.TabIndex = 0;
             // 
-            // button2
+            // panel1
             // 
-            button2.Cursor = Cursors.Hand;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 45, 48);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(6, 290);
-            button2.Margin = new Padding(4, 3, 4, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(286, 46);
-            button2.TabIndex = 10;
-            button2.Text = "Sales";
-            button2.UseVisualStyleBackColor = true;
+            panel1.BackColor = Color.White;
+            panel1.Location = new Point(0, 541);
+            panel1.Margin = new Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(6, 85);
+            panel1.TabIndex = 7;
             // 
             // button1
             // 
@@ -122,13 +113,14 @@ namespace BookStoreMgt
             button1.ForeColor = Color.White;
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(6, 238);
+            button1.Location = new Point(7, 541);
             button1.Margin = new Padding(4, 3, 4, 3);
             button1.Name = "button1";
-            button1.Size = new Size(286, 46);
+            button1.Size = new Size(240, 85);
             button1.TabIndex = 9;
-            button1.Text = "Sales";
+            button1.Text = "Reports";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // btnNickUser
             // 
@@ -162,29 +154,20 @@ namespace BookStoreMgt
             // pnlBtnAbout
             // 
             pnlBtnAbout.BackColor = Color.White;
-            pnlBtnAbout.Location = new Point(0, 186);
+            pnlBtnAbout.Location = new Point(0, 340);
             pnlBtnAbout.Margin = new Padding(4, 3, 4, 3);
             pnlBtnAbout.Name = "pnlBtnAbout";
-            pnlBtnAbout.Size = new Size(6, 46);
+            pnlBtnAbout.Size = new Size(6, 85);
             pnlBtnAbout.TabIndex = 6;
             // 
             // pnlBtnProductos
             // 
             pnlBtnProductos.BackColor = Color.White;
-            pnlBtnProductos.Location = new Point(0, 133);
+            pnlBtnProductos.Location = new Point(0, 236);
             pnlBtnProductos.Margin = new Padding(4, 3, 4, 3);
             pnlBtnProductos.Name = "pnlBtnProductos";
-            pnlBtnProductos.Size = new Size(6, 46);
+            pnlBtnProductos.Size = new Size(6, 85);
             pnlBtnProductos.TabIndex = 5;
-            // 
-            // pnlBtnSale
-            // 
-            pnlBtnSale.BackColor = Color.White;
-            pnlBtnSale.Location = new Point(0, 80);
-            pnlBtnSale.Margin = new Padding(4, 3, 4, 3);
-            pnlBtnSale.Name = "pnlBtnSale";
-            pnlBtnSale.Size = new Size(6, 46);
-            pnlBtnSale.TabIndex = 4;
             // 
             // btnAbout
             // 
@@ -196,10 +179,10 @@ namespace BookStoreMgt
             btnAbout.ForeColor = Color.White;
             btnAbout.Image = (Image)resources.GetObject("btnAbout.Image");
             btnAbout.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAbout.Location = new Point(6, 186);
+            btnAbout.Location = new Point(7, 340);
             btnAbout.Margin = new Padding(4, 3, 4, 3);
             btnAbout.Name = "btnAbout";
-            btnAbout.Size = new Size(286, 46);
+            btnAbout.Size = new Size(240, 85);
             btnAbout.TabIndex = 3;
             btnAbout.Text = "Suppliers";
             btnAbout.UseVisualStyleBackColor = true;
@@ -215,10 +198,10 @@ namespace BookStoreMgt
             btnProductos.ForeColor = Color.White;
             btnProductos.Image = (Image)resources.GetObject("btnProductos.Image");
             btnProductos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProductos.Location = new Point(6, 133);
+            btnProductos.Location = new Point(5, 236);
             btnProductos.Margin = new Padding(4, 3, 4, 3);
             btnProductos.Name = "btnProductos";
-            btnProductos.Size = new Size(286, 46);
+            btnProductos.Size = new Size(240, 85);
             btnProductos.TabIndex = 2;
             btnProductos.Text = "Customers";
             btnProductos.UseVisualStyleBackColor = true;
@@ -234,10 +217,10 @@ namespace BookStoreMgt
             btnSale.ForeColor = Color.White;
             btnSale.Image = (Image)resources.GetObject("btnSale.Image");
             btnSale.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSale.Location = new Point(6, 80);
+            btnSale.Location = new Point(7, 132);
             btnSale.Margin = new Padding(4, 3, 4, 3);
             btnSale.Name = "btnSale";
-            btnSale.Size = new Size(286, 46);
+            btnSale.Size = new Size(240, 85);
             btnSale.TabIndex = 1;
             btnSale.Text = "Books";
             btnSale.UseVisualStyleBackColor = true;
@@ -250,11 +233,20 @@ namespace BookStoreMgt
             pbLogoDash.Location = new Point(25, 12);
             pbLogoDash.Margin = new Padding(4, 3, 4, 3);
             pbLogoDash.Name = "pbLogoDash";
-            pbLogoDash.Size = new Size(224, 67);
+            pbLogoDash.Size = new Size(181, 70);
             pbLogoDash.SizeMode = PictureBoxSizeMode.Zoom;
             pbLogoDash.TabIndex = 0;
             pbLogoDash.TabStop = false;
             pbLogoDash.Click += pbLogoDash_Click;
+            // 
+            // pnlBtnSale
+            // 
+            pnlBtnSale.BackColor = Color.White;
+            pnlBtnSale.Location = new Point(0, 132);
+            pnlBtnSale.Margin = new Padding(4, 3, 4, 3);
+            pnlBtnSale.Name = "pnlBtnSale";
+            pnlBtnSale.Size = new Size(6, 85);
+            pnlBtnSale.TabIndex = 4;
             // 
             // pnlTop
             // 
@@ -266,10 +258,10 @@ namespace BookStoreMgt
             pnlTop.Controls.Add(pbCloseWindowDash);
             pnlTop.Controls.Add(pbMenuDash);
             pnlTop.Dock = DockStyle.Top;
-            pnlTop.Location = new Point(292, 0);
+            pnlTop.Location = new Point(247, 0);
             pnlTop.Margin = new Padding(4, 3, 4, 3);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(1225, 58);
+            pnlTop.Size = new Size(1033, 58);
             pnlTop.TabIndex = 1;
             pnlTop.MouseDown += pnlTop_MouseDown;
             // 
@@ -289,7 +281,7 @@ namespace BookStoreMgt
             pbMinimizeDash.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pbMinimizeDash.Cursor = Cursors.Hand;
             pbMinimizeDash.Image = (Image)resources.GetObject("pbMinimizeDash.Image");
-            pbMinimizeDash.Location = new Point(1118, 6);
+            pbMinimizeDash.Location = new Point(926, 6);
             pbMinimizeDash.Margin = new Padding(4, 3, 4, 3);
             pbMinimizeDash.Name = "pbMinimizeDash";
             pbMinimizeDash.Size = new Size(29, 29);
@@ -303,7 +295,7 @@ namespace BookStoreMgt
             pbDropDownDash.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pbDropDownDash.Cursor = Cursors.Hand;
             pbDropDownDash.Image = (Image)resources.GetObject("pbDropDownDash.Image");
-            pbDropDownDash.Location = new Point(1154, 6);
+            pbDropDownDash.Location = new Point(962, 6);
             pbDropDownDash.Margin = new Padding(4, 3, 4, 3);
             pbDropDownDash.Name = "pbDropDownDash";
             pbDropDownDash.Size = new Size(29, 29);
@@ -318,7 +310,7 @@ namespace BookStoreMgt
             pbMaximizeWindowDash.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pbMaximizeWindowDash.Cursor = Cursors.Hand;
             pbMaximizeWindowDash.Image = (Image)resources.GetObject("pbMaximizeWindowDash.Image");
-            pbMaximizeWindowDash.Location = new Point(1154, 6);
+            pbMaximizeWindowDash.Location = new Point(962, 6);
             pbMaximizeWindowDash.Margin = new Padding(4, 3, 4, 3);
             pbMaximizeWindowDash.Name = "pbMaximizeWindowDash";
             pbMaximizeWindowDash.Size = new Size(29, 29);
@@ -332,7 +324,7 @@ namespace BookStoreMgt
             pbCloseWindowDash.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pbCloseWindowDash.Cursor = Cursors.Hand;
             pbCloseWindowDash.Image = (Image)resources.GetObject("pbCloseWindowDash.Image");
-            pbCloseWindowDash.Location = new Point(1190, 6);
+            pbCloseWindowDash.Location = new Point(998, 6);
             pbCloseWindowDash.Margin = new Padding(4, 3, 4, 3);
             pbCloseWindowDash.Name = "pbCloseWindowDash";
             pbCloseWindowDash.Size = new Size(29, 29);
@@ -345,10 +337,10 @@ namespace BookStoreMgt
             // 
             pbMenuDash.Cursor = Cursors.Hand;
             pbMenuDash.Image = (Image)resources.GetObject("pbMenuDash.Image");
-            pbMenuDash.Location = new Point(7, 8);
+            pbMenuDash.Location = new Point(20, 8);
             pbMenuDash.Margin = new Padding(4, 3, 4, 3);
             pbMenuDash.Name = "pbMenuDash";
-            pbMenuDash.Size = new Size(41, 40);
+            pbMenuDash.Size = new Size(33, 36);
             pbMenuDash.SizeMode = PictureBoxSizeMode.Zoom;
             pbMenuDash.TabIndex = 0;
             pbMenuDash.TabStop = false;
@@ -358,10 +350,10 @@ namespace BookStoreMgt
             // 
             pnlContainers.BackColor = Color.WhiteSmoke;
             pnlContainers.Dock = DockStyle.Fill;
-            pnlContainers.Location = new Point(292, 58);
+            pnlContainers.Location = new Point(247, 58);
             pnlContainers.Margin = new Padding(4, 3, 4, 3);
             pnlContainers.Name = "pnlContainers";
-            pnlContainers.Size = new Size(1225, 692);
+            pnlContainers.Size = new Size(1033, 692);
             pnlContainers.TabIndex = 2;
             // 
             // mySqlCommand1
@@ -371,29 +363,38 @@ namespace BookStoreMgt
             mySqlCommand1.EnableCaching = false;
             mySqlCommand1.Transaction = null;
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.White;
-            panel1.Location = new Point(0, 238);
-            panel1.Margin = new Padding(4, 3, 4, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(6, 46);
-            panel1.TabIndex = 7;
-            // 
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Location = new Point(0, 290);
+            panel2.Location = new Point(0, 441);
             panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(6, 46);
-            panel2.TabIndex = 7;
+            panel2.Size = new Size(6, 85);
+            panel2.TabIndex = 11;
+            // 
+            // button2
+            // 
+            button2.Cursor = Cursors.Hand;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 45, 48);
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(7, 441);
+            button2.Margin = new Padding(4, 3, 4, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(240, 85);
+            button2.TabIndex = 10;
+            button2.Text = "Orders";
+            button2.UseVisualStyleBackColor = true;
             // 
             // FmDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1517, 750);
+            ClientSize = new Size(1280, 750);
             Controls.Add(pnlContainers);
             Controls.Add(pnlTop);
             Controls.Add(pnlVerticalMenu);
@@ -432,13 +433,13 @@ namespace BookStoreMgt
         private System.Windows.Forms.PictureBox pbShutDownDash;
         private System.Windows.Forms.Panel pnlBtnAbout;
         private System.Windows.Forms.Panel pnlBtnProductos;
-        private System.Windows.Forms.Panel pnlBtnSale;
         private System.Windows.Forms.Button btnNickUser;
         private System.Windows.Forms.Label lblTitleDashboard;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
-        private Button button2;
         private Button button1;
-        private Panel panel2;
         private Panel panel1;
+        private Panel pnlBtnSale;
+        private Panel panel2;
+        private Button button2;
     }
 }
