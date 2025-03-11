@@ -29,14 +29,19 @@ namespace BookStoreMgt
                 MessageBox.Show($"Login Successful! Role: {role}", "Success");
 
                 // Open the main dashboard
-                //MainForm mainForm = new MainForm(role);
+                Dashboard mainForm = new Dashboard();
                 this.Hide();
-               // mainForm.Show();
+                mainForm.Show();
             }
             else
             {
                 MessageBox.Show("Invalid username or password.", "Login Failed");
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
