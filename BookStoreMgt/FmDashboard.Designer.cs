@@ -1,12 +1,4 @@
-﻿/*
- * Criado por SharpDevelop.
- * Usuário: Fabiano
- * Data: 12/05/2020
- * Hora: 22:08
- * 
- * Para alterar este modelo use Ferramentas | Opções | Codificação | Editar Cabeçalhos Padrão.
- */
-namespace BookStoreMgt
+﻿namespace BookStoreMgt
 {
 	partial class FmDashboard
 	{
