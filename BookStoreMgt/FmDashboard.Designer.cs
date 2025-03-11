@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FmDashboard));
             pnlVerticalMenu = new Panel();
+            panel2 = new Panel();
+            button2 = new Button();
             panel1 = new Panel();
             button1 = new Button();
             btnNickUser = new Button();
@@ -50,8 +52,6 @@
             pbMenuDash = new PictureBox();
             pnlContainers = new Panel();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
-            panel2 = new Panel();
-            button2 = new Button();
             pnlVerticalMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbShutDownDash).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbLogoDash).BeginInit();
@@ -85,6 +85,33 @@
             pnlVerticalMenu.Name = "pnlVerticalMenu";
             pnlVerticalMenu.Size = new Size(247, 750);
             pnlVerticalMenu.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.Location = new Point(0, 441);
+            panel2.Margin = new Padding(4, 3, 4, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(6, 85);
+            panel2.TabIndex = 11;
+            // 
+            // button2
+            // 
+            button2.Cursor = Cursors.Hand;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 45, 48);
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(7, 441);
+            button2.Margin = new Padding(4, 3, 4, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(240, 85);
+            button2.TabIndex = 10;
+            button2.Text = "Orders";
+            button2.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -253,7 +280,7 @@
             pnlTop.Location = new Point(247, 0);
             pnlTop.Margin = new Padding(4, 3, 4, 3);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(1033, 58);
+            pnlTop.Size = new Size(1323, 58);
             pnlTop.TabIndex = 1;
             pnlTop.MouseDown += pnlTop_MouseDown;
             // 
@@ -273,7 +300,7 @@
             pbMinimizeDash.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pbMinimizeDash.Cursor = Cursors.Hand;
             pbMinimizeDash.Image = (Image)resources.GetObject("pbMinimizeDash.Image");
-            pbMinimizeDash.Location = new Point(926, 6);
+            pbMinimizeDash.Location = new Point(1216, 6);
             pbMinimizeDash.Margin = new Padding(4, 3, 4, 3);
             pbMinimizeDash.Name = "pbMinimizeDash";
             pbMinimizeDash.Size = new Size(29, 29);
@@ -287,7 +314,7 @@
             pbDropDownDash.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pbDropDownDash.Cursor = Cursors.Hand;
             pbDropDownDash.Image = (Image)resources.GetObject("pbDropDownDash.Image");
-            pbDropDownDash.Location = new Point(962, 6);
+            pbDropDownDash.Location = new Point(1252, 6);
             pbDropDownDash.Margin = new Padding(4, 3, 4, 3);
             pbDropDownDash.Name = "pbDropDownDash";
             pbDropDownDash.Size = new Size(29, 29);
@@ -302,7 +329,7 @@
             pbMaximizeWindowDash.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pbMaximizeWindowDash.Cursor = Cursors.Hand;
             pbMaximizeWindowDash.Image = (Image)resources.GetObject("pbMaximizeWindowDash.Image");
-            pbMaximizeWindowDash.Location = new Point(962, 6);
+            pbMaximizeWindowDash.Location = new Point(1252, 6);
             pbMaximizeWindowDash.Margin = new Padding(4, 3, 4, 3);
             pbMaximizeWindowDash.Name = "pbMaximizeWindowDash";
             pbMaximizeWindowDash.Size = new Size(29, 29);
@@ -316,7 +343,7 @@
             pbCloseWindowDash.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pbCloseWindowDash.Cursor = Cursors.Hand;
             pbCloseWindowDash.Image = (Image)resources.GetObject("pbCloseWindowDash.Image");
-            pbCloseWindowDash.Location = new Point(998, 6);
+            pbCloseWindowDash.Location = new Point(1288, 6);
             pbCloseWindowDash.Margin = new Padding(4, 3, 4, 3);
             pbCloseWindowDash.Name = "pbCloseWindowDash";
             pbCloseWindowDash.Size = new Size(29, 29);
@@ -345,7 +372,7 @@
             pnlContainers.Location = new Point(247, 58);
             pnlContainers.Margin = new Padding(4, 3, 4, 3);
             pnlContainers.Name = "pnlContainers";
-            pnlContainers.Size = new Size(1033, 692);
+            pnlContainers.Size = new Size(1323, 692);
             pnlContainers.TabIndex = 2;
             // 
             // mySqlCommand1
@@ -355,38 +382,11 @@
             mySqlCommand1.EnableCaching = false;
             mySqlCommand1.Transaction = null;
             // 
-            // panel2
-            // 
-            panel2.BackColor = Color.White;
-            panel2.Location = new Point(0, 441);
-            panel2.Margin = new Padding(4, 3, 4, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(6, 85);
-            panel2.TabIndex = 11;
-            // 
-            // button2
-            // 
-            button2.Cursor = Cursors.Hand;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 45, 48);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(7, 441);
-            button2.Margin = new Padding(4, 3, 4, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(240, 85);
-            button2.TabIndex = 10;
-            button2.Text = "Orders";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // FmDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1280, 750);
+            ClientSize = new Size(1570, 750);
             Controls.Add(pnlContainers);
             Controls.Add(pnlTop);
             Controls.Add(pnlVerticalMenu);

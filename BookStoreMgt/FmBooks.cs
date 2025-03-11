@@ -1,4 +1,4 @@
-﻿//using Bookstore.Database;
+﻿// using Bookstore.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,16 +16,16 @@ namespace BookStoreMgt
         private string id = null;
         //FmAddOrUpdateBook fmAdd = new FmAddOrUpdateBook();
 
-        //BookControl bookControl = new BookControl();
+        // BookControl bookControl = new BookControl();
         public FmBooks()
         {
             InitializeComponent();
             //pnlContainerFmAddOrUpdateBook.BackColor = Color.DimGray;
             panelAddVisible(false);
-           /* this.lblTitleAddBook.Text = "";
+            this.lblTitleAddBook.Text = "";
             cbGenreBook.Items.Add("Fiction");
             cbGenreBook.Items.Add("Adventure");
-            cbGenreBook.Items.Add("Comedy");*/
+            cbGenreBook.Items.Add("Comedy");
         }
 
         public void setTitleLabel(string s)
@@ -50,20 +50,20 @@ namespace BookStoreMgt
 
         public void showBooksInDataGrid()
         {
-           /* dgvBooks.DataSource = bookControl.showBooks();*/
+            //dgvBooks.DataSource = bookControl.showBooks();
         }
 
         public void disableButtonsBooks()
-        {/*
+        {
             btnAddNewBook.Enabled = false;
             btnSearchBook.Enabled = false;
-            btnUpdateData.Enabled = false;*/
+            btnUpdateData.Enabled = false;
         }
         public void enableButtonsBook()
-        {/*
+        {
             btnAddNewBook.Enabled = true;
             btnSearchBook.Enabled = true;
-            btnUpdateData.Enabled = true;*/
+            btnUpdateData.Enabled = true;
         }
 
         public void ValidaEnableButtons()
@@ -72,7 +72,7 @@ namespace BookStoreMgt
         }
 
         private void openInPanelContainerBook(object form)
-        {/*
+        {
             if (this.pnlContainerFmAddOrUpdateBook.Controls.Count > 0)
             {
                 this.pnlContainerFmAddOrUpdateBook.Controls.RemoveAt(0);
@@ -82,7 +82,7 @@ namespace BookStoreMgt
             fh.Dock = DockStyle.Fill;
             this.pnlContainerFmAddOrUpdateBook.Controls.Add(fh);
             this.pnlContainerFmAddOrUpdateBook.Tag = fh;
-            fh.Show();*/
+            fh.Show();
         }
 
         public void refreshForm()
@@ -91,7 +91,7 @@ namespace BookStoreMgt
         }
 
         private void btnAddNewBook_Click(object sender, EventArgs e)
-        {/*
+        {
             //openInPanelContainerBook(new FmAddOrUpdateBook());
             //fmAdd.setTitle("Add a new Book");
             //this.disableButtonsBooks();
@@ -99,12 +99,12 @@ namespace BookStoreMgt
             this.setTitleLabel("Add a new book");
             lblTitleAddBook.Text = getTitleLabel();
             panelAddVisible(true);
-            enableButtonsBooks(false);*/
+            enableButtonsBooks(false);
 
         }
 
         private void enableButtonsBooks(bool v)
-        {/*
+        {
             if(v)
             {
                 btnAddNewBook.Enabled = true;
@@ -116,7 +116,7 @@ namespace BookStoreMgt
                 btnAddNewBook.Enabled = false;
                 btnUpdateData.Enabled = false;
                 btnDeleteBook.Enabled = false;
-            }*/
+            }
         }
 
         private void lblISBN_Click(object sender, EventArgs e)
@@ -172,11 +172,11 @@ namespace BookStoreMgt
 
         private void panelAddVisible(bool v)
         {
-           /* pnlContainerFmAddOrUpdateBook.Visible = v;*/
+            pnlContainerFmAddOrUpdateBook.Visible = v;
         }
 
         private void clearAddNewTextBox()
-        {/*
+        {
             //cbGenreBook.SelectedItem           
             
             this.txtPriceBook.Clear();
@@ -185,7 +185,7 @@ namespace BookStoreMgt
             this.txtAuthorBook.Clear();
             this.txteditoraBook.Clear();
             this.txtTitleBook.Clear();
-            this.txtYearBook.Clear();*/
+            this.txtYearBook.Clear();
         }
 
         private void btnSaveBook_Click(object sender, EventArgs e)
@@ -199,7 +199,7 @@ namespace BookStoreMgt
                     cbGenreBook.Focus();
                 }
                 else
-                {/*
+                {
                     if (bookControl.checkISBNControl(mtxtISBN.Text) && lblTitleAddBook.Text.Equals("Add a new book"))
                     {
                         MessageBox.Show("This ISBN has existed in our database");
@@ -259,7 +259,7 @@ namespace BookStoreMgt
         }
 
         private void btnUpdateData_Click(object sender, EventArgs e)
-        {/*
+        {
             try
             {
                 if (dgvBooks.SelectedRows.Count > 0)
@@ -296,11 +296,11 @@ namespace BookStoreMgt
             catch (Exception ex)
             {
                 throw ex;
-            }*/
+            }
         }
 
         private void btnDeleteBook_Click(object sender, EventArgs e)
-        {/*
+        {
 
             if (dgvBooks.SelectedRows.Count > 0)
             {
@@ -309,23 +309,23 @@ namespace BookStoreMgt
                 
                 if (MessageBox.Show("Do you really want to delete these data?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    /*string result = bookControl.deleteDataControl(isbn);
-                    if (result.Equals("sucess"))
-                    {
-                        MessageBox.Show("Delete data has been sucessed!");
-                        showBooksInDataGrid();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Delete data it was possible!");
-                    }
+                    //string result = bookControl.deleteDataControl(isbn);
+                    //if (result.Equals("sucess"))
+                    //{
+                    //    MessageBox.Show("Delete data has been sucessed!");
+                    //    showBooksInDataGrid();
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("Delete data it was possible!");
+                    //}
                 }
 
-            }*/
+            }
         }
 
         private void txtFilterData_TextChanged(object sender, EventArgs e)
-        {/*
+        {
 
             //var termo = (sender as TextBox).Text.ToLowerInvariant();
             //bool semTermo = String.IsNullOrEmpty(termo);
@@ -342,23 +342,23 @@ namespace BookStoreMgt
                 (dgvBooks.DataSource as DataTable).DefaultView.RowFilter =
                 string.Format("book_title LIKE '{0}%' OR book_title LIKE '% {0}%'", txtFilterData.Text);
             }
-            */
+            
         }
 
         private void txtFilterData_KeyPress(object sender, KeyPressEventArgs e)
-        {/*
+        {
             if (txtFilterData.Text.Equals("Type here the book title"))
             {
                 txtFilterData.Clear();
-            }*/
+            }
         }
 
         private void txtFilterData_Leave(object sender, EventArgs e)
-        {/*
+        {
             if (txtFilterData.Text.Equals(""))
             {
                 txtFilterData.Text = "Type here the book title";
-            }*/
+            }
         }
 
         private void txtAmountBook_TextChanged(object sender, EventArgs e)
