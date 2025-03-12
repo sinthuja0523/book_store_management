@@ -1,71 +1,239 @@
-using System.Data;
-using System.Data.SqlClient;
+﻿/*
+ * Criado por SharpDevelop.
+ * Usuário: Fabiano
+ * Data: 10/05/2020
+ * Hora: 20:23
+ * 
+ * Para alterar este modelo use Ferramentas | Opções | Codificação | Editar Cabeçalhos Padrão.
+ */
+using Bookstore.Database;
+/*using Bookstore.Utils;*/
+using System;
+using System.Drawing;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace BookStoreMgt
 {
+    /// <summary>
+    /// Description of FmLogin.
+    /// </summary>
     public partial class FmLogin : Form
     {
+        crudUsers usr = new crudUsers();
+        Thread th;
+
+        public string userLogged = "";
         public FmLogin()
         {
             InitializeComponent();
-            // Test commit
+            txtEmail.Focus();
+            txtEmail.Select(0, 0);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void initFrame()
         {
-            string username = txtUsername.Text;
-            string password = txtPassword.Text;
+            Application.Run(new FmDashboard());
+        }
+        void PbExitClick(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
-            SqlConnection conn = new SqlConnection("Data Source=DESKTOP-DV35AK6;Initial Catalog=Bank_Customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
-            conn.Open();
-            string query = "SELECT role FROM users WHERE user_name=@Username AND password=@Password";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@Username", username);
-            cmd.Parameters.AddWithValue("@Password", password);
-            object result = cmd.ExecuteScalar();
-            if (result != null)
+        void PbCloseLoginClick(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void createFileToUser(string txt)
+        {
+            Stream outUser = null;
+            StreamWriter writer = null;
+            try
             {
-                string role = result.ToString();
-                MessageBox.Show($"Login Successful! Role: {role}", "Success");
+                outUser = File.Open("userLogged.txt", FileMode.Create);
+                writer = new StreamWriter(outUser);
+                writer.WriteLine(txt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
 
-                // Open the main dashboard
-                //Dashboard mainForm = new Dashboard();
-                this.Hide();
-                //mainForm.Show();
+                if (writer != null)
+                    writer.Close();
+
+                if (outUser != null)
+                    outUser.Close();
+            }
+
+
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            if (txtPassword.Text.Equals("Enter your username"))
+            {
+                txtPassword.Clear();
+            }
+
+            //txtPassword.PasswordChar = '*';
+        }
+
+        private void txtEmail_Enter(object sender, EventArgs e)
+        {
+            if (txtEmail.Text.Equals("Enter your username"))
+            {
+
+
+
+                //txtEmail.Clear();
+            }
+        }
+
+        private void txtEmail_Click(object sender, EventArgs e)
+        {
+            if (txtEmail.Text.Equals("Enter your username"))
+            {
+                txtEmail.Clear();
+            }
+        }
+
+        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtEmail.Text.Equals("Enter your username"))
+            {
+                txtEmail.Clear();
+            }
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtPassword.Text.Equals("Enter your password"))
+            {
+                txtPassword.Clear();
+            }
+            txtPassword.PasswordChar = '*';
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if (txtEmail.Text.Equals(""))
+            {
+                txtEmail.Text = "Enter your username";
+            }
+        }
+
+
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            if (txtPassword.Text.Equals(""))
+            {
+                if (txtPassword.PasswordChar.Equals('*'))
+                {
+                    txtPassword.PasswordChar = '\0';
+                    txtPassword.Text = "Enter your password";
+                }
+                else
+                {
+                    txtPassword.Text = "Enter your password";
+                }
+
+                //txtPassword.ResetText();
+
+            }
+        }
+
+        private void pbEnterLogin_Click(object sender, EventArgs e)
+        {
+            if (txtEmail.Text.Equals("") || txtPassword.Text.Equals(""))
+            {
+                MessageBox.Show("All fields are required !!!");
+                txtEmail.Focus();
             }
             else
             {
-                MessageBox.Show("Invalid username or password.", "Login Failed");
+                usr.checkUsers(txtEmail.Text, txtPassword.Text);
+                if (usr.getHas())
+                {
+                    //userLogged = txtEmail.Text;
+                    createFileToUser(txtEmail.Text);
+                    this.Close();
+                    th = new Thread(initFrame);
+                    th.SetApartmentState(ApartmentState.STA);
+                    th.Start();
+                }
+                else
+                {
+                    MessageBox.Show("Username or password incorrect");
+                }
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void pbEnterLogin_MouseHover(object sender, EventArgs e)
         {
-            this.Close();
+            pbEnterLogin.Width = 237;
+            pbEnterLogin.Height = 63;
         }
 
-        private void txtUsername_MouseClick(object sender, MouseEventArgs e)
+        private void pbEnterLogin_MouseLeave(object sender, EventArgs e)
         {
-            if (txtUsername.Text == "username")
+            pbEnterLogin.Width = 234;
+            pbEnterLogin.Height = 60;
+        }
+
+        private void pbEnterLogin_MouseDown(object sender, MouseEventArgs e)
+        {
+            pbEnterLogin.Width = 230;
+            pbEnterLogin.Height = 57;
+        }
+
+        private void pbEnterLogin_MouseUp(object sender, MouseEventArgs e)
+        {
+            pbEnterLogin.Width = 234;
+            pbEnterLogin.Height = 60;
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
-                txtUsername.Clear();
+                if (txtEmail.Text.Equals("") || txtPassword.Text.Equals(""))
+                {
+                    MessageBox.Show("All fields are required !!!");
+                    txtEmail.Focus();
+                }
+                else
+                {
+                    usr.checkUsers(txtEmail.Text, txtPassword.Text);
+                    if (usr.getHas())
+                    {
+                        //userLogged = txtEmail.Text;
+                        createFileToUser(txtEmail.Text);
+                        this.Close();
+                        th = new Thread(initFrame);
+                        th.SetApartmentState(ApartmentState.STA);
+                        th.Start();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Username or password incorrect");
+                    }
+                }
             }
-
         }
 
-        private void txtPassword_MouseClick(object sender, MouseEventArgs e)
+        private void chkbox_show_pass_CheckedChanged(object sender, EventArgs e)
         {
-            if (txtPassword.Text == "password")
-            {
-                txtPassword.Clear();
-                txtPassword.PasswordChar = '*';
-            }
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked)
+            if (chkbox_show_pass.Checked)
             {
                 txtPassword.UseSystemPasswordChar = false;
                 txtPassword.PasswordChar = '\0';
@@ -75,18 +243,6 @@ namespace BookStoreMgt
                 txtPassword.UseSystemPasswordChar = true;
                 txtPassword.PasswordChar = '*';
             }
-
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            txtUsername.Text = "";
-            txtPassword.Text = "";
-        }
-
-        private void txtUsername_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

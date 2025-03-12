@@ -1,223 +1,296 @@
-﻿namespace BookStoreMgt
+﻿/*
+ * Criado por SharpDevelop.
+ * Usuário: Fabiano
+ * Data: 10/05/2020
+ * Hora: 20:23
+ * 
+ * Para alterar este modelo use Ferramentas | Opções | Codificação | Editar Cabeçalhos Padrão.
+ */
+namespace BookStoreMgt
 {
-    partial class FmLogin
-    {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	partial class FmLogin
+	{
+		/// <summary>
+		/// Designer variable used to keep track of non-visual components.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
+		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.PictureBox pbIconUser;
+		private System.Windows.Forms.PictureBox pbEmail;
+		private System.Windows.Forms.PictureBox pbPassword;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.TextBox txtEmail;
+		private System.Windows.Forms.TextBox txtPassword;
+		private System.Windows.Forms.CheckBox chkbox_show_pass;
+		private System.Windows.Forms.PictureBox pbEnterLogin;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label lblRegister;
+		private System.Windows.Forms.PictureBox pbIconEmail;
+		private System.Windows.Forms.PictureBox pbIconPassword;
+		private System.Windows.Forms.PictureBox pbCloseLogin;
+		
+		/// <summary>
+		/// Disposes resources used by the form.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing) {
+				if (components != null) {
+					components.Dispose();
+				}
+			}
+			base.Dispose(disposing);
+		}
 
         /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// This method is required for Windows Forms designer support.
+        /// Do not change the method contents inside the source code editor. The Forms designer might
+        /// not be able to load this method if it was changed manually.
         /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FmLogin));
-            button1 = new Button();
-            txtUsername = new TextBox();
-            txtPassword = new TextBox();
-            X = new Button();
-            panel1 = new Panel();
-            panel2 = new Panel();
             pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            checkBox1 = new CheckBox();
-            button2 = new Button();
+            pbIconUser = new PictureBox();
+            pbEmail = new PictureBox();
+            pbPassword = new PictureBox();
+            label1 = new Label();
+            txtEmail = new TextBox();
+            txtPassword = new TextBox();
+            chkbox_show_pass = new CheckBox();
+            pbEnterLogin = new PictureBox();
+            label2 = new Label();
+            lblRegister = new Label();
+            pbIconEmail = new PictureBox();
+            pbIconPassword = new PictureBox();
+            pbCloseLogin = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbIconUser).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbEmail).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbPassword).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbEnterLogin).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbIconEmail).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbIconPassword).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbCloseLogin).BeginInit();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Maroon;
-            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(127, 455);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(182, 89);
-            button1.TabIndex = 0;
-            button1.Text = "Login";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
-            // txtUsername
-            // 
-            txtUsername.BackColor = Color.FromArgb(0, 0, 64);
-            txtUsername.BorderStyle = BorderStyle.None;
-            txtUsername.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtUsername.ForeColor = Color.White;
-            txtUsername.Location = new Point(114, 240);
-            txtUsername.Margin = new Padding(3, 4, 3, 4);
-            txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(202, 20);
-            txtUsername.TabIndex = 1;
-            txtUsername.Text = "username";
-            txtUsername.TextAlign = HorizontalAlignment.Center;
-            txtUsername.MouseClick += txtUsername_MouseClick;
-            txtUsername.TextChanged += txtUsername_TextChanged;
-            // 
-            // txtPassword
-            // 
-            txtPassword.BackColor = Color.FromArgb(0, 0, 64);
-            txtPassword.BorderStyle = BorderStyle.None;
-            txtPassword.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtPassword.ForeColor = Color.White;
-            txtPassword.Location = new Point(114, 338);
-            txtPassword.Margin = new Padding(3, 4, 3, 4);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(202, 20);
-            txtPassword.TabIndex = 2;
-            txtPassword.Text = "password";
-            txtPassword.TextAlign = HorizontalAlignment.Center;
-            txtPassword.MouseClick += txtPassword_MouseClick;
-            // 
-            // X
-            // 
-            X.BackColor = Color.Brown;
-            X.FlatStyle = FlatStyle.Popup;
-            X.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            X.Location = new Point(423, 1);
-            X.Margin = new Padding(3, 4, 3, 4);
-            X.Name = "X";
-            X.Size = new Size(37, 39);
-            X.TabIndex = 3;
-            X.Text = "X";
-            X.UseVisualStyleBackColor = false;
-            X.Click += button2_Click;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.Silver;
-            panel1.Location = new Point(113, 267);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(202, 10);
-            panel1.TabIndex = 4;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.Silver;
-            panel2.Location = new Point(113, 365);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(202, 10);
-            panel2.TabIndex = 5;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(127, 29);
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Margin = new Padding(4, 3, 4, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(198, 155);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 6;
+            pictureBox1.Size = new Size(467, 458);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // pbIconUser
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(77, 240);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(40, 34);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 7;
-            pictureBox2.TabStop = false;
+            pbIconUser.Image = (Image)resources.GetObject("pbIconUser.Image");
+            pbIconUser.Location = new Point(470, 14);
+            pbIconUser.Margin = new Padding(4, 3, 4, 3);
+            pbIconUser.Name = "pbIconUser";
+            pbIconUser.Size = new Size(113, 98);
+            pbIconUser.SizeMode = PictureBoxSizeMode.Zoom;
+            pbIconUser.TabIndex = 1;
+            pbIconUser.TabStop = false;
             // 
-            // pictureBox3
+            // pbEmail
             // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(77, 338);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(40, 37);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 8;
-            pictureBox3.TabStop = false;
+            pbEmail.Image = (Image)resources.GetObject("pbEmail.Image");
+            pbEmail.Location = new Point(352, 155);
+            pbEmail.Margin = new Padding(4, 3, 4, 3);
+            pbEmail.Name = "pbEmail";
+            pbEmail.Size = new Size(348, 52);
+            pbEmail.SizeMode = PictureBoxSizeMode.Zoom;
+            pbEmail.TabIndex = 2;
+            pbEmail.TabStop = false;
             // 
-            // checkBox1
+            // pbPassword
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkBox1.ForeColor = Color.White;
-            checkBox1.Location = new Point(194, 393);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(146, 21);
-            checkBox1.TabIndex = 9;
-            checkBox1.Text = "Show Password";
-            checkBox1.UseVisualStyleBackColor = true;
-            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            pbPassword.Image = (Image)resources.GetObject("pbPassword.Image");
+            pbPassword.Location = new Point(352, 225);
+            pbPassword.Margin = new Padding(4, 3, 4, 3);
+            pbPassword.Name = "pbPassword";
+            pbPassword.Size = new Size(348, 52);
+            pbPassword.SizeMode = PictureBoxSizeMode.Zoom;
+            pbPassword.TabIndex = 3;
+            pbPassword.TabStop = false;
             // 
-            // button2
+            // label1
             // 
-            button2.BackColor = Color.Maroon;
-            button2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(165, 577);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(129, 56);
-            button2.TabIndex = 10;
-            button2.Text = "Reset";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click_1;
+            label1.Font = new Font("ArtBrush", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.WhiteSmoke;
+            label1.Location = new Point(427, 125);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(200, 27);
+            label1.TabIndex = 4;
+            label1.Text = "Enter you credentials";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // txtEmail
+            // 
+            txtEmail.BackColor = Color.DarkGray;
+            txtEmail.BorderStyle = BorderStyle.None;
+            txtEmail.ForeColor = Color.WhiteSmoke;
+            txtEmail.Location = new Point(430, 171);
+            txtEmail.Margin = new Padding(4, 3, 4, 3);
+            txtEmail.Multiline = true;
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(254, 23);
+            txtEmail.TabIndex = 5;
+            txtEmail.Text = "Enter your username";
+            txtEmail.Click += txtEmail_Click;
+            txtEmail.Enter += txtEmail_Enter;
+            txtEmail.KeyPress += txtEmail_KeyPress;
+            txtEmail.Leave += txtEmail_Leave;
+            // 
+            // txtPassword
+            // 
+            txtPassword.BackColor = Color.DarkGray;
+            txtPassword.BorderStyle = BorderStyle.None;
+            txtPassword.ForeColor = Color.WhiteSmoke;
+            txtPassword.Location = new Point(430, 241);
+            txtPassword.Margin = new Padding(4, 3, 4, 3);
+            txtPassword.MaxLength = 16;
+            txtPassword.Multiline = true;
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(254, 23);
+            txtPassword.TabIndex = 6;
+            txtPassword.Text = "Enter your password";
+            txtPassword.Enter += txtPassword_Enter;
+            txtPassword.KeyDown += txtPassword_KeyDown;
+            txtPassword.KeyPress += txtPassword_KeyPress;
+            txtPassword.Leave += txtPassword_Leave;
+            // 
+            // chkbox_show_pass
+            // 
+            chkbox_show_pass.ForeColor = Color.Gray;
+            chkbox_show_pass.Location = new Point(465, 284);
+            chkbox_show_pass.Margin = new Padding(4, 3, 4, 3);
+            chkbox_show_pass.Name = "chkbox_show_pass";
+            chkbox_show_pass.Size = new Size(121, 28);
+            chkbox_show_pass.TabIndex = 7;
+            chkbox_show_pass.Text = "Show password";
+            chkbox_show_pass.UseVisualStyleBackColor = true;
+            chkbox_show_pass.CheckedChanged += chkbox_show_pass_CheckedChanged;
+            // 
+            // pbEnterLogin
+            // 
+            pbEnterLogin.Cursor = Cursors.Hand;
+            pbEnterLogin.Image = (Image)resources.GetObject("pbEnterLogin.Image");
+            pbEnterLogin.Location = new Point(390, 318);
+            pbEnterLogin.Margin = new Padding(4, 3, 4, 3);
+            pbEnterLogin.Name = "pbEnterLogin";
+            pbEnterLogin.Size = new Size(273, 69);
+            pbEnterLogin.SizeMode = PictureBoxSizeMode.Zoom;
+            pbEnterLogin.TabIndex = 8;
+            pbEnterLogin.TabStop = false;
+            pbEnterLogin.Click += pbEnterLogin_Click;
+            pbEnterLogin.MouseDown += pbEnterLogin_MouseDown;
+            pbEnterLogin.MouseUp += pbEnterLogin_MouseUp;
+            // 
+            // label2
+            // 
+            label2.Font = new Font("ArtBrush", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.WhiteSmoke;
+            label2.Location = new Point(426, 402);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(94, 27);
+            label2.TabIndex = 9;
+            label2.Text = "New User?";
+            label2.Visible = false;
+            // 
+            // lblRegister
+            // 
+            lblRegister.Cursor = Cursors.Hand;
+            lblRegister.Font = new Font("ArtBrush", 12F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            lblRegister.ForeColor = Color.FromArgb(255, 128, 0);
+            lblRegister.Location = new Point(528, 402);
+            lblRegister.Margin = new Padding(4, 0, 4, 0);
+            lblRegister.Name = "lblRegister";
+            lblRegister.Size = new Size(103, 27);
+            lblRegister.TabIndex = 10;
+            lblRegister.Text = "Register now";
+            lblRegister.Visible = false;
+            // 
+            // pbIconEmail
+            // 
+            pbIconEmail.BackColor = Color.DarkGray;
+            pbIconEmail.Image = (Image)resources.GetObject("pbIconEmail.Image");
+            pbIconEmail.Location = new Point(385, 165);
+            pbIconEmail.Margin = new Padding(4, 3, 4, 3);
+            pbIconEmail.Name = "pbIconEmail";
+            pbIconEmail.Size = new Size(37, 31);
+            pbIconEmail.SizeMode = PictureBoxSizeMode.Zoom;
+            pbIconEmail.TabIndex = 11;
+            pbIconEmail.TabStop = false;
+            // 
+            // pbIconPassword
+            // 
+            pbIconPassword.BackColor = Color.DarkGray;
+            pbIconPassword.Image = (Image)resources.GetObject("pbIconPassword.Image");
+            pbIconPassword.Location = new Point(385, 234);
+            pbIconPassword.Margin = new Padding(4, 3, 4, 3);
+            pbIconPassword.Name = "pbIconPassword";
+            pbIconPassword.Size = new Size(37, 31);
+            pbIconPassword.SizeMode = PictureBoxSizeMode.Zoom;
+            pbIconPassword.TabIndex = 12;
+            pbIconPassword.TabStop = false;
+            // 
+            // pbCloseLogin
+            // 
+            pbCloseLogin.Cursor = Cursors.Hand;
+            pbCloseLogin.Image = (Image)resources.GetObject("pbCloseLogin.Image");
+            pbCloseLogin.Location = new Point(706, 14);
+            pbCloseLogin.Margin = new Padding(4, 3, 4, 3);
+            pbCloseLogin.Name = "pbCloseLogin";
+            pbCloseLogin.Size = new Size(33, 21);
+            pbCloseLogin.SizeMode = PictureBoxSizeMode.Zoom;
+            pbCloseLogin.TabIndex = 18;
+            pbCloseLogin.TabStop = false;
+            pbCloseLogin.Click += PbCloseLoginClick;
             // 
             // FmLogin
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(0, 0, 64);
-            ClientSize = new Size(461, 730);
-            Controls.Add(button2);
-            Controls.Add(checkBox1);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            Controls.Add(X);
+            BackColor = Color.Black;
+            ClientSize = new Size(752, 455);
+            Controls.Add(pbCloseLogin);
+            Controls.Add(pbIconPassword);
+            Controls.Add(pbIconEmail);
+            Controls.Add(lblRegister);
+            Controls.Add(label2);
+            Controls.Add(pbEnterLogin);
+            Controls.Add(chkbox_show_pass);
             Controls.Add(txtPassword);
-            Controls.Add(txtUsername);
-            Controls.Add(button1);
+            Controls.Add(txtEmail);
+            Controls.Add(label1);
+            Controls.Add(pbPassword);
+            Controls.Add(pbEmail);
+            Controls.Add(pbIconUser);
+            Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4, 3, 4, 3);
             Name = "FmLogin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Login";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbIconUser).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbEmail).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbPassword).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbEnterLogin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbIconEmail).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbIconPassword).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbCloseLogin).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
-
-        #endregion
-
-        private Button button1;
-        private TextBox txtUsername;
-        private TextBox txtPassword;
-        private Button X;
-        private Panel panel1;
-        private Panel panel2;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
-        private CheckBox checkBox1;
-        private Button button2;
     }
 }
