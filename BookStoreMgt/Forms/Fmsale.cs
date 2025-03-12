@@ -13,19 +13,19 @@ using System.Windows.Forms;
 namespace BookStoreMgt
 {
     public partial class FmSale : Form
-    {/*
+    {
         SaleControl sControl = new SaleControl();
         private string priceDefalt;
-        SaleProd sp = new SaleProd();*/
+        SaleProd sp = new SaleProd();
         public FmSale()
         {
             InitializeComponent();
-          /*  pnlCalcDiscount.Visible = false;*/
+            pnlCalcDiscount.Visible = false;
             
         }
 
         private void btnSearchBookSale_Click(object sender, EventArgs e)
-        {/*
+        {
             if (sControl.showSearchSale(mtxtSearchBookSale.Text).Rows.Count <= 0)
             {
                 MessageBox.Show("There are no book with this ISBN!");
@@ -38,13 +38,13 @@ namespace BookStoreMgt
                 if (dgvSearchProd.SelectedRows.Count > 0)
                 {
                     txtIdProd.Text = dgvSearchProd.CurrentRow.Cells["book_id"].Value.ToString();
-                    txtIsbnProd.Text = dgvSearchProd.CurrentRow.Cells["book_isbn"].Value.ToString();
-                    txtNameProd.Text = dgvSearchProd.CurrentRow.Cells["book_title"].Value.ToString();
+                    txtIsbnProd.Text = dgvSearchProd.CurrentRow.Cells["isbn"].Value.ToString();
+                    txtNameProd.Text = dgvSearchProd.CurrentRow.Cells["title"].Value.ToString();
                     txtAmountProd.Text = "1";
-                    priceDefalt  = dgvSearchProd.CurrentRow.Cells["book_price"].Value.ToString();
+                    priceDefalt  = dgvSearchProd.CurrentRow.Cells["price"].Value.ToString();
                     txtPriceProd.Text = priceDefalt;
                 }
-            }*/
+            }
         }
 
         private void txtAmountProd_KeyPress(object sender, KeyPressEventArgs e)
@@ -91,7 +91,7 @@ namespace BookStoreMgt
         }
 
         private void txtAmountProd_TextChanged(object sender, EventArgs e)
-        {/*
+        {
 
 
             if ((!txtAmountProd.Text.Equals("1")) && txtAmountProd.Text.Length > 0)
@@ -101,12 +101,12 @@ namespace BookStoreMgt
             if (txtAmountProd.Text.Equals("1") || txtAmountProd.Text.Equals(""))
             {
                 txtPriceProd.Text = priceDefalt;
-            }*/
+            }
 
         }
 
         private void btnAddToCart_Click(object sender, EventArgs e)
-        {/*
+        {
             dgvShoppingCart.Rows.Add(txtIdProd.Text,txtIsbnProd.Text,txtNameProd.Text,txtAmountProd.Text,txtPriceProd.Text);
             sp.calcPriceTotal(Convert.ToDecimal(txtPriceProd.Text));
             txtPriceTotalSale.Text = Convert.ToString(sp.priceTotal_prod);
@@ -116,19 +116,19 @@ namespace BookStoreMgt
             txtIsbnProd.Clear();
             txtNameProd.Clear();
             txtAmountProd.Clear();
-            txtPriceProd.Clear();*/
+            txtPriceProd.Clear();
 
         }
 
         private void btnCancelAddCart_Click(object sender, EventArgs e)
-        {/*
+        {
             dgvSearchProd.DataSource = null;
             mtxtSearchBookSale.Clear();
             txtIdProd.Clear();
             txtIsbnProd.Clear();
             txtNameProd.Clear();
             txtAmountProd.Clear();
-            txtPriceProd.Clear();*/
+            txtPriceProd.Clear();
         }
 
         private void cbApplyDiscount_CheckedChanged(object sender, EventArgs e)
@@ -146,26 +146,26 @@ namespace BookStoreMgt
         }
 
         private void txtDiscountValue_TextChanged(object sender, EventArgs e)
-        {/*
+        {
             if (txtDiscountValue.Text.Equals(""))
             {
                 btnApplyDiscount.Enabled = false;
             }
             else
-                btnApplyDiscount.Enabled = true;*/
+                btnApplyDiscount.Enabled = true;
         }
 
         
 
         private void btnApplyDiscount_Click(object sender, EventArgs e)
-        {/*
+        {
             sp.priceFinal_prod = (sp.priceTotal_prod - sp.calcDiscountValue(Convert.ToDecimal(txtDiscountValue.Text), sp.priceTotal_prod));
             txtPriceTotalSale.Text = sp.priceFinal_prod.ToString();
-            pnlPartSeachProd.Enabled = false;*/
+            pnlPartSeachProd.Enabled = false;
         }
 
         private void cbApplyDiscount_Click(object sender, EventArgs e)
-        {/*
+        {
             if (dgvShoppingCart.Rows.Count != 0)
             {
                 if (cbApplyDiscount.Checked)
@@ -176,13 +176,13 @@ namespace BookStoreMgt
                 {
                     pnlCalcDiscount.Visible = false;
                 }
-            }*/
+            }
 
         }
 
         private void btnFinishShop_Click(object sender, EventArgs e)
         {
-            /*MessageBox.Show("Your purchase worth"+sp.priceFinal_prod.ToString()+"has successfully completed", "Congratulations");
+            MessageBox.Show("Your purchase worth"+sp.priceFinal_prod.ToString()+"has successfully completed", "Congratulations");
             if (pnlPartSeachProd.Enabled != true)
                 pnlPartSeachProd.Enabled = true;
             dgvShoppingCart.DataSource = null;
@@ -190,19 +190,19 @@ namespace BookStoreMgt
             pnlCalcDiscount.Visible = false;
             txtPriceTotalSale.Text = "";
             sp.priceTotal_prod = 0;
-            sp.priceFinal_prod = sp.priceTotal_prod;*/
+            sp.priceFinal_prod = sp.priceTotal_prod;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*if (pnlPartSeachProd.Enabled != true)
+            if (pnlPartSeachProd.Enabled != true)
                 pnlPartSeachProd.Enabled = true;
             dgvShoppingCart.DataSource = null;
             cbApplyDiscount.Checked = false;
             pnlCalcDiscount.Visible = false;
             txtPriceTotalSale.Text = "";
             sp.priceTotal_prod = 0;
-            sp.priceFinal_prod = sp.priceTotal_prod;*/
+            sp.priceFinal_prod = sp.priceTotal_prod;
         }
     }
 }
