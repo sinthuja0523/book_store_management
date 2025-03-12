@@ -11,14 +11,14 @@ namespace BookStoreMgt
     {
         BookQueries bookQuery = new BookQueries();
 
-        /*
+        
         public DataTable showBooks()
         {
             BookQueries bookQuery = new BookQueries();
             DataTable data = new DataTable();
             data = bookQuery.showData();
             return data;
-        }*/
+        }
         
         public string insertBooksControl(string isbn, string title, string author, string year, string editora, string genre, string amount, string price)
         {
@@ -47,13 +47,13 @@ namespace BookStoreMgt
                 return true;
             }
         }
-        /*
+        
         public string deleteDataControl(string isbn)
         {
             string result = bookQuery.deleteData(isbn);
             return result;
         }
-        */
+        
 
     }
 }

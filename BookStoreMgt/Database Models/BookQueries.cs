@@ -16,14 +16,14 @@ namespace BookStoreMgt
         DataTable dataTable = new DataTable();
         SqlCommand command;
 
-        /*
+        
         public DataTable showData()
         {
             try
             {
                 conn.openDB();
-                string query = "SELECT * FROM books_stoke";
-                command = new SqlCeCommand(query, conn.objConnection);
+                string query = "SELECT * FROM tbl_books";
+                command = new SqlCommand(query, conn.conn);
                 read = command.ExecuteReader();
                 dataTable.Load(read);
                 conn.closeDB();
@@ -35,17 +35,17 @@ namespace BookStoreMgt
             }
             
         }
-        */
+        
 
-        /*
+        
 
         public DataTable showDataSearch(string isbn)
         {
             try
             {
                 conn.openDB();
-                string query = "SELECT * FROM books_stoke WHERE book_isbn = '" + isbn + "'";
-                command = new SqlCeCommand(query, conn.objConnection);
+                string query = "SELECT * FROM tbl_books WHERE isbn = '" + isbn + "'";
+                command = new SqlCommand(query, conn.conn);
                 read = command.ExecuteReader();
                 dataTable.Load(read);
                 conn.closeDB();
@@ -58,7 +58,7 @@ namespace BookStoreMgt
 
         }
 
-        */
+        
 
         
 
@@ -124,12 +124,12 @@ namespace BookStoreMgt
 
         
 
-        public string updateData(int id,string isbn, string title, string author, int year, string editora, string genre, int amount, decimal price)
+        public string updateData(int id,string isbn, string title, string author, int year, string editora, string genre, int stock_quantity, decimal price)
         {
             string result= "";
             try
             {
-                string query = "UPDATE books_stoke SET book_title=@title, book_author=@author, book_year=@year, book_editora=@editora, book_genre=@genre, book_amount=@amount, book_price=@price WHERE book_id = @id AND book_isbn=@isbn";
+                string query = "UPDATE tbl_books SET title=@title, author=@author, published_year=@year, editor=@editor, genre=@genre, stock_quantity=@quantity, price=@price WHERE book_id = @id AND isbn=@isbn";
                 conn.openDB();
                 command = new SqlCommand(query, conn.conn);
                 command.Parameters.AddWithValue("@id", id);
@@ -137,9 +137,9 @@ namespace BookStoreMgt
                 command.Parameters.AddWithValue("@title", title);
                 command.Parameters.AddWithValue("@author", author);
                 command.Parameters.AddWithValue("@year", year);
-                command.Parameters.AddWithValue("@editora", editora);
+                command.Parameters.AddWithValue("@editor", editora);
                 command.Parameters.AddWithValue("@genre", genre);
-                command.Parameters.AddWithValue("@amount", amount);
+                command.Parameters.AddWithValue("@quantity", stock_quantity);
                 command.Parameters.AddWithValue("@price", price);
 
                 command.CommandType = CommandType.Text;
@@ -162,15 +162,15 @@ namespace BookStoreMgt
             
         }
 
-        /*
+        
         public string deleteData(string isbn)
         {
             string result = "";
             try
             {
-                string query = "DELETE FROM books_stoke WHERE book_isbn = @isbn";
+                string query = "DELETE FROM tbl_books WHERE isbn = @isbn";
                 conn.openDB();
-                command = new SqlCeCommand(query, conn.objConnection);
+                command = new SqlCommand(query, conn.conn);
                 command.Parameters.AddWithValue("@isbn",isbn);
                 command.CommandType = CommandType.Text;
                 int i = command.ExecuteNonQuery();
@@ -190,7 +190,7 @@ namespace BookStoreMgt
             }
 
             return result;
-        } */
+        } 
     }
 }
 

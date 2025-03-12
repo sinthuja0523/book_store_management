@@ -50,7 +50,7 @@ namespace BookStoreMgt
 
         public void showBooksInDataGrid()
         {
-            //dgvBooks.DataSource = bookControl.showBooks();
+            dgvBooks.DataSource = bookControl.showBooks();
         }
 
         public void disableButtonsBooks()
@@ -277,15 +277,15 @@ namespace BookStoreMgt
                     enableButtonsBooks(false);
                     
 
-                    mtxtISBN.Text = dgvBooks.CurrentRow.Cells["book_isbn"].Value.ToString();
-                    txtTitleBook.Text = dgvBooks.CurrentRow.Cells["book_title"].Value.ToString();
-                    txtAuthorBook.Text = dgvBooks.CurrentRow.Cells["book_author"].Value.ToString();
-                    txtYearBook.Text = dgvBooks.CurrentRow.Cells["book_year"].Value.ToString();
-                    txteditoraBook.Text = dgvBooks.CurrentRow.Cells["book_editora"].Value.ToString();
-                    cbGenreBook.SelectedIndex = cbGenreBook.FindString(dgvBooks.CurrentRow.Cells["book_genre"].Value.ToString());
+                    mtxtISBN.Text = dgvBooks.CurrentRow.Cells["isbn"].Value.ToString();
+                    txtTitleBook.Text = dgvBooks.CurrentRow.Cells["title"].Value.ToString();
+                    txtAuthorBook.Text = dgvBooks.CurrentRow.Cells["author"].Value.ToString();
+                    txtYearBook.Text = dgvBooks.CurrentRow.Cells["published_year"].Value.ToString();
+                    txteditoraBook.Text = dgvBooks.CurrentRow.Cells["editor"].Value.ToString();
+                    cbGenreBook.SelectedIndex = cbGenreBook.FindString(dgvBooks.CurrentRow.Cells["genre"].Value.ToString());
                    
-                    txtAmountBook.Text = dgvBooks.CurrentRow.Cells["book_amount"].Value.ToString();
-                    txtPriceBook.Text = dgvBooks.CurrentRow.Cells["book_price"].Value.ToString();
+                    txtAmountBook.Text = dgvBooks.CurrentRow.Cells["stock_quantity"].Value.ToString();
+                    txtPriceBook.Text = dgvBooks.CurrentRow.Cells["price"].Value.ToString();
                     this.id = dgvBooks.CurrentRow.Cells["book_id"].Value.ToString();
 
                     mtxtISBN.ReadOnly = true;
@@ -310,21 +310,21 @@ namespace BookStoreMgt
 
             if (dgvBooks.SelectedRows.Count > 0)
             {
-                string isbn = dgvBooks.CurrentRow.Cells["book_isbn"].Value.ToString();
+                string isbn = dgvBooks.CurrentRow.Cells["isbn"].Value.ToString();
                 
                 
                 if (MessageBox.Show("Do you really want to delete these data?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    //string result = bookControl.deleteDataControl(isbn);
-                    //if (result.Equals("sucess"))
-                    //{
-                    //    MessageBox.Show("Delete data has been sucessed!");
-                    //    showBooksInDataGrid();
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Delete data it was possible!");
-                    //}
+                    string result = bookControl.deleteDataControl(isbn);
+                    if (result.Equals("sucess"))
+                    {
+                        MessageBox.Show("Delete data has been sucessed!");
+                        showBooksInDataGrid();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Delete data it was possible!");
+                    }
                 }
 
             }
@@ -346,7 +346,7 @@ namespace BookStoreMgt
             if (!txtFilterData.Text.Equals("Type here the book title"))
             {
                 (dgvBooks.DataSource as DataTable).DefaultView.RowFilter =
-                string.Format("book_title LIKE '{0}%' OR book_title LIKE '% {0}%'", txtFilterData.Text);
+                string.Format("title LIKE '{0}%' OR title LIKE '% {0}%'", txtFilterData.Text);
             }
             
         }
