@@ -44,5 +44,49 @@ namespace BookStoreMgt
         {
             this.Close();
         }
+
+        private void txtUsername_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (txtUsername.Text == "username")
+            {
+                txtUsername.Clear();
+            }
+
+        }
+
+        private void txtPassword_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (txtPassword.Text == "password")
+            {
+                txtPassword.Clear();
+                txtPassword.PasswordChar = '*';
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+                txtPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+                txtPassword.PasswordChar = '*';
+            }
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            txtUsername.Text = "";
+            txtPassword.Text = "";
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
