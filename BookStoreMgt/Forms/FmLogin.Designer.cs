@@ -1,6 +1,6 @@
 ﻿namespace BookStoreMgt
 {
-    partial class Login
+    partial class FmLogin
     {
         /// <summary>
         ///  Required designer variable.

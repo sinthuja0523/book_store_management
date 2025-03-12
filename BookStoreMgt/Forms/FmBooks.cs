@@ -16,7 +16,7 @@ namespace BookStoreMgt
         private string id = null;
         //FmAddOrUpdateBook fmAdd = new FmAddOrUpdateBook();
 
-        // BookControl bookControl = new BookControl();
+        BookControl bookControl = new BookControl();
         public FmBooks()
         {
             InitializeComponent();
@@ -95,7 +95,7 @@ namespace BookStoreMgt
             //openInPanelContainerBook(new FmAddOrUpdateBook());
             //fmAdd.setTitle("Add a new Book");
             //this.disableButtonsBooks();
-            pnlContainerFmAddOrUpdateBook.BackColor = Color.DimGray;
+            pnlContainerFmAddOrUpdateBook.BackColor = Color.Black;
             this.setTitleLabel("Add a new book");
             lblTitleAddBook.Text = getTitleLabel();
             panelAddVisible(true);
@@ -189,7 +189,7 @@ namespace BookStoreMgt
         }
 
         private void btnSaveBook_Click(object sender, EventArgs e)
-        {/*
+        {
             try
             {
                 //FmBooks fmBooks = new FmBooks();
@@ -249,8 +249,14 @@ namespace BookStoreMgt
             }
             catch (Exception ex)
             {
-                throw ex;
-            }*/
+                string errorMessage = $"Error: {ex.Message}\n\nStackTrace: {ex.StackTrace}";
+                if (ex.InnerException != null)
+                {
+                    errorMessage += $"\n\nInner Exception: {ex.InnerException.Message}";
+                }
+
+                MessageBox.Show(errorMessage, "Exception Details", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSearchBook_Click(object sender, EventArgs e)

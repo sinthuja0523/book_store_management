@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace BookStoreMgt
 {
-    public partial class Login : Form
+    public partial class FmLogin : Form
     {
-        public Login()
+        public FmLogin()
         {
             InitializeComponent();
         }
@@ -29,9 +29,9 @@ namespace BookStoreMgt
                 MessageBox.Show($"Login Successful! Role: {role}", "Success");
 
                 // Open the main dashboard
-                Dashboard mainForm = new Dashboard();
+                //Dashboard mainForm = new Dashboard();
                 this.Hide();
-                mainForm.Show();
+                //mainForm.Show();
             }
             else
             {
