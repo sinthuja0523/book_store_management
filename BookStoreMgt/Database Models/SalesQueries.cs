@@ -28,9 +28,6 @@ namespace BookStoreMgt.Database_Models
 
                 int salesId = Convert.ToInt32(command.ExecuteScalar());
 
-                List<int> bookIds = new List<int> { 9, 8 };
-                List<int> quantities = new List<int> { 2, 1 };
-
                 foreach (var book in books)
                 {
                     string salesBookQuery = "INSERT INTO tbl_sales_books (sales_id, book_id, quantity,total_price) VALUES (@sales_id, @book_id, @quantity, @total_price)";

@@ -50,13 +50,13 @@
             pnlPartSeachProd = new Panel();
             btnCloseCustomerDetails = new Button();
             pnlCustomerDetails = new Panel();
-            textBox1 = new TextBox();
+            txtTPNo = new TextBox();
             label9 = new Label();
-            textBox2 = new TextBox();
+            txtAddress = new TextBox();
             label10 = new Label();
-            textBox3 = new TextBox();
+            txtAge = new TextBox();
             label11 = new Label();
-            textBox4 = new TextBox();
+            txtCustomerName = new TextBox();
             label12 = new Label();
             btnAddCustomerDetails = new Button();
             pnlQuantProd = new Panel();
@@ -346,13 +346,13 @@
             // pnlCustomerDetails
             // 
             pnlCustomerDetails.BackColor = Color.LightGray;
-            pnlCustomerDetails.Controls.Add(textBox1);
+            pnlCustomerDetails.Controls.Add(txtTPNo);
             pnlCustomerDetails.Controls.Add(label9);
-            pnlCustomerDetails.Controls.Add(textBox2);
+            pnlCustomerDetails.Controls.Add(txtAddress);
             pnlCustomerDetails.Controls.Add(label10);
-            pnlCustomerDetails.Controls.Add(textBox3);
+            pnlCustomerDetails.Controls.Add(txtAge);
             pnlCustomerDetails.Controls.Add(label11);
-            pnlCustomerDetails.Controls.Add(textBox4);
+            pnlCustomerDetails.Controls.Add(txtCustomerName);
             pnlCustomerDetails.Controls.Add(label12);
             pnlCustomerDetails.Location = new Point(26, 493);
             pnlCustomerDetails.Margin = new Padding(4, 3, 4, 3);
@@ -360,18 +360,18 @@
             pnlCustomerDetails.Size = new Size(499, 167);
             pnlCustomerDetails.TabIndex = 15;
             // 
-            // textBox1
+            // txtTPNo
             // 
-            textBox1.BackColor = SystemColors.ControlLightLight;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Century Gothic", 14F);
-            textBox1.ForeColor = Color.DarkRed;
-            textBox1.Location = new Point(143, 53);
-            textBox1.Margin = new Padding(4, 3, 4, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(315, 23);
-            textBox1.TabIndex = 14;
-            textBox1.TextAlign = HorizontalAlignment.Center;
+            txtTPNo.BackColor = SystemColors.ControlLightLight;
+            txtTPNo.BorderStyle = BorderStyle.None;
+            txtTPNo.Font = new Font("Century Gothic", 14F);
+            txtTPNo.ForeColor = Color.DarkRed;
+            txtTPNo.Location = new Point(143, 53);
+            txtTPNo.Margin = new Padding(4, 3, 4, 3);
+            txtTPNo.Name = "txtTPNo";
+            txtTPNo.Size = new Size(315, 23);
+            txtTPNo.TabIndex = 14;
+            txtTPNo.TextAlign = HorizontalAlignment.Center;
             // 
             // label9
             // 
@@ -384,18 +384,18 @@
             label9.TabIndex = 13;
             label9.Text = "TP No:";
             // 
-            // textBox2
+            // txtAddress
             // 
-            textBox2.BackColor = SystemColors.ControlLightLight;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Century Gothic", 14F);
-            textBox2.ForeColor = Color.DarkRed;
-            textBox2.Location = new Point(143, 89);
-            textBox2.Margin = new Padding(4, 3, 4, 3);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(315, 23);
-            textBox2.TabIndex = 12;
-            textBox2.TextAlign = HorizontalAlignment.Center;
+            txtAddress.BackColor = SystemColors.ControlLightLight;
+            txtAddress.BorderStyle = BorderStyle.None;
+            txtAddress.Font = new Font("Century Gothic", 14F);
+            txtAddress.ForeColor = Color.DarkRed;
+            txtAddress.Location = new Point(143, 89);
+            txtAddress.Margin = new Padding(4, 3, 4, 3);
+            txtAddress.Name = "txtAddress";
+            txtAddress.Size = new Size(315, 23);
+            txtAddress.TabIndex = 12;
+            txtAddress.TextAlign = HorizontalAlignment.Center;
             // 
             // label10
             // 
@@ -408,19 +408,18 @@
             label10.TabIndex = 11;
             label10.Text = "Address";
             // 
-            // textBox3
+            // txtAge
             // 
-            textBox3.BackColor = SystemColors.ControlLightLight;
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Font = new Font("Century Gothic", 14F);
-            textBox3.ForeColor = Color.DarkRed;
-            textBox3.Location = new Point(143, 126);
-            textBox3.Margin = new Padding(4, 3, 4, 3);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(66, 23);
-            textBox3.TabIndex = 10;
-            textBox3.TextAlign = HorizontalAlignment.Center;
+            txtAge.BackColor = SystemColors.ControlLightLight;
+            txtAge.BorderStyle = BorderStyle.None;
+            txtAge.Font = new Font("Century Gothic", 14F);
+            txtAge.ForeColor = Color.DarkRed;
+            txtAge.Location = new Point(143, 126);
+            txtAge.Margin = new Padding(4, 3, 4, 3);
+            txtAge.Name = "txtAge";
+            txtAge.Size = new Size(66, 23);
+            txtAge.TabIndex = 10;
+            txtAge.TextAlign = HorizontalAlignment.Center;
             // 
             // label11
             // 
@@ -433,19 +432,18 @@
             label11.TabIndex = 9;
             label11.Text = "Age:";
             // 
-            // textBox4
+            // txtCustomerName
             // 
-            textBox4.BackColor = SystemColors.ControlLightLight;
-            textBox4.BorderStyle = BorderStyle.None;
-            textBox4.Font = new Font("Century Gothic", 14F);
-            textBox4.ForeColor = Color.DarkRed;
-            textBox4.Location = new Point(143, 17);
-            textBox4.Margin = new Padding(4, 3, 4, 3);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.Size = new Size(315, 23);
-            textBox4.TabIndex = 8;
-            textBox4.TextAlign = HorizontalAlignment.Center;
+            txtCustomerName.BackColor = SystemColors.ControlLightLight;
+            txtCustomerName.BorderStyle = BorderStyle.None;
+            txtCustomerName.Font = new Font("Century Gothic", 14F);
+            txtCustomerName.ForeColor = Color.DarkRed;
+            txtCustomerName.Location = new Point(143, 17);
+            txtCustomerName.Margin = new Padding(4, 3, 4, 3);
+            txtCustomerName.Name = "txtCustomerName";
+            txtCustomerName.Size = new Size(315, 23);
+            txtCustomerName.TabIndex = 8;
+            txtCustomerName.TextAlign = HorizontalAlignment.Center;
             // 
             // label12
             // 
@@ -810,13 +808,13 @@
         private System.Windows.Forms.Label label8;
         private Button btnAddCustomerDetails;
         private Panel pnlCustomerDetails;
-        private TextBox textBox1;
+        private TextBox txtTPNo;
         private Label label9;
-        private TextBox textBox2;
+        private TextBox txtAddress;
         private Label label10;
-        private TextBox textBox3;
+        private TextBox txtAge;
         private Label label11;
-        private TextBox textBox4;
+        private TextBox txtCustomerName;
         private Label label12;
         private GroupBox groupBox1;
         private Button btnCloseCustomerDetails;

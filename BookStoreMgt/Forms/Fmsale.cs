@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace BookStoreMgt.Forms
 {
@@ -20,7 +21,7 @@ namespace BookStoreMgt.Forms
         {
             InitializeComponent();
             pnlCalcDiscount.Visible = false;
-            toggleCustomerDetailsPanel(false, true,false);
+            toggleCustomerDetailsPanel(false, true, false);
         }
 
         private void btnSearchBookSale_Click(object sender, EventArgs e)
@@ -182,48 +183,62 @@ namespace BookStoreMgt.Forms
         // Finish Button
         private void btnFinishShop_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Your purchase worth" + sp.priceFinal_prod.ToString() + "has successfully completed", "Congratulations");
-            if (pnlPartSeachProd.Enabled != true)
-                pnlPartSeachProd.Enabled = true;
-            dgvShoppingCart.DataSource = null;
-            dgvShoppingCart.Rows.Clear();
-            cbApplyDiscount.Checked = false;
-            pnlCalcDiscount.Visible = false;
-            txtPriceTotalSale.Text = "";
-            sp.priceTotal_prod = 0;
-            sp.priceFinal_prod = sp.priceTotal_prod;
-
-            List<(int bookId, int quantity, decimal price)> books = new List<(int, int, decimal)>();
-
-            foreach (DataGridViewRow row in dgvShoppingCart.Rows)
-            {
-                if (row.Cells[0].Value != null) // Check if row is not empty
-                {
-                    int bookId = Convert.ToInt32(row.Cells[0].Value); // Assuming book_id is in column 0
-                    int quantity = Convert.ToInt32(row.Cells[3].Value); // Assuming quantity is in column 3
-                    decimal price = Convert.ToDecimal(row.Cells[4].Value); // Assuming price is in column 4
-
-                    books.Add((bookId, quantity, price));
-                }
-            }
-
-            // txtIdProd.Text, txtIsbnProd.Text, txtNameProd.Text, txtAmountProd.Text, txtPriceProd.Text
             try
             {
-                string result = sControl.insertNewSale(books);
-                if (result.Equals("sucess"))
+                List<(int bookId, int quantity, decimal price)> books = new List<(int, int, decimal)>();
+
+                foreach (DataGridViewRow row in dgvShoppingCart.Rows)
                 {
-                    MessageBox.Show("Saved to DB~");
-                    /*
-                    clearAddNewTextBox();
-                    panelAddVisible(false);
-                    lblTitleAddBook.Text = "";
-                    showBooksInDataGrid();*/
+                    if (row.Cells[0].Value != null) // Check if row is not empty
+                    {
+                        int bookId = Convert.ToInt32(row.Cells[0].Value); // Assuming book_id is in column 0
+                        int quantity = Convert.ToInt32(row.Cells[3].Value); // Assuming quantity is in column 3
+                        decimal price = Convert.ToDecimal(row.Cells[4].Value); // Assuming price is in column 4
+
+                        books.Add((bookId, quantity, price));
+                    }
+                }
+                List<(string? name, string? tp_no, string? address, int? age)> customer_details = new List<(string? name, string? tp_no, string? address, int? age)>();
+
+                if (pnlCustomerDetails.Visible == true)
+                {
+                    if (string.IsNullOrWhiteSpace(txtCustomerName.Text))
+                    {
+                        MessageBox.Show("Customer name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtCustomerName.Focus();
+                        return;
+                    }
+
+                    if (string.IsNullOrWhiteSpace(txtAddress.Text))
+                    {
+                        MessageBox.Show("Address is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtAddress.Focus();
+                        return;
+                    }
+
+                    if (string.IsNullOrWhiteSpace(txtTPNo.Text) || !txtTPNo.Text.All(char.IsDigit) || txtTPNo.Text.Length < 10)
+                    {
+                        MessageBox.Show("Please enter a valid phone number with at least 10 digits.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtTPNo.Focus();
+                        return;
+                    }
+
+                    if (!int.TryParse(txtAge.Text, out int age) || age <= 0)
+                    {
+                        MessageBox.Show("Please enter a valid age greater than 0.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtAge.Focus();
+                        return;
+                    }
+
+                    customer_details.Add((txtCustomerName.Text, txtTPNo.Text, txtAddress.Text, Convert.ToInt32(txtAge.Text)));
+                    proceedSale(books);
                 }
                 else
                 {
-                    MessageBox.Show("Error: its not possible add a book!");
+                    proceedSale(books);
                 }
+
+                
             }
             catch (Exception ex)
             {
@@ -235,6 +250,35 @@ namespace BookStoreMgt.Forms
 
                 MessageBox.Show(errorMessage, "Exception Details", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void proceedSale(List<(int bookId, int quantity, decimal price)> books) {
+            string result = sControl.insertNewSale(books);
+            if (result.Equals("sucess"))
+            {
+                if (pnlPartSeachProd.Enabled != true)
+                    pnlPartSeachProd.Enabled = true;
+                dgvShoppingCart.DataSource = null;
+                dgvShoppingCart.Rows.Clear();
+                cbApplyDiscount.Checked = false;
+                pnlCalcDiscount.Visible = false;
+                txtPriceTotalSale.Text = "";
+                sp.priceTotal_prod = 0;
+                sp.priceFinal_prod = sp.priceTotal_prod;
+                MessageBox.Show("Saved to DB~");
+                clearCustomerDetailsInputs();
+            }
+            else
+            {
+                MessageBox.Show("Error: its not possible add a book!");
+            }
+        }
+
+        private void clearCustomerDetailsInputs() {
+            txtCustomerName.Clear();
+            txtTPNo.Clear();
+            txtAddress.Clear();
+            txtAge.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -252,10 +296,10 @@ namespace BookStoreMgt.Forms
         private void btnAddCustomerDetails_Click(object sender, EventArgs e)
         {
             btnAddCustomerDetails.Visible = false;
-            toggleCustomerDetailsPanel(true,false,true);
+            toggleCustomerDetailsPanel(true, false, true);
         }
 
-        private void toggleCustomerDetailsPanel(bool value,bool value2,bool value3)
+        private void toggleCustomerDetailsPanel(bool value, bool value2, bool value3)
         {
             pnlCustomerDetails.Visible = value;
             btnAddCustomerDetails.Visible = value2;
@@ -265,7 +309,7 @@ namespace BookStoreMgt.Forms
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            toggleCustomerDetailsPanel(false,true,false);
+            toggleCustomerDetailsPanel(false, true, false);
         }
     }
 }
