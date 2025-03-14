@@ -150,7 +150,7 @@
             btnCancelbook.Name = "btnCancelbook";
             btnCancelbook.Size = new Size(200, 52);
             btnCancelbook.TabIndex = 35;
-            btnCancelbook.Text = "Cancel";
+            btnCancelbook.Text = "Clear records";
             btnCancelbook.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCancelbook.UseVisualStyleBackColor = false;
             btnCancelbook.Click += btnCancelbook_Click;
@@ -458,7 +458,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvBooks.DefaultCellStyle = dataGridViewCellStyle2;
             dgvBooks.EnableHeadersVisualStyles = false;
-            dgvBooks.GridColor = Color.FromArgb(199, 0, 57);
+            dgvBooks.GridColor = Color.FromArgb(64, 64, 64);
             dgvBooks.Location = new Point(16, 140);
             dgvBooks.Margin = new Padding(4, 3, 4, 3);
             dgvBooks.Name = "dgvBooks";

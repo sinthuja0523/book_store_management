@@ -52,6 +52,8 @@
             pbMenuDash = new PictureBox();
             pnlContainers = new Panel();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            button3 = new Button();
+            panel3 = new Panel();
             pnlVerticalMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbShutDownDash).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbLogoDash).BeginInit();
@@ -66,6 +68,8 @@
             // pnlVerticalMenu
             // 
             pnlVerticalMenu.BackColor = Color.MidnightBlue;
+            pnlVerticalMenu.Controls.Add(panel3);
+            pnlVerticalMenu.Controls.Add(button3);
             pnlVerticalMenu.Controls.Add(panel2);
             pnlVerticalMenu.Controls.Add(button2);
             pnlVerticalMenu.Controls.Add(panel1);
@@ -89,10 +93,10 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Location = new Point(0, 441);
+            panel2.Location = new Point(0, 427);
             panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(6, 85);
+            panel2.Size = new Size(6, 49);
             panel2.TabIndex = 11;
             // 
             // button2
@@ -105,10 +109,10 @@
             button2.ForeColor = Color.White;
             button2.Image = (Image)resources.GetObject("button2.Image");
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(7, 441);
+            button2.Location = new Point(7, 427);
             button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
-            button2.Size = new Size(240, 85);
+            button2.Size = new Size(240, 49);
             button2.TabIndex = 10;
             button2.Text = "Orders";
             button2.UseVisualStyleBackColor = true;
@@ -116,10 +120,10 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Location = new Point(0, 541);
+            panel1.Location = new Point(0, 501);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(6, 85);
+            panel1.Size = new Size(6, 49);
             panel1.TabIndex = 7;
             // 
             // button1
@@ -132,10 +136,10 @@
             button1.ForeColor = Color.White;
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(7, 541);
+            button1.Location = new Point(7, 501);
             button1.Margin = new Padding(4, 3, 4, 3);
             button1.Name = "button1";
-            button1.Size = new Size(240, 85);
+            button1.Size = new Size(240, 49);
             button1.TabIndex = 9;
             button1.Text = "Reports";
             button1.UseVisualStyleBackColor = true;
@@ -173,19 +177,19 @@
             // pnlBtnAbout
             // 
             pnlBtnAbout.BackColor = Color.White;
-            pnlBtnAbout.Location = new Point(0, 340);
+            pnlBtnAbout.Location = new Point(0, 354);
             pnlBtnAbout.Margin = new Padding(4, 3, 4, 3);
             pnlBtnAbout.Name = "pnlBtnAbout";
-            pnlBtnAbout.Size = new Size(6, 85);
+            pnlBtnAbout.Size = new Size(6, 49);
             pnlBtnAbout.TabIndex = 6;
             // 
             // pnlBtnProductos
             // 
             pnlBtnProductos.BackColor = Color.White;
-            pnlBtnProductos.Location = new Point(0, 236);
+            pnlBtnProductos.Location = new Point(0, 284);
             pnlBtnProductos.Margin = new Padding(4, 3, 4, 3);
             pnlBtnProductos.Name = "pnlBtnProductos";
-            pnlBtnProductos.Size = new Size(6, 85);
+            pnlBtnProductos.Size = new Size(6, 49);
             pnlBtnProductos.TabIndex = 5;
             // 
             // btnAbout
@@ -198,10 +202,10 @@
             btnAbout.ForeColor = Color.White;
             btnAbout.Image = (Image)resources.GetObject("btnAbout.Image");
             btnAbout.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAbout.Location = new Point(7, 340);
+            btnAbout.Location = new Point(7, 354);
             btnAbout.Margin = new Padding(4, 3, 4, 3);
             btnAbout.Name = "btnAbout";
-            btnAbout.Size = new Size(240, 85);
+            btnAbout.Size = new Size(240, 49);
             btnAbout.TabIndex = 3;
             btnAbout.Text = "Suppliers";
             btnAbout.UseVisualStyleBackColor = true;
@@ -217,12 +221,12 @@
             btnProductos.ForeColor = Color.White;
             btnProductos.Image = (Image)resources.GetObject("btnProductos.Image");
             btnProductos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProductos.Location = new Point(5, 236);
+            btnProductos.Location = new Point(7, 205);
             btnProductos.Margin = new Padding(4, 3, 4, 3);
             btnProductos.Name = "btnProductos";
-            btnProductos.Size = new Size(240, 85);
+            btnProductos.Size = new Size(240, 49);
             btnProductos.TabIndex = 2;
-            btnProductos.Text = "Customers";
+            btnProductos.Text = "Sales";
             btnProductos.UseVisualStyleBackColor = true;
             btnProductos.Click += btnProductos_Click;
             // 
@@ -236,10 +240,10 @@
             btnSale.ForeColor = Color.White;
             btnSale.Image = (Image)resources.GetObject("btnSale.Image");
             btnSale.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSale.Location = new Point(7, 132);
+            btnSale.Location = new Point(7, 134);
             btnSale.Margin = new Padding(4, 3, 4, 3);
             btnSale.Name = "btnSale";
-            btnSale.Size = new Size(240, 85);
+            btnSale.Size = new Size(240, 49);
             btnSale.TabIndex = 1;
             btnSale.Text = "Books";
             btnSale.UseVisualStyleBackColor = true;
@@ -261,10 +265,10 @@
             // pnlBtnSale
             // 
             pnlBtnSale.BackColor = Color.White;
-            pnlBtnSale.Location = new Point(0, 132);
+            pnlBtnSale.Location = new Point(0, 134);
             pnlBtnSale.Margin = new Padding(4, 3, 4, 3);
             pnlBtnSale.Name = "pnlBtnSale";
-            pnlBtnSale.Size = new Size(6, 85);
+            pnlBtnSale.Size = new Size(6, 49);
             pnlBtnSale.TabIndex = 4;
             // 
             // pnlTop
@@ -382,6 +386,34 @@
             mySqlCommand1.EnableCaching = false;
             mySqlCommand1.Transaction = null;
             // 
+            // button3
+            // 
+            button3.Cursor = Cursors.Hand;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 45, 48);
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.White;
+            button3.Image = (Image)resources.GetObject("button3.Image");
+            button3.ImageAlign = ContentAlignment.MiddleLeft;
+            button3.Location = new Point(7, 284);
+            button3.Margin = new Padding(4, 3, 4, 3);
+            button3.Name = "button3";
+            button3.Size = new Size(240, 49);
+            button3.TabIndex = 12;
+            button3.Text = "Customers";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.White;
+            panel3.Location = new Point(0, 205);
+            panel3.Margin = new Padding(4, 3, 4, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(6, 49);
+            panel3.TabIndex = 6;
+            // 
             // FmDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -433,5 +465,7 @@
         private Panel pnlBtnSale;
         private Panel panel2;
         private Button button2;
+        private Button button3;
+        private Panel panel3;
     }
 }

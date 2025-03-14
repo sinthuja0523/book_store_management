@@ -1,5 +1,4 @@
-﻿// using Bookstore.Database;
-using BookStoreMgt.Database_Models;
+﻿using BookStoreMgt.Database_Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,15 +14,15 @@ namespace BookStoreMgt.Forms
     {
         private string titleLabel;
         private string id = null;
-        //FmAddOrUpdateBook fmAdd = new FmAddOrUpdateBook();
 
         BookControl bookControl = new BookControl();
         public btnCloseCustomerDetails()
         {
             InitializeComponent();
-            //pnlContainerFmAddOrUpdateBook.BackColor = Color.DimGray;
             panelAddVisible(true);
-            cbGenreBook.Items.Add("Fiction");
+            cbGenreBook.Items.Add("Science Fiction");
+            cbGenreBook.Items.Add("Fantasy");
+            cbGenreBook.Items.Add("Horror");
             cbGenreBook.Items.Add("Adventure");
             cbGenreBook.Items.Add("Comedy");
         }
@@ -35,11 +34,6 @@ namespace BookStoreMgt.Forms
         public string getTitleLabel()
         {
             return this.titleLabel;
-        }
-
-        private void pnlButtosBooks_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         public void FmBooks_Load(object sender, EventArgs e)
@@ -55,13 +49,11 @@ namespace BookStoreMgt.Forms
 
         public void disableButtonsBooks()
         {
-          /*  btnAddNewBook.Enabled = false;*/
             btnSearchBook.Enabled = false;
             btnUpdateData.Enabled = false;
         }
         public void enableButtonsBook()
         {
-           /* btnAddNewBook.Enabled = true;*/
             btnSearchBook.Enabled = true;
             btnUpdateData.Enabled = true;
         }
@@ -90,61 +82,32 @@ namespace BookStoreMgt.Forms
             this.Refresh();
         }
 
-        private void btnAddNewBook_Click(object sender, EventArgs e)
-        {
-            //openInPanelContainerBook(new FmAddOrUpdateBook());
-            //fmAdd.setTitle("Add a new Book");
-            //this.disableButtonsBooks();
-            //pnlContainerFmAddOrUpdateBook.BackColor = Color.Black;
-            //this.setTitleLabel("Add a new book");
-            //lblTitleAddBook.Text = getTitleLabel();
-            //panelAddVisible(true);
-            //enableButtonsBooks(false);
-
-        }
-
         private void enableButtonsBooks(bool v)
         {
             if (v)
             {
-              /*  btnAddNewBook.Enabled = true;*/
                 btnUpdateData.Enabled = true;
                 btnDeleteBook.Enabled = true;
             }
             else
             {
-               /* btnAddNewBook.Enabled = false;*/
                 btnUpdateData.Enabled = false;
                 btnDeleteBook.Enabled = false;
             }
         }
 
-        private void lblISBN_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnlTopFmAddBook_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void txtYearBook_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //Se a tecla digitada não for número e nem backspace
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08 && e.KeyChar != 09)
             {
-                //Atribui True no Handled para cancelar o evento
                 e.Handled = true;
             }
         }
 
         private void txtAmountBook_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //Se a tecla digitada não for número e nem backspace
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08 && e.KeyChar != 09)
             {
-                //Atribui True no Handled para cancelar o evento
                 e.Handled = true;
             }
         }
@@ -166,7 +129,6 @@ namespace BookStoreMgt.Forms
         private void btnCancelbook_Click(object sender, EventArgs e)
         {
             clearAddNewTextBox();
-            panelAddVisible(false);
             enableButtonsBooks(true);
         }
 
@@ -177,8 +139,6 @@ namespace BookStoreMgt.Forms
 
         private void clearAddNewTextBox()
         {
-            //cbGenreBook.SelectedItem           
-
             this.txtPriceBook.Clear();
             this.txtAmountBook.Clear();
             this.mtxtISBN.Clear();
@@ -192,59 +152,46 @@ namespace BookStoreMgt.Forms
         {
             try
             {
-                //FmBooks fmBooks = new FmBooks();
-                if (cbGenreBook.Text.Equals("Select the  book genre:") && cbGenreBook.SelectedIndex < 0)
+                if (cbGenreBook.SelectedIndex < 0)
                 {
-                    MessageBox.Show("Please, select a genre the book!");
+                    MessageBox.Show("Please, select a book genre!");
                     cbGenreBook.Focus();
+                    return;
                 }
-                else
+
+                bool isAddingNewBook = lblTitleAddBook.Text.Equals("Add a new book");
+                bool isUpdatingBook = lblTitleAddBook.Text.Equals("Update book");
+
+                if (isAddingNewBook && bookControl.checkISBNControl(mtxtISBN.Text))
                 {
-                    if (bookControl.checkISBNControl(mtxtISBN.Text) && lblTitleAddBook.Text.Equals("Add a new book"))
-                    {
-                        MessageBox.Show("This ISBN has existed in our database");
-                        mtxtISBN.Clear();
-                        mtxtISBN.Focus();
-                    }
-                    else
-                    {
-                        if (lblTitleAddBook.Text.Equals("Add a new book"))
-                        {
-                            string result = bookControl.insertBooksControl(mtxtISBN.Text, txtTitleBook.Text, txtAuthorBook.Text, txtYearBook.Text, txteditoraBook.Text, cbGenreBook.SelectedItem.ToString(), txtAmountBook.Text, txtPriceBook.Text);
-                            if (result.Equals("sucess"))
-                            {
-                                clearAddNewTextBox();
-                                panelAddVisible(false);
-                                lblTitleAddBook.Text = "";
-                                showBooksInDataGrid();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Error: its not possible add a book!");
-                            }
-                            //this.Refresh();
+                    MessageBox.Show("This ISBN already exists in our database.");
+                    mtxtISBN.Clear();
+                    mtxtISBN.Focus();
+                    return;
+                }
 
+                string operationResult = "";
+                if (isAddingNewBook)
+                {
+                    operationResult = bookControl.insertBooksControl(mtxtISBN.Text, txtTitleBook.Text, txtAuthorBook.Text, txtYearBook.Text, txteditoraBook.Text, cbGenreBook.SelectedItem.ToString(), txtAmountBook.Text, txtPriceBook.Text);
+                }
+                else if (isUpdatingBook)
+                {
+                    operationResult = bookControl.updateDataControl(id, mtxtISBN.Text, txtTitleBook.Text, txtAuthorBook.Text, txtYearBook.Text, txteditoraBook.Text, cbGenreBook.SelectedItem.ToString(), txtAmountBook.Text, txtPriceBook.Text);
+                }
 
-                            //fmBooks.refreshForm();
-                            //this.Close();
-                            //fmBooks.ValidaEnableButtons();
-                        }
-                        else if (lblTitleAddBook.Text.Equals("Update data"))
-                        {
-                            string str = bookControl.updateDataControl(id, mtxtISBN.Text, txtTitleBook.Text, txtAuthorBook.Text, txtYearBook.Text, txteditoraBook.Text, cbGenreBook.SelectedItem.ToString(), txtAmountBook.Text, txtPriceBook.Text);
-                            if (str.Equals("sucess"))
-                            {
-                                MessageBox.Show("Update finished with sucess!");
-                                this.Refresh();
-                                clearAddNewTextBox();
-                                panelAddVisible(false);
-                                lblTitleAddBook.Text = "";
-                                mtxtISBN.ReadOnly = false;
-                                showBooksInDataGrid();
-                            }
-
-                        }
-                    }
+                if (operationResult.Equals("sucess"))
+                {
+                    MessageBox.Show(isAddingNewBook ? "Book added successfully!" : "Update finished successfully!");
+                    clearAddNewTextBox();
+                    lblTitleAddBook.Text = "Add a new book";
+                    btnSaveBook.Text = "Add Book";
+                    mtxtISBN.ReadOnly = !isAddingNewBook;
+                    showBooksInDataGrid();
+                }
+                else if (isAddingNewBook)
+                {
+                    MessageBox.Show("Error: Unable to add the book.");
                 }
             }
             catch (Exception ex)
@@ -254,13 +201,8 @@ namespace BookStoreMgt.Forms
                 {
                     errorMessage += $"\n\nInner Exception: {ex.InnerException.Message}";
                 }
-
                 MessageBox.Show(errorMessage, "Exception Details", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void btnSearchBook_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -270,8 +212,9 @@ namespace BookStoreMgt.Forms
             {
                 if (dgvBooks.SelectedRows.Count > 0)
                 {
-                    pnlContainerFmAddOrUpdateBook.BackColor = Color.DimGray;
-                    this.setTitleLabel("Update data");
+                    pnlContainerFmAddOrUpdateBook.BackColor = Color.DarkGray;
+                    this.setTitleLabel("Update book");
+                    btnSaveBook.Text = "Update Book";
                     lblTitleAddBook.Text = getTitleLabel();
                     panelAddVisible(true);
                     enableButtonsBooks(false);
@@ -313,7 +256,7 @@ namespace BookStoreMgt.Forms
                 string isbn = dgvBooks.CurrentRow.Cells["isbn"].Value.ToString();
 
 
-                if (MessageBox.Show("Do you really want to delete these data?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show("Do you really want to delete these books?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     string result = bookControl.deleteDataControl(isbn);
                     if (result.Equals("sucess"))
@@ -332,17 +275,6 @@ namespace BookStoreMgt.Forms
 
         private void txtFilterData_TextChanged(object sender, EventArgs e)
         {
-
-            //var termo = (sender as TextBox).Text.ToLowerInvariant();
-            //bool semTermo = String.IsNullOrEmpty(termo);
-
-            //foreach (DataGridViewRow linha in dgvBooks.Rows)
-            //{
-            //    if ((linha.Cells[COL_NOME.Index].Value as string).ToLowerInvariant().Contains(termo) || semTermo)
-            //        linha.Visible = true;
-            //    else
-            //        linha.Visible = false;
-            //}
             if (!txtFilterData.Text.Equals("Type here the book title"))
             {
                 (dgvBooks.DataSource as DataTable).DefaultView.RowFilter =

@@ -11,7 +11,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Threading;
-//using Bookstore.Utils;
 using System.IO;
 
 namespace BookStoreMgt.Forms
@@ -203,13 +202,23 @@ namespace BookStoreMgt.Forms
         }
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            //openFormInPainelContainer(new FmBooks());
+            openFormInPainelContainer(new FmSale());
             lblTitleDashboard.Text = "Productos";
             resetColors();
             pnlBtnProductos.BackColor = Color.White;
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlVerticalMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
         {
 
         }

@@ -92,28 +92,28 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.DarkGray;
+            panel1.BackColor = Color.Gainsboro;
             panel1.Controls.Add(cbApplyDiscount);
             panel1.Controls.Add(pnlCalcDiscount);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(dgvShoppingCart);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(557, 0);
+            panel1.Location = new Point(614, 0);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(668, 692);
+            panel1.Size = new Size(709, 692);
             panel1.TabIndex = 0;
             // 
             // cbApplyDiscount
             // 
             cbApplyDiscount.AutoSize = true;
-            cbApplyDiscount.Location = new Point(278, 344);
+            cbApplyDiscount.Location = new Point(49, 348);
             cbApplyDiscount.Margin = new Padding(4, 3, 4, 3);
             cbApplyDiscount.Name = "cbApplyDiscount";
-            cbApplyDiscount.Size = new Size(106, 19);
+            cbApplyDiscount.Size = new Size(121, 19);
             cbApplyDiscount.TabIndex = 4;
-            cbApplyDiscount.Text = "Apply discount";
+            cbApplyDiscount.Text = "APPLY DISCOUNT";
             cbApplyDiscount.UseVisualStyleBackColor = true;
             cbApplyDiscount.CheckedChanged += cbApplyDiscount_CheckedChanged;
             cbApplyDiscount.Click += cbApplyDiscount_Click;
@@ -123,17 +123,17 @@
             pnlCalcDiscount.Controls.Add(label8);
             pnlCalcDiscount.Controls.Add(btnApplyDiscount);
             pnlCalcDiscount.Controls.Add(txtDiscountValue);
-            pnlCalcDiscount.Location = new Point(29, 370);
+            pnlCalcDiscount.Location = new Point(181, 323);
             pnlCalcDiscount.Margin = new Padding(4, 3, 4, 3);
             pnlCalcDiscount.Name = "pnlCalcDiscount";
-            pnlCalcDiscount.Size = new Size(608, 115);
+            pnlCalcDiscount.Size = new Size(421, 69);
             pnlCalcDiscount.TabIndex = 3;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(382, 13);
+            label8.Location = new Point(197, 25);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(25, 22);
@@ -150,7 +150,7 @@
             btnApplyDiscount.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnApplyDiscount.ForeColor = Color.White;
             btnApplyDiscount.Image = (Image)resources.GetObject("btnApplyDiscount.Image");
-            btnApplyDiscount.Location = new Point(231, 53);
+            btnApplyDiscount.Location = new Point(254, 11);
             btnApplyDiscount.Margin = new Padding(4, 3, 4, 3);
             btnApplyDiscount.Name = "btnApplyDiscount";
             btnApplyDiscount.Size = new Size(145, 50);
@@ -166,7 +166,7 @@
             txtDiscountValue.BorderStyle = BorderStyle.None;
             txtDiscountValue.Font = new Font("Century Gothic", 18F);
             txtDiscountValue.ForeColor = Color.DarkRed;
-            txtDiscountValue.Location = new Point(233, 6);
+            txtDiscountValue.Location = new Point(31, 21);
             txtDiscountValue.Margin = new Padding(4, 3, 4, 3);
             txtDiscountValue.MaxLength = 2;
             txtDiscountValue.Name = "txtDiscountValue";
@@ -182,10 +182,10 @@
             panel2.Controls.Add(btnFinishShop);
             panel2.Controls.Add(txtPriceTotalSale);
             panel2.Controls.Add(label2);
-            panel2.Location = new Point(29, 493);
+            panel2.Location = new Point(29, 429);
             panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(608, 186);
+            panel2.Size = new Size(608, 176);
             panel2.TabIndex = 2;
             // 
             // btnCancelBuying
@@ -198,10 +198,10 @@
             btnCancelBuying.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancelBuying.ForeColor = Color.White;
             btnCancelBuying.Image = (Image)resources.GetObject("btnCancelBuying.Image");
-            btnCancelBuying.Location = new Point(387, 117);
+            btnCancelBuying.Location = new Point(449, 89);
             btnCancelBuying.Margin = new Padding(4, 3, 4, 3);
             btnCancelBuying.Name = "btnCancelBuying";
-            btnCancelBuying.Size = new Size(145, 50);
+            btnCancelBuying.Size = new Size(124, 50);
             btnCancelBuying.TabIndex = 3;
             btnCancelBuying.Text = "Cancel";
             btnCancelBuying.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -218,10 +218,10 @@
             btnFinishShop.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnFinishShop.ForeColor = Color.White;
             btnFinishShop.Image = (Image)resources.GetObject("btnFinishShop.Image");
-            btnFinishShop.Location = new Point(197, 117);
+            btnFinishShop.Location = new Point(152, 88);
             btnFinishShop.Margin = new Padding(4, 3, 4, 3);
             btnFinishShop.Name = "btnFinishShop";
-            btnFinishShop.Size = new Size(145, 50);
+            btnFinishShop.Size = new Size(267, 50);
             btnFinishShop.TabIndex = 2;
             btnFinishShop.Text = "Finish";
             btnFinishShop.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -234,7 +234,7 @@
             txtPriceTotalSale.BorderStyle = BorderStyle.None;
             txtPriceTotalSale.Font = new Font("Century Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtPriceTotalSale.ForeColor = Color.DarkRed;
-            txtPriceTotalSale.Location = new Point(154, 51);
+            txtPriceTotalSale.Location = new Point(154, 23);
             txtPriceTotalSale.Margin = new Padding(4, 3, 4, 3);
             txtPriceTotalSale.Name = "txtPriceTotalSale";
             txtPriceTotalSale.ReadOnly = true;
@@ -246,7 +246,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(20, 60);
+            label2.Location = new Point(20, 32);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(96, 21);
@@ -286,13 +286,13 @@
             // 
             // dgvShopping_amount
             // 
-            dgvShopping_amount.HeaderText = "Amount";
+            dgvShopping_amount.HeaderText = "Quantity";
             dgvShopping_amount.Name = "dgvShopping_amount";
             dgvShopping_amount.ReadOnly = true;
             // 
             // dgvShopping_Mountaint
             // 
-            dgvShopping_Mountaint.HeaderText = "Mountaint";
+            dgvShopping_Mountaint.HeaderText = "Amount";
             dgvShopping_Mountaint.Name = "dgvShopping_Mountaint";
             dgvShopping_Mountaint.ReadOnly = true;
             // 
@@ -321,7 +321,7 @@
             pnlPartSeachProd.Location = new Point(0, 0);
             pnlPartSeachProd.Margin = new Padding(4, 3, 4, 3);
             pnlPartSeachProd.Name = "pnlPartSeachProd";
-            pnlPartSeachProd.Size = new Size(550, 692);
+            pnlPartSeachProd.Size = new Size(606, 692);
             pnlPartSeachProd.TabIndex = 1;
             // 
             // btnCloseCustomerDetails
@@ -333,7 +333,7 @@
             btnCloseCustomerDetails.FlatStyle = FlatStyle.Flat;
             btnCloseCustomerDetails.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCloseCustomerDetails.ForeColor = Color.White;
-            btnCloseCustomerDetails.Location = new Point(494, 462);
+            btnCloseCustomerDetails.Location = new Point(553, 462);
             btnCloseCustomerDetails.Margin = new Padding(4, 3, 4, 3);
             btnCloseCustomerDetails.Name = "btnCloseCustomerDetails";
             btnCloseCustomerDetails.Size = new Size(31, 25);
@@ -357,7 +357,7 @@
             pnlCustomerDetails.Location = new Point(26, 493);
             pnlCustomerDetails.Margin = new Padding(4, 3, 4, 3);
             pnlCustomerDetails.Name = "pnlCustomerDetails";
-            pnlCustomerDetails.Size = new Size(499, 167);
+            pnlCustomerDetails.Size = new Size(558, 167);
             pnlCustomerDetails.TabIndex = 15;
             // 
             // txtTPNo
@@ -493,7 +493,7 @@
             pnlQuantProd.Location = new Point(26, 209);
             pnlQuantProd.Margin = new Padding(4, 3, 4, 3);
             pnlQuantProd.Name = "pnlQuantProd";
-            pnlQuantProd.Size = new Size(499, 233);
+            pnlQuantProd.Size = new Size(558, 233);
             pnlQuantProd.TabIndex = 2;
             // 
             // txtPriceProd
@@ -671,7 +671,7 @@
             dgvSearchProd.Name = "dgvSearchProd";
             dgvSearchProd.RowHeadersVisible = false;
             dgvSearchProd.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvSearchProd.Size = new Size(499, 83);
+            dgvSearchProd.Size = new Size(558, 83);
             dgvSearchProd.TabIndex = 1;
             // 
             // panel4
@@ -682,7 +682,7 @@
             panel4.Location = new Point(0, 0);
             panel4.Margin = new Padding(4, 3, 4, 3);
             panel4.Name = "panel4";
-            panel4.Size = new Size(550, 113);
+            panel4.Size = new Size(606, 113);
             panel4.TabIndex = 0;
             // 
             // groupBox1
@@ -690,7 +690,7 @@
             groupBox1.BackColor = Color.White;
             groupBox1.Controls.Add(btnSearchBookSale);
             groupBox1.Controls.Add(mtxtSearchBookSale);
-            groupBox1.Location = new Point(53, 24);
+            groupBox1.Location = new Point(87, 24);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(438, 72);
             groupBox1.TabIndex = 5;
@@ -739,7 +739,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DimGray;
-            ClientSize = new Size(1225, 692);
+            ClientSize = new Size(1323, 692);
             Controls.Add(pnlPartSeachProd);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -776,11 +776,6 @@
         private System.Windows.Forms.TextBox txtPriceTotalSale;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvShoppingCart;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvShopping_idProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvShopping_isbn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvShopping_nameProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvShopping_amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvShopping_Mountaint;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlPartSeachProd;
         private System.Windows.Forms.Panel pnlQuantProd;
@@ -818,5 +813,10 @@
         private Label label12;
         private GroupBox groupBox1;
         private Button btnCloseCustomerDetails;
+        private DataGridViewTextBoxColumn dgvShopping_idProd;
+        private DataGridViewTextBoxColumn dgvShopping_isbn;
+        private DataGridViewTextBoxColumn dgvShopping_nameProd;
+        private DataGridViewTextBoxColumn dgvShopping_amount;
+        private DataGridViewTextBoxColumn dgvShopping_Mountaint;
     }
 }
