@@ -14,8 +14,9 @@ namespace BookStoreMgt.Database_Models
         SupplierQueries supplierQueries = new SupplierQueries();
         public DataTable showSuppliers()
         {
+            SupplierQueries supplierQueries1 = new SupplierQueries();
             DataTable data = new DataTable();
-            data = supplierQueries.showData();
+            data = supplierQueries1.showData();
             return data;
         }
         public bool checkTPNo(int tp_no) {
@@ -39,6 +40,11 @@ namespace BookStoreMgt.Database_Models
         {
             string str = supplierQueries.updateSupplier(Convert.ToInt32(id),name, contact_number,email,address);
             return str;
+        }
+        public string deleteSupplierControl(int contact_number)
+        {
+            string result = supplierQueries.deleteSupplier(contact_number);
+            return result;
         }
     }
 }

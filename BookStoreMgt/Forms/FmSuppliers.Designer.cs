@@ -293,6 +293,7 @@
             btnUpdateData.Text = "Update data";
             btnUpdateData.TextImageRelation = TextImageRelation.ImageAboveText;
             btnUpdateData.UseVisualStyleBackColor = false;
+            btnUpdateData.Click += btnUpdateData_Click;
             // 
             // dgvBooks
             // 

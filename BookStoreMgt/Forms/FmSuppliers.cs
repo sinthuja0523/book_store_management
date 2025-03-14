@@ -15,8 +15,7 @@ namespace BookStoreMgt.Forms
         private string titleLabel;
         private string id = null;
 
-        BookControl bookControl = new BookControl();
-        SupplierControl supplierControl = new SupplierControl();    
+        SupplierControl supplierControl = new SupplierControl();
         public FmSuppliers()
         {
             InitializeComponent();
@@ -50,7 +49,7 @@ namespace BookStoreMgt.Forms
         }
         public void enableButtonsBook()
         {
-           /* btnSearchBook.Enabled = true;*/
+            /* btnSearchBook.Enabled = true;*/
             btnUpdateData.Enabled = true;
         }
 
@@ -183,7 +182,7 @@ namespace BookStoreMgt.Forms
                 {
                     MessageBox.Show(isAddingNewBook ? "Supplier added successfully!" : "Update finished successfully!");
                     clearAddNewTextBox();
-                    lblTitleAddSupplier.Text = "Add a new supplier";
+                    lblTitleAddSupplier.Text = "Add new supplier";
                     btnSaveBook.Text = "Add supplier";
                     txtTPNo.ReadOnly = !isAddingNewBook;
                     showBooksInDataGrid();
@@ -205,32 +204,26 @@ namespace BookStoreMgt.Forms
 
         }
 
-        /*private void btnUpdateData_Click(object sender, EventArgs e)
+        private void btnUpdateData_Click(object sender, EventArgs e)
         {
             try
             {
                 if (dgvBooks.SelectedRows.Count > 0)
                 {
                     pnlContainerFmAddOrUpdateBook.BackColor = Color.DarkGray;
-                    this.setTitleLabel("Update book");
-                    btnSaveBook.Text = "Update Book";
-                    lblTitleAddBook.Text = getTitleLabel();
+                    this.setTitleLabel("Update supplier");
+                    btnSaveBook.Text = "Update supplier";
+                    lblTitleAddSupplier.Text = getTitleLabel();
                     panelAddVisible(true);
                     enableButtonsBooks(false);
 
+                    txtName.Text = dgvBooks.CurrentRow.Cells["name"].Value.ToString();
+                    txtTPNo.Text = dgvBooks.CurrentRow.Cells["contact_number"].Value.ToString();
+                    txtEmail.Text = dgvBooks.CurrentRow.Cells["email"].Value.ToString();
+                    txtAddress.Text = dgvBooks.CurrentRow.Cells["address"].Value.ToString();
+                    this.id = dgvBooks.CurrentRow.Cells["supplier_id"].Value.ToString();
 
-                    mtxtISBN.Text = dgvBooks.CurrentRow.Cells["isbn"].Value.ToString();
-                    txtName.Text = dgvBooks.CurrentRow.Cells["title"].Value.ToString();
-                    txtTPNo.Text = dgvBooks.CurrentRow.Cells["author"].Value.ToString();
-                    txttx.Text = dgvBooks.CurrentRow.Cells["published_year"].Value.ToString();
-                    txteditoraBook.Text = dgvBooks.CurrentRow.Cells["editor"].Value.ToString();
-                    cbGenreBook.SelectedIndex = cbGenreBook.FindString(dgvBooks.CurrentRow.Cells["genre"].Value.ToString());
-
-                    txtAmountBook.Text = dgvBooks.CurrentRow.Cells["stock_quantity"].Value.ToString();
-                    txtPriceBook.Text = dgvBooks.CurrentRow.Cells["price"].Value.ToString();
-                    this.id = dgvBooks.CurrentRow.Cells["book_id"].Value.ToString();
-
-                    mtxtISBN.ReadOnly = true;
+                    txtTPNo.ReadOnly = true;
 
                 }
                 else
@@ -245,19 +238,19 @@ namespace BookStoreMgt.Forms
             {
                 throw ex;
             }
-        }*/
+        }
 
         private void btnDeleteBook_Click(object sender, EventArgs e)
         {
 
             if (dgvBooks.SelectedRows.Count > 0)
             {
-                string isbn = dgvBooks.CurrentRow.Cells["isbn"].Value.ToString();
+                string contact_number = dgvBooks.CurrentRow.Cells["contact_number"].Value.ToString();
 
 
                 if (MessageBox.Show("Do you really want to delete these books?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    string result = bookControl.deleteDataControl(isbn);
+                    string result = supplierControl.deleteSupplierControl(Convert.ToInt32(contact_number));
                     if (result.Equals("sucess"))
                     {
                         MessageBox.Show("Delete data has been sucessed!");

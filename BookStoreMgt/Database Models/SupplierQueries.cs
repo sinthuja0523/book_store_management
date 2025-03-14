@@ -125,5 +125,34 @@ namespace BookStoreMgt.Database_Models
             return result;
 
         }
+
+        public string deleteSupplier(int contact_number)
+        {
+            string result = "";
+            try
+            {
+                string query = "DELETE FROM tbl_suppliers WHERE contact_number = @contact_number";
+                conn.openDB();
+                command = new SqlCommand(query, conn.conn);
+                command.Parameters.AddWithValue("@contact_number", contact_number);
+                command.CommandType = CommandType.Text;
+                int i = command.ExecuteNonQuery();
+                conn.closeDB();
+                command.Parameters.Clear();
+
+                if (i > 0)
+                {
+                    result = "sucess";
+                    return result;
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e.ToString());
+            }
+
+            return result;
+        }
     }
 }
