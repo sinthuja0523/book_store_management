@@ -6,7 +6,7 @@
  * 
  * Para alterar este modelo use Ferramentas | Opções | Codificação | Editar Cabeçalhos Padrão.
  */
-namespace BookStoreMgt
+namespace BookStoreMgt.Forms
 {
 	partial class FmLogin
 	{

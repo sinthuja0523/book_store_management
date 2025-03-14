@@ -17,7 +17,7 @@ using System.Windows.Forms;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
-namespace BookStoreMgt
+namespace BookStoreMgt.Forms
 {
     /// <summary>
     /// Description of FmLogin.

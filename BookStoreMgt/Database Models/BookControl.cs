@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 
-namespace BookStoreMgt
+namespace BookStoreMgt.Database_Models
 {
     public class BookControl
     {

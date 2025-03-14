@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace BookStoreMgt
+namespace BookStoreMgt.Database_Models
 {
     public class BookQueries
     {

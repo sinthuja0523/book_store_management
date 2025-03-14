@@ -1,4 +1,4 @@
-﻿namespace BookStoreMgt
+﻿namespace BookStoreMgt.Forms
 {
     partial class FmBooks
     {

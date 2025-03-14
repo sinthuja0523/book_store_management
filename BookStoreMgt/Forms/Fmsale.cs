@@ -1,5 +1,4 @@
-﻿//using Bookstore.Database;
-// using Bookstore.Utils;
+﻿using BookStoreMgt.Database_Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace BookStoreMgt
+namespace BookStoreMgt.Forms
 {
     public partial class FmSale : Form
     {
@@ -180,9 +179,10 @@ namespace BookStoreMgt
 
         }
 
+        // Finish Button
         private void btnFinishShop_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Your purchase worth"+sp.priceFinal_prod.ToString()+"has successfully completed", "Congratulations");
+            MessageBox.Show("Your purchase worth" + sp.priceFinal_prod.ToString() + "has successfully completed", "Congratulations");
             if (pnlPartSeachProd.Enabled != true)
                 pnlPartSeachProd.Enabled = true;
             dgvShoppingCart.DataSource = null;
@@ -191,9 +191,23 @@ namespace BookStoreMgt
             txtPriceTotalSale.Text = "";
             sp.priceTotal_prod = 0;
             sp.priceFinal_prod = sp.priceTotal_prod;
+
+            try
+            {
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = $"Error: {ex.Message}\n\nStackTrace: {ex.StackTrace}";
+                if (ex.InnerException != null)
+                {
+                    errorMessage += $"\n\nInner Exception: {ex.InnerException.Message}";
+                }
+
+                MessageBox.Show(errorMessage, "Exception Details", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+            private void button1_Click(object sender, EventArgs e)
         {
             if (pnlPartSeachProd.Enabled != true)
                 pnlPartSeachProd.Enabled = true;

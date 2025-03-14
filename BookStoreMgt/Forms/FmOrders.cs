@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BookStoreMgt
+namespace BookStoreMgt.Forms
 {
     public partial class FmOrders : Form
     {

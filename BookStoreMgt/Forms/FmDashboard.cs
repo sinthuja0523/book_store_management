@@ -14,7 +14,7 @@ using System.Threading;
 //using Bookstore.Utils;
 using System.IO;
 
-namespace BookStoreMgt
+namespace BookStoreMgt.Forms
 {
     /// <summary>
     /// Description of FmDashboard.

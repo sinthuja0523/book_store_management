@@ -1,3 +1,5 @@
+using BookStoreMgt.Forms;
+
 namespace BookStoreMgt
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace BookStoreMgt
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FmDashboard());
+            Application.Run(new FmSale());
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿// using Bookstore.Database;
+using BookStoreMgt.Database_Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace BookStoreMgt
+namespace BookStoreMgt.Forms
 {
     public partial class FmBooks : Form
     {
