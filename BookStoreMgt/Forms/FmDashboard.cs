@@ -152,7 +152,7 @@ namespace BookStoreMgt.Forms
 
         private void btnSale_Click(object sender, EventArgs e)
         {
-            openFormInPainelContainer(new FmBooks());
+            openFormInPainelContainer(new btnCloseCustomerDetails());
             lblTitleDashboard.Text = "Sale";
             resetColors();
             pnlBtnSale.BackColor = Color.White;

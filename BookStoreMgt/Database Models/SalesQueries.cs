@@ -13,23 +13,42 @@ namespace BookStoreMgt.Database_Models
         private ConnectionSQLserver conn = new ConnectionSQLserver();
         SqlCommand command;
 
-        public string insertNewSale(int customer_id, string purchased_date_time)
+        public string insertNewSale(List<(int bookId, int quantity, decimal price)> books)
         {
             string result = "";
             try
             {
-                string query = "insert into tbl_sales(customer_id, purchased_date_time)" +
-                    "values ('" + customer_id + "','" + purchased_date_time +  ")";
+                DateTime purchasedDateTime = DateTime.Now;
+                string query = "insert into tbl_sales (customer_id) values (@customer_id);" +
+                   "SELECT SCOPE_IDENTITY()";
                 conn.openDB();
+                object value = (object)DBNull.Value;
                 command = new SqlCommand(query, conn.conn);
-                int i = command.ExecuteNonQuery();
+                command.Parameters.AddWithValue("@customer_id", value);
+
+                int salesId = Convert.ToInt32(command.ExecuteScalar());
+
+                List<int> bookIds = new List<int> { 9, 8 };
+                List<int> quantities = new List<int> { 2, 1 };
+
+                foreach (var book in books)
+                {
+                    string salesBookQuery = "INSERT INTO tbl_sales_books (sales_id, book_id, quantity,total_price) VALUES (@sales_id, @book_id, @quantity, @total_price)";
+                    SqlCommand salesBookCommand = new SqlCommand(salesBookQuery, conn.conn);
+                    salesBookCommand.Parameters.AddWithValue("@sales_id", salesId);
+                    salesBookCommand.Parameters.AddWithValue("@book_id", book.bookId);
+                    salesBookCommand.Parameters.AddWithValue("@quantity", book.quantity);
+                    salesBookCommand.Parameters.AddWithValue("@total_price", book.quantity * book.price);
+
+                    salesBookCommand.ExecuteNonQuery();
+                }
                 conn.closeDB();
-                if (i > 0)
+                if (salesId > 0)
                 {
                     result = "sucess";
                     return result;
                 }
-
+                
             }
             catch (Exception e)
             {

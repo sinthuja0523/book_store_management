@@ -18,10 +18,11 @@ namespace BookStoreMgt.Database_Models
             data = query.showDataSearch(isbn);
             return data;
         }
-        public string insertNewSale(string isbn, string title, string author, string year, string editora, string genre, string amount, string price)
+        public string insertNewSale(List<(int bookId, int quantity, decimal price)> books)
         {
-            string result = BookQueries.insertNewBook(isbn, title, author, Convert.ToInt32(year), editora, genre, Convert.ToInt32(amount), Convert.ToDecimal(price));
+            string result = SalesQueries.insertNewSale(books);
             return result;
         }
+
     }
 }

@@ -20,7 +20,7 @@ namespace BookStoreMgt.Forms
         {
             InitializeComponent();
             pnlCalcDiscount.Visible = false;
-            
+            toggleCustomerDetailsPanel(false, true,false);
         }
 
         private void btnSearchBookSale_Click(object sender, EventArgs e)
@@ -40,7 +40,7 @@ namespace BookStoreMgt.Forms
                     txtIsbnProd.Text = dgvSearchProd.CurrentRow.Cells["isbn"].Value.ToString();
                     txtNameProd.Text = dgvSearchProd.CurrentRow.Cells["title"].Value.ToString();
                     txtAmountProd.Text = "1";
-                    priceDefalt  = dgvSearchProd.CurrentRow.Cells["price"].Value.ToString();
+                    priceDefalt = dgvSearchProd.CurrentRow.Cells["price"].Value.ToString();
                     txtPriceProd.Text = priceDefalt;
                 }
             }
@@ -83,9 +83,9 @@ namespace BookStoreMgt.Forms
             string answer = result.ToString();
             if (answer.Contains("."))
             {
-                answer.Replace(".",",");
+                answer.Replace(".", ",");
             }
-            
+
             return answer;
         }
 
@@ -106,7 +106,7 @@ namespace BookStoreMgt.Forms
 
         private void btnAddToCart_Click(object sender, EventArgs e)
         {
-            dgvShoppingCart.Rows.Add(txtIdProd.Text,txtIsbnProd.Text,txtNameProd.Text,txtAmountProd.Text,txtPriceProd.Text);
+            dgvShoppingCart.Rows.Add(txtIdProd.Text, txtIsbnProd.Text, txtNameProd.Text, txtAmountProd.Text, txtPriceProd.Text);
             sp.calcPriceTotal(Convert.ToDecimal(txtPriceProd.Text));
             txtPriceTotalSale.Text = Convert.ToString(sp.priceTotal_prod);
             dgvSearchProd.DataSource = null;
@@ -132,9 +132,9 @@ namespace BookStoreMgt.Forms
 
         private void cbApplyDiscount_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
-        
+
 
         private void txtDiscountValue_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -154,7 +154,7 @@ namespace BookStoreMgt.Forms
                 btnApplyDiscount.Enabled = true;
         }
 
-        
+
 
         private void btnApplyDiscount_Click(object sender, EventArgs e)
         {
@@ -186,14 +186,44 @@ namespace BookStoreMgt.Forms
             if (pnlPartSeachProd.Enabled != true)
                 pnlPartSeachProd.Enabled = true;
             dgvShoppingCart.DataSource = null;
+            dgvShoppingCart.Rows.Clear();
             cbApplyDiscount.Checked = false;
             pnlCalcDiscount.Visible = false;
             txtPriceTotalSale.Text = "";
             sp.priceTotal_prod = 0;
             sp.priceFinal_prod = sp.priceTotal_prod;
 
+            List<(int bookId, int quantity, decimal price)> books = new List<(int, int, decimal)>();
+
+            foreach (DataGridViewRow row in dgvShoppingCart.Rows)
+            {
+                if (row.Cells[0].Value != null) // Check if row is not empty
+                {
+                    int bookId = Convert.ToInt32(row.Cells[0].Value); // Assuming book_id is in column 0
+                    int quantity = Convert.ToInt32(row.Cells[3].Value); // Assuming quantity is in column 3
+                    decimal price = Convert.ToDecimal(row.Cells[4].Value); // Assuming price is in column 4
+
+                    books.Add((bookId, quantity, price));
+                }
+            }
+
+            // txtIdProd.Text, txtIsbnProd.Text, txtNameProd.Text, txtAmountProd.Text, txtPriceProd.Text
             try
             {
+                string result = sControl.insertNewSale(books);
+                if (result.Equals("sucess"))
+                {
+                    MessageBox.Show("Saved to DB~");
+                    /*
+                    clearAddNewTextBox();
+                    panelAddVisible(false);
+                    lblTitleAddBook.Text = "";
+                    showBooksInDataGrid();*/
+                }
+                else
+                {
+                    MessageBox.Show("Error: its not possible add a book!");
+                }
             }
             catch (Exception ex)
             {
@@ -207,7 +237,7 @@ namespace BookStoreMgt.Forms
             }
         }
 
-            private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             if (pnlPartSeachProd.Enabled != true)
                 pnlPartSeachProd.Enabled = true;
@@ -217,6 +247,25 @@ namespace BookStoreMgt.Forms
             txtPriceTotalSale.Text = "";
             sp.priceTotal_prod = 0;
             sp.priceFinal_prod = sp.priceTotal_prod;
+        }
+
+        private void btnAddCustomerDetails_Click(object sender, EventArgs e)
+        {
+            btnAddCustomerDetails.Visible = false;
+            toggleCustomerDetailsPanel(true,false,true);
+        }
+
+        private void toggleCustomerDetailsPanel(bool value,bool value2,bool value3)
+        {
+            pnlCustomerDetails.Visible = value;
+            btnAddCustomerDetails.Visible = value2;
+            btnCloseCustomerDetails.Visible = value3;
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            toggleCustomerDetailsPanel(false,true,false);
         }
     }
 }

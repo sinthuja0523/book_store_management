@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace BookStoreMgt.Forms
 {
-    public partial class FmBooks : Form
+    public partial class btnCloseCustomerDetails : Form
     {
         private string titleLabel;
         private string id = null;
         //FmAddOrUpdateBook fmAdd = new FmAddOrUpdateBook();
 
         BookControl bookControl = new BookControl();
-        public FmBooks()
+        public btnCloseCustomerDetails()
         {
             InitializeComponent();
             //pnlContainerFmAddOrUpdateBook.BackColor = Color.DimGray;
