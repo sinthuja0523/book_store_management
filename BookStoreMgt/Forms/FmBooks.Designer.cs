@@ -1,6 +1,6 @@
 ﻿namespace BookStoreMgt.Forms
 {
-    partial class btnCloseCustomerDetails
+    partial class FmBooks
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(btnCloseCustomerDetails));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FmBooks));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             pnlButtosBooks = new Panel();
@@ -90,7 +90,7 @@
             pnlTopFmAddBook.Name = "pnlTopFmAddBook";
             pnlTopFmAddBook.Size = new Size(476, 38);
             pnlTopFmAddBook.TabIndex = 36;
-            pnlTopFmAddBook.Paint += pnlTopFmAddBook_Paint;
+//            pnlTopFmAddBook.Paint += pnlTopFmAddBook_Paint;
             // 
             // lblTitleAddBook
             // 
@@ -374,7 +374,7 @@
             btnSearchBook.TabIndex = 1;
             btnSearchBook.TextImageRelation = TextImageRelation.ImageAboveText;
             btnSearchBook.UseVisualStyleBackColor = false;
-            btnSearchBook.Click += btnSearchBook_Click;
+            //btnSearchBook.Click += btnSearchBook_Click;
             // 
             // pnlBooksGrid
             // 

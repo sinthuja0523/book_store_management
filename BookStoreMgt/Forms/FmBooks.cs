@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace BookStoreMgt.Forms
 {
-    public partial class btnCloseCustomerDetails : Form
+    public partial class FmBooks : Form
     {
         private string titleLabel;
         private string id = null;
 
         BookControl bookControl = new BookControl();
-        public btnCloseCustomerDetails()
+        public FmBooks()
         {
             InitializeComponent();
             panelAddVisible(true);
