@@ -21,8 +21,7 @@ namespace BookStoreMgt
         {
             InitializeComponent();
             //pnlContainerFmAddOrUpdateBook.BackColor = Color.DimGray;
-            panelAddVisible(false);
-            this.lblTitleAddBook.Text = "";
+            panelAddVisible(true);
             cbGenreBook.Items.Add("Fiction");
             cbGenreBook.Items.Add("Adventure");
             cbGenreBook.Items.Add("Comedy");
@@ -45,7 +44,7 @@ namespace BookStoreMgt
         public void FmBooks_Load(object sender, EventArgs e)
         {
             showBooksInDataGrid();
-           
+
         }
 
         public void showBooksInDataGrid()
@@ -55,13 +54,13 @@ namespace BookStoreMgt
 
         public void disableButtonsBooks()
         {
-            btnAddNewBook.Enabled = false;
+          /*  btnAddNewBook.Enabled = false;*/
             btnSearchBook.Enabled = false;
             btnUpdateData.Enabled = false;
         }
         public void enableButtonsBook()
         {
-            btnAddNewBook.Enabled = true;
+           /* btnAddNewBook.Enabled = true;*/
             btnSearchBook.Enabled = true;
             btnUpdateData.Enabled = true;
         }
@@ -95,25 +94,25 @@ namespace BookStoreMgt
             //openInPanelContainerBook(new FmAddOrUpdateBook());
             //fmAdd.setTitle("Add a new Book");
             //this.disableButtonsBooks();
-            pnlContainerFmAddOrUpdateBook.BackColor = Color.Black;
-            this.setTitleLabel("Add a new book");
-            lblTitleAddBook.Text = getTitleLabel();
-            panelAddVisible(true);
-            enableButtonsBooks(false);
+            //pnlContainerFmAddOrUpdateBook.BackColor = Color.Black;
+            //this.setTitleLabel("Add a new book");
+            //lblTitleAddBook.Text = getTitleLabel();
+            //panelAddVisible(true);
+            //enableButtonsBooks(false);
 
         }
 
         private void enableButtonsBooks(bool v)
         {
-            if(v)
+            if (v)
             {
-                btnAddNewBook.Enabled = true;
+              /*  btnAddNewBook.Enabled = true;*/
                 btnUpdateData.Enabled = true;
                 btnDeleteBook.Enabled = true;
             }
             else
             {
-                btnAddNewBook.Enabled = false;
+               /* btnAddNewBook.Enabled = false;*/
                 btnUpdateData.Enabled = false;
                 btnDeleteBook.Enabled = false;
             }
@@ -178,7 +177,7 @@ namespace BookStoreMgt
         private void clearAddNewTextBox()
         {
             //cbGenreBook.SelectedItem           
-            
+
             this.txtPriceBook.Clear();
             this.txtAmountBook.Clear();
             this.mtxtISBN.Clear();
@@ -223,13 +222,13 @@ namespace BookStoreMgt
                                 MessageBox.Show("Error: its not possible add a book!");
                             }
                             //this.Refresh();
-                            
+
 
                             //fmBooks.refreshForm();
                             //this.Close();
                             //fmBooks.ValidaEnableButtons();
                         }
-                        else if(lblTitleAddBook.Text.Equals("Update data"))
+                        else if (lblTitleAddBook.Text.Equals("Update data"))
                         {
                             string str = bookControl.updateDataControl(id, mtxtISBN.Text, txtTitleBook.Text, txtAuthorBook.Text, txtYearBook.Text, txteditoraBook.Text, cbGenreBook.SelectedItem.ToString(), txtAmountBook.Text, txtPriceBook.Text);
                             if (str.Equals("sucess"))
@@ -275,7 +274,7 @@ namespace BookStoreMgt
                     lblTitleAddBook.Text = getTitleLabel();
                     panelAddVisible(true);
                     enableButtonsBooks(false);
-                    
+
 
                     mtxtISBN.Text = dgvBooks.CurrentRow.Cells["isbn"].Value.ToString();
                     txtTitleBook.Text = dgvBooks.CurrentRow.Cells["title"].Value.ToString();
@@ -283,7 +282,7 @@ namespace BookStoreMgt
                     txtYearBook.Text = dgvBooks.CurrentRow.Cells["published_year"].Value.ToString();
                     txteditoraBook.Text = dgvBooks.CurrentRow.Cells["editor"].Value.ToString();
                     cbGenreBook.SelectedIndex = cbGenreBook.FindString(dgvBooks.CurrentRow.Cells["genre"].Value.ToString());
-                   
+
                     txtAmountBook.Text = dgvBooks.CurrentRow.Cells["stock_quantity"].Value.ToString();
                     txtPriceBook.Text = dgvBooks.CurrentRow.Cells["price"].Value.ToString();
                     this.id = dgvBooks.CurrentRow.Cells["book_id"].Value.ToString();
@@ -296,8 +295,8 @@ namespace BookStoreMgt
                     MessageBox.Show("Please, select a row!");
                 }
 
-                
-                
+
+
             }
             catch (Exception ex)
             {
@@ -311,8 +310,8 @@ namespace BookStoreMgt
             if (dgvBooks.SelectedRows.Count > 0)
             {
                 string isbn = dgvBooks.CurrentRow.Cells["isbn"].Value.ToString();
-                
-                
+
+
                 if (MessageBox.Show("Do you really want to delete these data?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     string result = bookControl.deleteDataControl(isbn);
@@ -348,7 +347,7 @@ namespace BookStoreMgt
                 (dgvBooks.DataSource as DataTable).DefaultView.RowFilter =
                 string.Format("title LIKE '{0}%' OR title LIKE '% {0}%'", txtFilterData.Text);
             }
-            
+
         }
 
         private void txtFilterData_KeyPress(object sender, KeyPressEventArgs e)
@@ -365,16 +364,6 @@ namespace BookStoreMgt
             {
                 txtFilterData.Text = "Type here the book title";
             }
-        }
-
-        private void txtAmountBook_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pbCloseFmBooks_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }
