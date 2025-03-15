@@ -77,8 +77,8 @@ namespace BookStoreMgt.Forms
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Image = Properties.Resources.Login_BG;
+            pictureBox1.Location = new Point(-4, 0);
             pictureBox1.Margin = new Padding(4, 3, 4, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(467, 458);
@@ -181,7 +181,7 @@ namespace BookStoreMgt.Forms
             // pbEnterLogin
             // 
             pbEnterLogin.Cursor = Cursors.Hand;
-            pbEnterLogin.Image = (Image)resources.GetObject("pbEnterLogin.Image");
+            pbEnterLogin.Image = Properties.Resources.pbEnterLoginNew;
             pbEnterLogin.Location = new Point(390, 318);
             pbEnterLogin.Margin = new Padding(4, 3, 4, 3);
             pbEnterLogin.Name = "pbEnterLogin";
@@ -209,7 +209,7 @@ namespace BookStoreMgt.Forms
             // 
             lblRegister.Cursor = Cursors.Hand;
             lblRegister.Font = new Font("ArtBrush", 12F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            lblRegister.ForeColor = Color.FromArgb(255, 128, 0);
+            lblRegister.ForeColor = Color.FromArgb(0, 120, 131);
             lblRegister.Location = new Point(528, 402);
             lblRegister.Margin = new Padding(4, 0, 4, 0);
             lblRegister.Name = "lblRegister";
