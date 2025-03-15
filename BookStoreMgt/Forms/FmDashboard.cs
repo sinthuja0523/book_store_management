@@ -159,7 +159,7 @@ namespace BookStoreMgt.Forms
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
-            //openFormInPainelContainer(new FmAbout());
+            openFormInPainelContainer(new FmSuppliers());
             lblTitleDashboard.Text = "About";
             resetColors();
             pnlBtnAbout.BackColor = Color.White;

@@ -14,7 +14,7 @@ namespace BookStoreMgt
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new FmSale());
-            Application.Run(new FmSuppliers());
+            Application.Run(new FmDashboard());
         }
     }
 }

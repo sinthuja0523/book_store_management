@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FmDashboard));
             pnlVerticalMenu = new Panel();
+            panel3 = new Panel();
+            button3 = new Button();
             panel2 = new Panel();
             button2 = new Button();
             panel1 = new Panel();
@@ -52,8 +54,6 @@
             pbMenuDash = new PictureBox();
             pnlContainers = new Panel();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
-            button3 = new Button();
-            panel3 = new Panel();
             pnlVerticalMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbShutDownDash).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbLogoDash).BeginInit();
@@ -89,6 +89,34 @@
             pnlVerticalMenu.Name = "pnlVerticalMenu";
             pnlVerticalMenu.Size = new Size(247, 750);
             pnlVerticalMenu.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.White;
+            panel3.Location = new Point(0, 205);
+            panel3.Margin = new Padding(4, 3, 4, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(6, 49);
+            panel3.TabIndex = 6;
+            // 
+            // button3
+            // 
+            button3.Cursor = Cursors.Hand;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 45, 48);
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.White;
+            button3.Image = (Image)resources.GetObject("button3.Image");
+            button3.ImageAlign = ContentAlignment.MiddleLeft;
+            button3.Location = new Point(4, 354);
+            button3.Margin = new Padding(4, 3, 4, 3);
+            button3.Name = "button3";
+            button3.Size = new Size(240, 49);
+            button3.TabIndex = 12;
+            button3.Text = "Customers";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // panel2
             // 
@@ -202,7 +230,7 @@
             btnAbout.ForeColor = Color.White;
             btnAbout.Image = (Image)resources.GetObject("btnAbout.Image");
             btnAbout.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAbout.Location = new Point(7, 354);
+            btnAbout.Location = new Point(7, 284);
             btnAbout.Margin = new Padding(4, 3, 4, 3);
             btnAbout.Name = "btnAbout";
             btnAbout.Size = new Size(240, 49);
@@ -385,34 +413,6 @@
             mySqlCommand1.Connection = null;
             mySqlCommand1.EnableCaching = false;
             mySqlCommand1.Transaction = null;
-            // 
-            // button3
-            // 
-            button3.Cursor = Cursors.Hand;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 45, 48);
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.White;
-            button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(7, 284);
-            button3.Margin = new Padding(4, 3, 4, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(240, 49);
-            button3.TabIndex = 12;
-            button3.Text = "Customers";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.White;
-            panel3.Location = new Point(0, 205);
-            panel3.Margin = new Padding(4, 3, 4, 3);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(6, 49);
-            panel3.TabIndex = 6;
             // 
             // FmDashboard
             // 
