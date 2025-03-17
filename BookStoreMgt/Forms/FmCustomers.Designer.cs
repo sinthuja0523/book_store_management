@@ -33,6 +33,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             pnlButtosBooks = new Panel();
             pnlContainerFmAddOrUpdateBook = new Panel();
+            btnSaveData = new Button();
             btnCancelbook = new Button();
             btnDeleteBook = new Button();
             txtCustomerPhone = new TextBox();
@@ -76,6 +77,7 @@
             // pnlContainerFmAddOrUpdateBook
             // 
             pnlContainerFmAddOrUpdateBook.BackColor = SystemColors.Control;
+            pnlContainerFmAddOrUpdateBook.Controls.Add(btnSaveData);
             pnlContainerFmAddOrUpdateBook.Controls.Add(btnCancelbook);
             pnlContainerFmAddOrUpdateBook.Controls.Add(btnDeleteBook);
             pnlContainerFmAddOrUpdateBook.Controls.Add(txtCustomerPhone);
@@ -94,6 +96,26 @@
             pnlContainerFmAddOrUpdateBook.Name = "pnlContainerFmAddOrUpdateBook";
             pnlContainerFmAddOrUpdateBook.Size = new Size(1270, 306);
             pnlContainerFmAddOrUpdateBook.TabIndex = 3;
+            // 
+            // btnSaveData
+            // 
+            btnSaveData.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnSaveData.BackColor = Color.ForestGreen;
+            btnSaveData.Cursor = Cursors.Hand;
+            btnSaveData.FlatAppearance.BorderSize = 0;
+            btnSaveData.FlatAppearance.MouseOverBackColor = Color.DimGray;
+            btnSaveData.FlatStyle = FlatStyle.Flat;
+            btnSaveData.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold);
+            btnSaveData.ForeColor = Color.White;
+            btnSaveData.Location = new Point(318, 231);
+            btnSaveData.Margin = new Padding(5, 4, 5, 4);
+            btnSaveData.Name = "btnSaveData";
+            btnSaveData.Size = new Size(148, 61);
+            btnSaveData.TabIndex = 38;
+            btnSaveData.Text = "Update";
+            btnSaveData.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnSaveData.UseVisualStyleBackColor = false;
+            btnSaveData.Click += btnSaveBook_Click;
             // 
             // btnCancelbook
             // 
@@ -184,7 +206,7 @@
             btnUpdateData.Name = "btnUpdateData";
             btnUpdateData.Size = new Size(322, 61);
             btnUpdateData.TabIndex = 5;
-            btnUpdateData.Text = "Update customer";
+            btnUpdateData.Text = "Edit customer";
             btnUpdateData.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnUpdateData.UseVisualStyleBackColor = false;
             btnUpdateData.Click += btnUpdateData_Click;
@@ -332,7 +354,6 @@
             dgvBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvBooks.Size = new Size(1275, 293);
             dgvBooks.TabIndex = 2;
-            dgvBooks.CellContentClick += dgvBooks_CellContentClick;
             // 
             // pnlSearchBook
             // 
@@ -359,9 +380,6 @@
             txtFilterData.Size = new Size(708, 30);
             txtFilterData.TabIndex = 5;
             txtFilterData.Text = "Type here the customer name";
-            txtFilterData.TextChanged += txtFilterData_TextChanged;
-            txtFilterData.KeyPress += txtFilterData_KeyPress;
-            txtFilterData.Leave += txtFilterData_Leave;
             // 
             // btnSearchBook
             // 
@@ -439,5 +457,6 @@
         private Label label3;
         private TextBox txtCustomerEmail;
         private Label label2;
+        private Button btnSaveData;
     }
 }
