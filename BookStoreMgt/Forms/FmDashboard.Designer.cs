@@ -31,9 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FmDashboard));
             pnlVerticalMenu = new Panel();
             panel3 = new Panel();
-            button3 = new Button();
+            btnCustomers = new Button();
             panel2 = new Panel();
-            button2 = new Button();
             panel1 = new Panel();
             button1 = new Button();
             btnNickUser = new Button();
@@ -54,6 +53,7 @@
             pbMenuDash = new PictureBox();
             pnlContainers = new Panel();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            btnOrder = new Button();
             pnlVerticalMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbShutDownDash).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbLogoDash).BeginInit();
@@ -68,10 +68,10 @@
             // pnlVerticalMenu
             // 
             pnlVerticalMenu.BackColor = Color.MidnightBlue;
+            pnlVerticalMenu.Controls.Add(btnOrder);
             pnlVerticalMenu.Controls.Add(panel3);
-            pnlVerticalMenu.Controls.Add(button3);
+            pnlVerticalMenu.Controls.Add(btnCustomers);
             pnlVerticalMenu.Controls.Add(panel2);
-            pnlVerticalMenu.Controls.Add(button2);
             pnlVerticalMenu.Controls.Add(panel1);
             pnlVerticalMenu.Controls.Add(button1);
             pnlVerticalMenu.Controls.Add(btnNickUser);
@@ -85,73 +85,55 @@
             pnlVerticalMenu.Controls.Add(pnlBtnSale);
             pnlVerticalMenu.Dock = DockStyle.Left;
             pnlVerticalMenu.Location = new Point(0, 0);
-            pnlVerticalMenu.Margin = new Padding(4, 3, 4, 3);
+            pnlVerticalMenu.Margin = new Padding(5, 4, 5, 4);
             pnlVerticalMenu.Name = "pnlVerticalMenu";
-            pnlVerticalMenu.Size = new Size(247, 750);
+            pnlVerticalMenu.Size = new Size(282, 1000);
             pnlVerticalMenu.TabIndex = 0;
             // 
             // panel3
             // 
             panel3.BackColor = Color.White;
-            panel3.Location = new Point(0, 205);
-            panel3.Margin = new Padding(4, 3, 4, 3);
+            panel3.Location = new Point(0, 273);
+            panel3.Margin = new Padding(5, 4, 5, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(6, 49);
+            panel3.Size = new Size(7, 65);
             panel3.TabIndex = 6;
             // 
-            // button3
+            // btnCustomers
             // 
-            button3.Cursor = Cursors.Hand;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 45, 48);
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.White;
-            button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(4, 354);
-            button3.Margin = new Padding(4, 3, 4, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(240, 49);
-            button3.TabIndex = 12;
-            button3.Text = "Customers";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            btnCustomers.Cursor = Cursors.Hand;
+            btnCustomers.FlatAppearance.BorderSize = 0;
+            btnCustomers.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 45, 48);
+            btnCustomers.FlatStyle = FlatStyle.Flat;
+            btnCustomers.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCustomers.ForeColor = Color.White;
+            btnCustomers.Image = (Image)resources.GetObject("btnCustomers.Image");
+            btnCustomers.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCustomers.Location = new Point(5, 472);
+            btnCustomers.Margin = new Padding(5, 4, 5, 4);
+            btnCustomers.Name = "btnCustomers";
+            btnCustomers.Size = new Size(274, 65);
+            btnCustomers.TabIndex = 12;
+            btnCustomers.Text = "Customers";
+            btnCustomers.UseVisualStyleBackColor = true;
+            btnCustomers.Click += btnCustomers_Click;
             // 
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Location = new Point(0, 427);
-            panel2.Margin = new Padding(4, 3, 4, 3);
+            panel2.Location = new Point(0, 569);
+            panel2.Margin = new Padding(5, 4, 5, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(6, 49);
+            panel2.Size = new Size(7, 65);
             panel2.TabIndex = 11;
-            // 
-            // button2
-            // 
-            button2.Cursor = Cursors.Hand;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 45, 48);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(7, 427);
-            button2.Margin = new Padding(4, 3, 4, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(240, 49);
-            button2.TabIndex = 10;
-            button2.Text = "Orders";
-            button2.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Location = new Point(0, 501);
-            panel1.Margin = new Padding(4, 3, 4, 3);
+            panel1.Location = new Point(0, 668);
+            panel1.Margin = new Padding(5, 4, 5, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(6, 49);
+            panel1.Size = new Size(7, 65);
             panel1.TabIndex = 7;
             // 
             // button1
@@ -164,10 +146,10 @@
             button1.ForeColor = Color.White;
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(7, 501);
-            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Location = new Point(8, 668);
+            button1.Margin = new Padding(5, 4, 5, 4);
             button1.Name = "button1";
-            button1.Size = new Size(240, 49);
+            button1.Size = new Size(274, 65);
             button1.TabIndex = 9;
             button1.Text = "Reports";
             button1.UseVisualStyleBackColor = true;
@@ -181,10 +163,10 @@
             btnNickUser.ForeColor = Color.White;
             btnNickUser.Image = (Image)resources.GetObject("btnNickUser.Image");
             btnNickUser.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNickUser.Location = new Point(4, 642);
-            btnNickUser.Margin = new Padding(4, 3, 4, 3);
+            btnNickUser.Location = new Point(5, 856);
+            btnNickUser.Margin = new Padding(5, 4, 5, 4);
             btnNickUser.Name = "btnNickUser";
-            btnNickUser.Size = new Size(286, 46);
+            btnNickUser.Size = new Size(327, 61);
             btnNickUser.TabIndex = 8;
             btnNickUser.UseVisualStyleBackColor = true;
             // 
@@ -193,10 +175,10 @@
             pbShutDownDash.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             pbShutDownDash.Cursor = Cursors.Hand;
             pbShutDownDash.Image = (Image)resources.GetObject("pbShutDownDash.Image");
-            pbShutDownDash.Location = new Point(7, 707);
-            pbShutDownDash.Margin = new Padding(4, 3, 4, 3);
+            pbShutDownDash.Location = new Point(8, 943);
+            pbShutDownDash.Margin = new Padding(5, 4, 5, 4);
             pbShutDownDash.Name = "pbShutDownDash";
-            pbShutDownDash.Size = new Size(35, 35);
+            pbShutDownDash.Size = new Size(40, 47);
             pbShutDownDash.SizeMode = PictureBoxSizeMode.Zoom;
             pbShutDownDash.TabIndex = 7;
             pbShutDownDash.TabStop = false;
@@ -205,19 +187,19 @@
             // pnlBtnAbout
             // 
             pnlBtnAbout.BackColor = Color.White;
-            pnlBtnAbout.Location = new Point(0, 354);
-            pnlBtnAbout.Margin = new Padding(4, 3, 4, 3);
+            pnlBtnAbout.Location = new Point(0, 472);
+            pnlBtnAbout.Margin = new Padding(5, 4, 5, 4);
             pnlBtnAbout.Name = "pnlBtnAbout";
-            pnlBtnAbout.Size = new Size(6, 49);
+            pnlBtnAbout.Size = new Size(7, 65);
             pnlBtnAbout.TabIndex = 6;
             // 
             // pnlBtnProductos
             // 
             pnlBtnProductos.BackColor = Color.White;
-            pnlBtnProductos.Location = new Point(0, 284);
-            pnlBtnProductos.Margin = new Padding(4, 3, 4, 3);
+            pnlBtnProductos.Location = new Point(0, 379);
+            pnlBtnProductos.Margin = new Padding(5, 4, 5, 4);
             pnlBtnProductos.Name = "pnlBtnProductos";
-            pnlBtnProductos.Size = new Size(6, 49);
+            pnlBtnProductos.Size = new Size(7, 65);
             pnlBtnProductos.TabIndex = 5;
             // 
             // btnAbout
@@ -230,10 +212,10 @@
             btnAbout.ForeColor = Color.White;
             btnAbout.Image = (Image)resources.GetObject("btnAbout.Image");
             btnAbout.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAbout.Location = new Point(7, 284);
-            btnAbout.Margin = new Padding(4, 3, 4, 3);
+            btnAbout.Location = new Point(8, 379);
+            btnAbout.Margin = new Padding(5, 4, 5, 4);
             btnAbout.Name = "btnAbout";
-            btnAbout.Size = new Size(240, 49);
+            btnAbout.Size = new Size(274, 65);
             btnAbout.TabIndex = 3;
             btnAbout.Text = "Suppliers";
             btnAbout.UseVisualStyleBackColor = true;
@@ -249,10 +231,10 @@
             btnProductos.ForeColor = Color.White;
             btnProductos.Image = (Image)resources.GetObject("btnProductos.Image");
             btnProductos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProductos.Location = new Point(7, 205);
-            btnProductos.Margin = new Padding(4, 3, 4, 3);
+            btnProductos.Location = new Point(8, 273);
+            btnProductos.Margin = new Padding(5, 4, 5, 4);
             btnProductos.Name = "btnProductos";
-            btnProductos.Size = new Size(240, 49);
+            btnProductos.Size = new Size(274, 65);
             btnProductos.TabIndex = 2;
             btnProductos.Text = "Sales";
             btnProductos.UseVisualStyleBackColor = true;
@@ -268,10 +250,10 @@
             btnSale.ForeColor = Color.White;
             btnSale.Image = (Image)resources.GetObject("btnSale.Image");
             btnSale.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSale.Location = new Point(7, 134);
-            btnSale.Margin = new Padding(4, 3, 4, 3);
+            btnSale.Location = new Point(8, 179);
+            btnSale.Margin = new Padding(5, 4, 5, 4);
             btnSale.Name = "btnSale";
-            btnSale.Size = new Size(240, 49);
+            btnSale.Size = new Size(274, 65);
             btnSale.TabIndex = 1;
             btnSale.Text = "Books";
             btnSale.UseVisualStyleBackColor = true;
@@ -281,10 +263,10 @@
             // 
             pbLogoDash.Cursor = Cursors.Hand;
             pbLogoDash.Image = (Image)resources.GetObject("pbLogoDash.Image");
-            pbLogoDash.Location = new Point(25, 12);
-            pbLogoDash.Margin = new Padding(4, 3, 4, 3);
+            pbLogoDash.Location = new Point(29, 16);
+            pbLogoDash.Margin = new Padding(5, 4, 5, 4);
             pbLogoDash.Name = "pbLogoDash";
-            pbLogoDash.Size = new Size(181, 70);
+            pbLogoDash.Size = new Size(207, 93);
             pbLogoDash.SizeMode = PictureBoxSizeMode.Zoom;
             pbLogoDash.TabIndex = 0;
             pbLogoDash.TabStop = false;
@@ -293,10 +275,10 @@
             // pnlBtnSale
             // 
             pnlBtnSale.BackColor = Color.White;
-            pnlBtnSale.Location = new Point(0, 134);
-            pnlBtnSale.Margin = new Padding(4, 3, 4, 3);
+            pnlBtnSale.Location = new Point(0, 179);
+            pnlBtnSale.Margin = new Padding(5, 4, 5, 4);
             pnlBtnSale.Name = "pnlBtnSale";
-            pnlBtnSale.Size = new Size(6, 49);
+            pnlBtnSale.Size = new Size(7, 65);
             pnlBtnSale.TabIndex = 4;
             // 
             // pnlTop
@@ -309,10 +291,10 @@
             pnlTop.Controls.Add(pbCloseWindowDash);
             pnlTop.Controls.Add(pbMenuDash);
             pnlTop.Dock = DockStyle.Top;
-            pnlTop.Location = new Point(247, 0);
-            pnlTop.Margin = new Padding(4, 3, 4, 3);
+            pnlTop.Location = new Point(282, 0);
+            pnlTop.Margin = new Padding(5, 4, 5, 4);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(1323, 58);
+            pnlTop.Size = new Size(1512, 77);
             pnlTop.TabIndex = 1;
             pnlTop.MouseDown += pnlTop_MouseDown;
             // 
@@ -320,10 +302,10 @@
             // 
             lblTitleDashboard.AutoSize = true;
             lblTitleDashboard.Font = new Font("Century Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitleDashboard.Location = new Point(580, 16);
-            lblTitleDashboard.Margin = new Padding(4, 0, 4, 0);
+            lblTitleDashboard.Location = new Point(663, 21);
+            lblTitleDashboard.Margin = new Padding(5, 0, 5, 0);
             lblTitleDashboard.Name = "lblTitleDashboard";
-            lblTitleDashboard.Size = new Size(56, 28);
+            lblTitleDashboard.Size = new Size(72, 37);
             lblTitleDashboard.TabIndex = 5;
             lblTitleDashboard.Text = "Title";
             // 
@@ -332,10 +314,10 @@
             pbMinimizeDash.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pbMinimizeDash.Cursor = Cursors.Hand;
             pbMinimizeDash.Image = (Image)resources.GetObject("pbMinimizeDash.Image");
-            pbMinimizeDash.Location = new Point(1216, 6);
-            pbMinimizeDash.Margin = new Padding(4, 3, 4, 3);
+            pbMinimizeDash.Location = new Point(1390, 8);
+            pbMinimizeDash.Margin = new Padding(5, 4, 5, 4);
             pbMinimizeDash.Name = "pbMinimizeDash";
-            pbMinimizeDash.Size = new Size(29, 29);
+            pbMinimizeDash.Size = new Size(33, 39);
             pbMinimizeDash.SizeMode = PictureBoxSizeMode.Zoom;
             pbMinimizeDash.TabIndex = 4;
             pbMinimizeDash.TabStop = false;
@@ -346,10 +328,10 @@
             pbDropDownDash.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pbDropDownDash.Cursor = Cursors.Hand;
             pbDropDownDash.Image = (Image)resources.GetObject("pbDropDownDash.Image");
-            pbDropDownDash.Location = new Point(1252, 6);
-            pbDropDownDash.Margin = new Padding(4, 3, 4, 3);
+            pbDropDownDash.Location = new Point(1431, 8);
+            pbDropDownDash.Margin = new Padding(5, 4, 5, 4);
             pbDropDownDash.Name = "pbDropDownDash";
-            pbDropDownDash.Size = new Size(29, 29);
+            pbDropDownDash.Size = new Size(33, 39);
             pbDropDownDash.SizeMode = PictureBoxSizeMode.Zoom;
             pbDropDownDash.TabIndex = 3;
             pbDropDownDash.TabStop = false;
@@ -361,10 +343,10 @@
             pbMaximizeWindowDash.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pbMaximizeWindowDash.Cursor = Cursors.Hand;
             pbMaximizeWindowDash.Image = (Image)resources.GetObject("pbMaximizeWindowDash.Image");
-            pbMaximizeWindowDash.Location = new Point(1252, 6);
-            pbMaximizeWindowDash.Margin = new Padding(4, 3, 4, 3);
+            pbMaximizeWindowDash.Location = new Point(1431, 8);
+            pbMaximizeWindowDash.Margin = new Padding(5, 4, 5, 4);
             pbMaximizeWindowDash.Name = "pbMaximizeWindowDash";
-            pbMaximizeWindowDash.Size = new Size(29, 29);
+            pbMaximizeWindowDash.Size = new Size(33, 39);
             pbMaximizeWindowDash.SizeMode = PictureBoxSizeMode.Zoom;
             pbMaximizeWindowDash.TabIndex = 2;
             pbMaximizeWindowDash.TabStop = false;
@@ -375,10 +357,10 @@
             pbCloseWindowDash.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pbCloseWindowDash.Cursor = Cursors.Hand;
             pbCloseWindowDash.Image = (Image)resources.GetObject("pbCloseWindowDash.Image");
-            pbCloseWindowDash.Location = new Point(1288, 6);
-            pbCloseWindowDash.Margin = new Padding(4, 3, 4, 3);
+            pbCloseWindowDash.Location = new Point(1472, 8);
+            pbCloseWindowDash.Margin = new Padding(5, 4, 5, 4);
             pbCloseWindowDash.Name = "pbCloseWindowDash";
-            pbCloseWindowDash.Size = new Size(29, 29);
+            pbCloseWindowDash.Size = new Size(33, 39);
             pbCloseWindowDash.SizeMode = PictureBoxSizeMode.Zoom;
             pbCloseWindowDash.TabIndex = 1;
             pbCloseWindowDash.TabStop = false;
@@ -388,10 +370,10 @@
             // 
             pbMenuDash.Cursor = Cursors.Hand;
             pbMenuDash.Image = (Image)resources.GetObject("pbMenuDash.Image");
-            pbMenuDash.Location = new Point(20, 8);
-            pbMenuDash.Margin = new Padding(4, 3, 4, 3);
+            pbMenuDash.Location = new Point(23, 11);
+            pbMenuDash.Margin = new Padding(5, 4, 5, 4);
             pbMenuDash.Name = "pbMenuDash";
-            pbMenuDash.Size = new Size(33, 36);
+            pbMenuDash.Size = new Size(38, 48);
             pbMenuDash.SizeMode = PictureBoxSizeMode.Zoom;
             pbMenuDash.TabIndex = 0;
             pbMenuDash.TabStop = false;
@@ -401,10 +383,10 @@
             // 
             pnlContainers.BackColor = Color.WhiteSmoke;
             pnlContainers.Dock = DockStyle.Fill;
-            pnlContainers.Location = new Point(247, 58);
-            pnlContainers.Margin = new Padding(4, 3, 4, 3);
+            pnlContainers.Location = new Point(282, 77);
+            pnlContainers.Margin = new Padding(5, 4, 5, 4);
             pnlContainers.Name = "pnlContainers";
-            pnlContainers.Size = new Size(1323, 692);
+            pnlContainers.Size = new Size(1512, 923);
             pnlContainers.TabIndex = 2;
             // 
             // mySqlCommand1
@@ -414,17 +396,36 @@
             mySqlCommand1.EnableCaching = false;
             mySqlCommand1.Transaction = null;
             // 
+            // btnOrder
+            // 
+            btnOrder.Cursor = Cursors.Hand;
+            btnOrder.FlatAppearance.BorderSize = 0;
+            btnOrder.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 45, 48);
+            btnOrder.FlatStyle = FlatStyle.Flat;
+            btnOrder.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnOrder.ForeColor = Color.White;
+            btnOrder.Image = (Image)resources.GetObject("btnOrder.Image");
+            btnOrder.ImageAlign = ContentAlignment.MiddleLeft;
+            btnOrder.Location = new Point(5, 569);
+            btnOrder.Margin = new Padding(5, 4, 5, 4);
+            btnOrder.Name = "btnOrder";
+            btnOrder.Size = new Size(274, 65);
+            btnOrder.TabIndex = 13;
+            btnOrder.Text = "Orders";
+            btnOrder.UseVisualStyleBackColor = true;
+            btnOrder.Click += btnOrder_Click;
+            // 
             // FmDashboard
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1570, 750);
+            ClientSize = new Size(1794, 1000);
             Controls.Add(pnlContainers);
             Controls.Add(pnlTop);
             Controls.Add(pnlVerticalMenu);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4, 3, 4, 3);
+            Margin = new Padding(5, 4, 5, 4);
             Name = "FmDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FmDashboard";
@@ -464,8 +465,10 @@
         private Panel panel1;
         private Panel pnlBtnSale;
         private Panel panel2;
-        private Button button2;
-        private Button button3;
+        private Button btnOrders;
+        private Button btnCustomers;
+        // private Button btnOrders;
         private Panel panel3;
+        private Button btnOrder;
     }
 }

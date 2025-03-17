@@ -152,7 +152,7 @@ namespace BookStoreMgt.Forms
         private void btnSale_Click(object sender, EventArgs e)
         {
             openFormInPainelContainer(new FmBooks());
-            lblTitleDashboard.Text = "Sale";
+            lblTitleDashboard.Text = "Book Management";
             resetColors();
             pnlBtnSale.BackColor = Color.White;
         }
@@ -160,7 +160,7 @@ namespace BookStoreMgt.Forms
         private void btnAbout_Click(object sender, EventArgs e)
         {
             openFormInPainelContainer(new FmSuppliers());
-            lblTitleDashboard.Text = "About";
+            lblTitleDashboard.Text = "Supplier Management";
             resetColors();
             pnlBtnAbout.BackColor = Color.White;
         }
@@ -203,7 +203,7 @@ namespace BookStoreMgt.Forms
         private void btnProductos_Click(object sender, EventArgs e)
         {
             openFormInPainelContainer(new FmSale());
-            lblTitleDashboard.Text = "Productos";
+            lblTitleDashboard.Text = "New Sale";
             resetColors();
             pnlBtnProductos.BackColor = Color.White;
         }
@@ -218,9 +218,25 @@ namespace BookStoreMgt.Forms
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnCustomers_Click(object sender, EventArgs e)
+        {
+            openFormInPainelContainer(new FmCustomers());
+            lblTitleDashboard.Text = "Customer Management";
+            resetColors();
+            pnlBtnAbout.BackColor = Color.White;
+        }
+
+        private void btnOrders_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            openFormInPainelContainer(new FmOrders());
+            lblTitleDashboard.Text = "Order Management";
+            resetColors();
+            pnlBtnAbout.BackColor = Color.White;
         }
     }
 }
