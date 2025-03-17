@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FmOrders));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FmBooks));
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             pnlButtosBooks = new Panel();
             pnlTopFmAddBook = new Panel();
             lblTitleAddBook = new Label();
@@ -40,8 +40,8 @@
             txtPriceBook = new TextBox();
             mtxtISBN = new MaskedTextBox();
             cbGenreBook = new ComboBox();
-            txtAmountBook = new TextBox();
-            txteditoraBook = new TextBox();
+            txtQuantityBook = new TextBox();
+            txtEditorBook = new TextBox();
             txtAuthorBook = new TextBox();
             txtYearBook = new TextBox();
             txtTitleBook = new TextBox();
@@ -74,10 +74,10 @@
             pnlButtosBooks.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlButtosBooks.Controls.Add(pnlTopFmAddBook);
             pnlButtosBooks.Controls.Add(pnlContainerFmAddOrUpdateBook);
-            pnlButtosBooks.Location = new Point(24, 14);
-            pnlButtosBooks.Margin = new Padding(4, 3, 4, 3);
+            pnlButtosBooks.Location = new Point(27, 19);
+            pnlButtosBooks.Margin = new Padding(5, 4, 5, 4);
             pnlButtosBooks.Name = "pnlButtosBooks";
-            pnlButtosBooks.Size = new Size(476, 624);
+            pnlButtosBooks.Size = new Size(544, 832);
             pnlButtosBooks.TabIndex = 2;
             // 
             // pnlTopFmAddBook
@@ -86,11 +86,10 @@
             pnlTopFmAddBook.Controls.Add(lblTitleAddBook);
             pnlTopFmAddBook.Dock = DockStyle.Top;
             pnlTopFmAddBook.Location = new Point(0, 0);
-            pnlTopFmAddBook.Margin = new Padding(4, 3, 4, 3);
+            pnlTopFmAddBook.Margin = new Padding(5, 4, 5, 4);
             pnlTopFmAddBook.Name = "pnlTopFmAddBook";
-            pnlTopFmAddBook.Size = new Size(476, 38);
+            pnlTopFmAddBook.Size = new Size(544, 51);
             pnlTopFmAddBook.TabIndex = 36;
-//            pnlTopFmAddBook.Paint += pnlTopFmAddBook_Paint;
             // 
             // lblTitleAddBook
             // 
@@ -99,10 +98,10 @@
             lblTitleAddBook.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitleAddBook.ForeColor = Color.Black;
             lblTitleAddBook.ImageAlign = ContentAlignment.MiddleLeft;
-            lblTitleAddBook.Location = new Point(150, 10);
-            lblTitleAddBook.Margin = new Padding(4, 0, 4, 0);
+            lblTitleAddBook.Location = new Point(171, 13);
+            lblTitleAddBook.Margin = new Padding(5, 0, 5, 0);
             lblTitleAddBook.Name = "lblTitleAddBook";
-            lblTitleAddBook.Size = new Size(139, 19);
+            lblTitleAddBook.Size = new Size(174, 23);
             lblTitleAddBook.TabIndex = 0;
             lblTitleAddBook.Text = "Add a new book";
             lblTitleAddBook.TextAlign = ContentAlignment.MiddleCenter;
@@ -115,8 +114,8 @@
             pnlContainerFmAddOrUpdateBook.Controls.Add(txtPriceBook);
             pnlContainerFmAddOrUpdateBook.Controls.Add(mtxtISBN);
             pnlContainerFmAddOrUpdateBook.Controls.Add(cbGenreBook);
-            pnlContainerFmAddOrUpdateBook.Controls.Add(txtAmountBook);
-            pnlContainerFmAddOrUpdateBook.Controls.Add(txteditoraBook);
+            pnlContainerFmAddOrUpdateBook.Controls.Add(txtQuantityBook);
+            pnlContainerFmAddOrUpdateBook.Controls.Add(txtEditorBook);
             pnlContainerFmAddOrUpdateBook.Controls.Add(txtAuthorBook);
             pnlContainerFmAddOrUpdateBook.Controls.Add(txtYearBook);
             pnlContainerFmAddOrUpdateBook.Controls.Add(txtTitleBook);
@@ -130,9 +129,9 @@
             pnlContainerFmAddOrUpdateBook.Controls.Add(lblISBN);
             pnlContainerFmAddOrUpdateBook.Dock = DockStyle.Fill;
             pnlContainerFmAddOrUpdateBook.Location = new Point(0, 0);
-            pnlContainerFmAddOrUpdateBook.Margin = new Padding(4, 3, 4, 3);
+            pnlContainerFmAddOrUpdateBook.Margin = new Padding(5, 4, 5, 4);
             pnlContainerFmAddOrUpdateBook.Name = "pnlContainerFmAddOrUpdateBook";
-            pnlContainerFmAddOrUpdateBook.Size = new Size(476, 624);
+            pnlContainerFmAddOrUpdateBook.Size = new Size(544, 832);
             pnlContainerFmAddOrUpdateBook.TabIndex = 3;
             // 
             // btnCancelbook
@@ -145,10 +144,10 @@
             btnCancelbook.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancelbook.ForeColor = Color.White;
             btnCancelbook.Image = (Image)resources.GetObject("btnCancelbook.Image");
-            btnCancelbook.Location = new Point(235, 544);
-            btnCancelbook.Margin = new Padding(4, 3, 4, 3);
+            btnCancelbook.Location = new Point(269, 725);
+            btnCancelbook.Margin = new Padding(5, 4, 5, 4);
             btnCancelbook.Name = "btnCancelbook";
-            btnCancelbook.Size = new Size(200, 52);
+            btnCancelbook.Size = new Size(229, 69);
             btnCancelbook.TabIndex = 35;
             btnCancelbook.Text = "Clear records";
             btnCancelbook.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -165,10 +164,10 @@
             btnSaveBook.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSaveBook.ForeColor = Color.White;
             btnSaveBook.Image = (Image)resources.GetObject("btnSaveBook.Image");
-            btnSaveBook.Location = new Point(30, 544);
-            btnSaveBook.Margin = new Padding(4, 3, 4, 3);
+            btnSaveBook.Location = new Point(34, 725);
+            btnSaveBook.Margin = new Padding(5, 4, 5, 4);
             btnSaveBook.Name = "btnSaveBook";
-            btnSaveBook.Size = new Size(200, 52);
+            btnSaveBook.Size = new Size(229, 69);
             btnSaveBook.TabIndex = 34;
             btnSaveBook.Text = "Add Book";
             btnSaveBook.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -178,98 +177,98 @@
             // txtPriceBook
             // 
             txtPriceBook.BorderStyle = BorderStyle.None;
-            txtPriceBook.Location = new Point(127, 460);
-            txtPriceBook.Margin = new Padding(4, 3, 4, 3);
+            txtPriceBook.Location = new Point(145, 613);
+            txtPriceBook.Margin = new Padding(5, 4, 5, 4);
             txtPriceBook.MaxLength = 20;
             txtPriceBook.Multiline = true;
             txtPriceBook.Name = "txtPriceBook";
-            txtPriceBook.Size = new Size(308, 23);
-            txtPriceBook.TabIndex = 33;
+            txtPriceBook.Size = new Size(268, 31);
+            txtPriceBook.TabIndex = 39;
             txtPriceBook.KeyPress += txtPriceBook_KeyPress;
             // 
             // mtxtISBN
             // 
             mtxtISBN.BorderStyle = BorderStyle.None;
-            mtxtISBN.Location = new Point(127, 82);
-            mtxtISBN.Margin = new Padding(4, 3, 4, 3);
+            mtxtISBN.Location = new Point(145, 109);
+            mtxtISBN.Margin = new Padding(5, 4, 5, 4);
             mtxtISBN.Mask = "ISBN 000-&&&&&&&&&-0";
             mtxtISBN.Name = "mtxtISBN";
-            mtxtISBN.Size = new Size(308, 16);
+            mtxtISBN.Size = new Size(352, 20);
             mtxtISBN.TabIndex = 32;
             // 
             // cbGenreBook
             // 
             cbGenreBook.FlatStyle = FlatStyle.Flat;
             cbGenreBook.FormattingEnabled = true;
-            cbGenreBook.Location = new Point(127, 351);
-            cbGenreBook.Margin = new Padding(4, 3, 4, 3);
+            cbGenreBook.Location = new Point(145, 468);
+            cbGenreBook.Margin = new Padding(5, 4, 5, 4);
             cbGenreBook.Name = "cbGenreBook";
-            cbGenreBook.Size = new Size(235, 23);
-            cbGenreBook.TabIndex = 31;
+            cbGenreBook.Size = new Size(268, 28);
+            cbGenreBook.TabIndex = 37;
             cbGenreBook.Text = "Select the  book genre:";
             // 
-            // txtAmountBook
+            // txtQuantityBook
             // 
-            txtAmountBook.BorderStyle = BorderStyle.None;
-            txtAmountBook.Location = new Point(127, 405);
-            txtAmountBook.Margin = new Padding(4, 3, 4, 3);
-            txtAmountBook.Multiline = true;
-            txtAmountBook.Name = "txtAmountBook";
-            txtAmountBook.Size = new Size(308, 23);
-            txtAmountBook.TabIndex = 30;
-            txtAmountBook.KeyPress += txtAmountBook_KeyPress;
+            txtQuantityBook.BorderStyle = BorderStyle.None;
+            txtQuantityBook.Location = new Point(145, 540);
+            txtQuantityBook.Margin = new Padding(5, 4, 5, 4);
+            txtQuantityBook.Multiline = true;
+            txtQuantityBook.Name = "txtQuantityBook";
+            txtQuantityBook.Size = new Size(268, 31);
+            txtQuantityBook.TabIndex = 38;
+            txtQuantityBook.KeyPress += txtAmountBook_KeyPress;
             // 
-            // txteditoraBook
+            // txtEditorBook
             // 
-            txteditoraBook.BorderStyle = BorderStyle.None;
-            txteditoraBook.Location = new Point(127, 297);
-            txteditoraBook.Margin = new Padding(4, 3, 4, 3);
-            txteditoraBook.Multiline = true;
-            txteditoraBook.Name = "txteditoraBook";
-            txteditoraBook.Size = new Size(308, 23);
-            txteditoraBook.TabIndex = 29;
+            txtEditorBook.BorderStyle = BorderStyle.None;
+            txtEditorBook.Location = new Point(145, 396);
+            txtEditorBook.Margin = new Padding(5, 4, 5, 4);
+            txtEditorBook.Multiline = true;
+            txtEditorBook.Name = "txtEditorBook";
+            txtEditorBook.Size = new Size(352, 31);
+            txtEditorBook.TabIndex = 36;
             // 
             // txtAuthorBook
             // 
             txtAuthorBook.BorderStyle = BorderStyle.None;
-            txtAuthorBook.Location = new Point(127, 186);
-            txtAuthorBook.Margin = new Padding(4, 3, 4, 3);
+            txtAuthorBook.Location = new Point(145, 248);
+            txtAuthorBook.Margin = new Padding(5, 4, 5, 4);
             txtAuthorBook.Multiline = true;
             txtAuthorBook.Name = "txtAuthorBook";
-            txtAuthorBook.Size = new Size(308, 23);
-            txtAuthorBook.TabIndex = 28;
+            txtAuthorBook.Size = new Size(352, 31);
+            txtAuthorBook.TabIndex = 34;
             // 
             // txtYearBook
             // 
             txtYearBook.BorderStyle = BorderStyle.None;
-            txtYearBook.Location = new Point(127, 242);
-            txtYearBook.Margin = new Padding(4, 3, 4, 3);
+            txtYearBook.Location = new Point(145, 323);
+            txtYearBook.Margin = new Padding(5, 4, 5, 4);
             txtYearBook.MaxLength = 4;
             txtYearBook.Multiline = true;
             txtYearBook.Name = "txtYearBook";
-            txtYearBook.Size = new Size(308, 23);
-            txtYearBook.TabIndex = 27;
+            txtYearBook.Size = new Size(352, 31);
+            txtYearBook.TabIndex = 35;
             txtYearBook.KeyPress += txtYearBook_KeyPress;
             // 
             // txtTitleBook
             // 
             txtTitleBook.BorderStyle = BorderStyle.None;
-            txtTitleBook.Location = new Point(127, 131);
-            txtTitleBook.Margin = new Padding(4, 3, 4, 3);
+            txtTitleBook.Location = new Point(145, 175);
+            txtTitleBook.Margin = new Padding(5, 4, 5, 4);
             txtTitleBook.Multiline = true;
             txtTitleBook.Name = "txtTitleBook";
-            txtTitleBook.Size = new Size(308, 23);
-            txtTitleBook.TabIndex = 26;
+            txtTitleBook.Size = new Size(352, 31);
+            txtTitleBook.TabIndex = 33;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(30, 459);
-            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Location = new Point(34, 612);
+            label7.Margin = new Padding(5, 0, 5, 0);
             label7.Name = "label7";
-            label7.Size = new Size(80, 19);
+            label7.Size = new Size(102, 23);
             label7.TabIndex = 25;
             label7.Text = "Price (RS)";
             // 
@@ -278,22 +277,22 @@
             label6.AutoSize = true;
             label6.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(30, 405);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(34, 540);
+            label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
-            label6.Size = new Size(71, 19);
+            label6.Size = new Size(93, 23);
             label6.TabIndex = 24;
-            label6.Text = "Amount";
+            label6.Text = "Quantity";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(30, 351);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(34, 468);
+            label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
-            label5.Size = new Size(57, 19);
+            label5.Size = new Size(71, 23);
             label5.TabIndex = 23;
             label5.Text = "Genre";
             // 
@@ -302,10 +301,10 @@
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(30, 297);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(34, 396);
+            label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
-            label4.Size = new Size(51, 19);
+            label4.Size = new Size(63, 23);
             label4.TabIndex = 22;
             label4.Text = "Editor";
             // 
@@ -314,10 +313,10 @@
             label3.AutoSize = true;
             label3.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(30, 243);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(34, 324);
+            label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
-            label3.Size = new Size(45, 19);
+            label3.Size = new Size(54, 23);
             label3.TabIndex = 21;
             label3.Text = "Year";
             // 
@@ -326,10 +325,10 @@
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(30, 189);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(34, 252);
+            label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(60, 19);
+            label2.Size = new Size(74, 23);
             label2.TabIndex = 20;
             label2.Text = "Author";
             // 
@@ -338,10 +337,10 @@
             lblTitleBook.AutoSize = true;
             lblTitleBook.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitleBook.ForeColor = Color.Black;
-            lblTitleBook.Location = new Point(33, 135);
-            lblTitleBook.Margin = new Padding(4, 0, 4, 0);
+            lblTitleBook.Location = new Point(38, 180);
+            lblTitleBook.Margin = new Padding(5, 0, 5, 0);
             lblTitleBook.Name = "lblTitleBook";
-            lblTitleBook.Size = new Size(38, 19);
+            lblTitleBook.Size = new Size(47, 23);
             lblTitleBook.TabIndex = 19;
             lblTitleBook.Text = "Title";
             // 
@@ -350,10 +349,10 @@
             lblISBN.AutoSize = true;
             lblISBN.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblISBN.ForeColor = Color.Black;
-            lblISBN.Location = new Point(33, 81);
-            lblISBN.Margin = new Padding(4, 0, 4, 0);
+            lblISBN.Location = new Point(38, 108);
+            lblISBN.Margin = new Padding(5, 0, 5, 0);
             lblISBN.Name = "lblISBN";
-            lblISBN.Size = new Size(42, 19);
+            lblISBN.Size = new Size(53, 23);
             lblISBN.TabIndex = 18;
             lblISBN.Text = "ISBN";
             // 
@@ -367,14 +366,13 @@
             btnSearchBook.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSearchBook.ForeColor = Color.White;
             btnSearchBook.Image = (Image)resources.GetObject("btnSearchBook.Image");
-            btnSearchBook.Location = new Point(622, 32);
-            btnSearchBook.Margin = new Padding(4, 3, 4, 3);
+            btnSearchBook.Location = new Point(711, 43);
+            btnSearchBook.Margin = new Padding(5, 4, 5, 4);
             btnSearchBook.Name = "btnSearchBook";
-            btnSearchBook.Size = new Size(55, 40);
+            btnSearchBook.Size = new Size(63, 53);
             btnSearchBook.TabIndex = 1;
             btnSearchBook.TextImageRelation = TextImageRelation.ImageAboveText;
             btnSearchBook.UseVisualStyleBackColor = false;
-            //btnSearchBook.Click += btnSearchBook_Click;
             // 
             // pnlBooksGrid
             // 
@@ -383,10 +381,10 @@
             pnlBooksGrid.Controls.Add(dgvBooks);
             pnlBooksGrid.Controls.Add(pnlSearchBook);
             pnlBooksGrid.Dock = DockStyle.Right;
-            pnlBooksGrid.Location = new Point(499, 0);
-            pnlBooksGrid.Margin = new Padding(4, 3, 4, 3);
+            pnlBooksGrid.Location = new Point(570, 0);
+            pnlBooksGrid.Margin = new Padding(5, 4, 5, 4);
             pnlBooksGrid.Name = "pnlBooksGrid";
-            pnlBooksGrid.Size = new Size(726, 692);
+            pnlBooksGrid.Size = new Size(830, 923);
             pnlBooksGrid.TabIndex = 3;
             // 
             // btnDeleteBook
@@ -400,12 +398,12 @@
             btnDeleteBook.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnDeleteBook.ForeColor = Color.White;
             btnDeleteBook.Image = (Image)resources.GetObject("btnDeleteBook.Image");
-            btnDeleteBook.Location = new Point(373, 558);
-            btnDeleteBook.Margin = new Padding(4, 3, 4, 3);
+            btnDeleteBook.Location = new Point(426, 744);
+            btnDeleteBook.Margin = new Padding(5, 4, 5, 4);
             btnDeleteBook.Name = "btnDeleteBook";
-            btnDeleteBook.Size = new Size(340, 80);
+            btnDeleteBook.Size = new Size(389, 107);
             btnDeleteBook.TabIndex = 6;
-            btnDeleteBook.Text = "Delete";
+            btnDeleteBook.Text = "Delete book";
             btnDeleteBook.TextImageRelation = TextImageRelation.ImageAboveText;
             btnDeleteBook.UseVisualStyleBackColor = false;
             btnDeleteBook.Click += btnDeleteBook_Click;
@@ -413,7 +411,7 @@
             // btnUpdateData
             // 
             btnUpdateData.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnUpdateData.BackColor = Color.Teal;
+            btnUpdateData.BackColor = Color.LightSeaGreen;
             btnUpdateData.Cursor = Cursors.Hand;
             btnUpdateData.FlatAppearance.BorderSize = 0;
             btnUpdateData.FlatAppearance.MouseOverBackColor = Color.DimGray;
@@ -421,12 +419,12 @@
             btnUpdateData.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnUpdateData.ForeColor = Color.White;
             btnUpdateData.Image = (Image)resources.GetObject("btnUpdateData.Image");
-            btnUpdateData.Location = new Point(16, 558);
-            btnUpdateData.Margin = new Padding(4, 3, 4, 3);
+            btnUpdateData.Location = new Point(18, 744);
+            btnUpdateData.Margin = new Padding(5, 4, 5, 4);
             btnUpdateData.Name = "btnUpdateData";
-            btnUpdateData.Size = new Size(340, 80);
+            btnUpdateData.Size = new Size(389, 107);
             btnUpdateData.TabIndex = 5;
-            btnUpdateData.Text = "Update data";
+            btnUpdateData.Text = "Edit book";
             btnUpdateData.TextImageRelation = TextImageRelation.ImageAboveText;
             btnUpdateData.UseVisualStyleBackColor = false;
             btnUpdateData.Click += btnUpdateData_Click;
@@ -439,33 +437,34 @@
             dgvBooks.BackgroundColor = Color.Silver;
             dgvBooks.BorderStyle = BorderStyle.None;
             dgvBooks.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(71, 3, 22);
-            dataGridViewCellStyle1.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
-            dataGridViewCellStyle1.SelectionBackColor = Color.Salmon;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(71, 3, 22);
+            dataGridViewCellStyle3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.WhiteSmoke;
+            dataGridViewCellStyle3.SelectionBackColor = Color.Salmon;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvBooks.ColumnHeadersHeight = 30;
             dgvBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(144, 12, 63);
-            dataGridViewCellStyle2.Font = new Font("Century Gothic", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(199, 0, 57);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvBooks.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(144, 12, 63);
+            dataGridViewCellStyle4.Font = new Font("Century Gothic", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(199, 0, 57);
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvBooks.DefaultCellStyle = dataGridViewCellStyle4;
             dgvBooks.EnableHeadersVisualStyles = false;
             dgvBooks.GridColor = Color.FromArgb(64, 64, 64);
-            dgvBooks.Location = new Point(16, 140);
-            dgvBooks.Margin = new Padding(4, 3, 4, 3);
+            dgvBooks.Location = new Point(18, 187);
+            dgvBooks.Margin = new Padding(5, 4, 5, 4);
             dgvBooks.Name = "dgvBooks";
             dgvBooks.ReadOnly = true;
             dgvBooks.RowHeadersVisible = false;
+            dgvBooks.RowHeadersWidth = 51;
             dgvBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvBooks.Size = new Size(697, 403);
+            dgvBooks.Size = new Size(797, 537);
             dgvBooks.TabIndex = 2;
             // 
             // pnlSearchBook
@@ -475,10 +474,10 @@
             pnlSearchBook.Controls.Add(txtFilterData);
             pnlSearchBook.Controls.Add(btnSearchBook);
             pnlSearchBook.Controls.Add(label1);
-            pnlSearchBook.Location = new Point(13, 14);
-            pnlSearchBook.Margin = new Padding(4, 3, 4, 3);
+            pnlSearchBook.Location = new Point(15, 19);
+            pnlSearchBook.Margin = new Padding(5, 4, 5, 4);
             pnlSearchBook.Name = "pnlSearchBook";
-            pnlSearchBook.Size = new Size(700, 100);
+            pnlSearchBook.Size = new Size(800, 133);
             pnlSearchBook.TabIndex = 7;
             // 
             // txtFilterData
@@ -487,11 +486,11 @@
             txtFilterData.BackColor = Color.White;
             txtFilterData.BorderStyle = BorderStyle.None;
             txtFilterData.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtFilterData.Location = new Point(115, 40);
-            txtFilterData.Margin = new Padding(4, 3, 4, 3);
+            txtFilterData.Location = new Point(131, 53);
+            txtFilterData.Margin = new Padding(5, 4, 5, 4);
             txtFilterData.MaxLength = 50;
             txtFilterData.Name = "txtFilterData";
-            txtFilterData.Size = new Size(477, 24);
+            txtFilterData.Size = new Size(545, 30);
             txtFilterData.TabIndex = 5;
             txtFilterData.Text = "Type here the book title";
             txtFilterData.TextChanged += txtFilterData_TextChanged;
@@ -503,24 +502,24 @@
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(22, 43);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(25, 57);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(63, 19);
+            label1.Size = new Size(77, 23);
             label1.TabIndex = 4;
             label1.Text = "Search";
             // 
-            // btnCloseCustomerDetails
+            // FmBooks
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
-            ClientSize = new Size(1225, 692);
+            ClientSize = new Size(1400, 923);
             Controls.Add(pnlBooksGrid);
             Controls.Add(pnlButtosBooks);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 3, 4, 3);
-            Name = "btnCloseCustomerDetails";
+            Margin = new Padding(5, 4, 5, 4);
+            Name = "FmBooks";
             Text = "FmBooks";
             Load += FmBooks_Load;
             pnlButtosBooks.ResumeLayout(false);
@@ -553,8 +552,8 @@
         private System.Windows.Forms.TextBox txtPriceBook;
         private System.Windows.Forms.MaskedTextBox mtxtISBN;
         private System.Windows.Forms.ComboBox cbGenreBook;
-        private System.Windows.Forms.TextBox txtAmountBook;
-        private System.Windows.Forms.TextBox txteditoraBook;
+        private System.Windows.Forms.TextBox txtQuantityBook;
+        private System.Windows.Forms.TextBox txtEditorBook;
         private System.Windows.Forms.TextBox txtAuthorBook;
         private System.Windows.Forms.TextBox txtYearBook;
         private System.Windows.Forms.TextBox txtTitleBook;

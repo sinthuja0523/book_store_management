@@ -31,6 +31,7 @@ namespace BookStoreMgt.Forms
         {
             this.titleLabel = s;
         }
+
         public string getTitleLabel()
         {
             return this.titleLabel;
@@ -140,28 +141,27 @@ namespace BookStoreMgt.Forms
         private void clearAddNewTextBox()
         {
             this.txtPriceBook.Clear();
-            this.txtAmountBook.Clear();
+            this.txtQuantityBook.Clear();
             this.mtxtISBN.Clear();
             this.txtAuthorBook.Clear();
-            this.txteditoraBook.Clear();
+            this.txtEditorBook.Clear();
             this.txtTitleBook.Clear();
             this.txtYearBook.Clear();
         }
-
         private void btnSaveBook_Click(object sender, EventArgs e)
         {
             try
             {
-                if (cbGenreBook.SelectedIndex < 0)
-                {
-                    MessageBox.Show("Please, select a book genre!");
-                    cbGenreBook.Focus();
-                    return;
-                }
+                
 
                 bool isAddingNewBook = lblTitleAddBook.Text.Equals("Add a new book");
                 bool isUpdatingBook = lblTitleAddBook.Text.Equals("Update book");
-
+                if (string.IsNullOrWhiteSpace(mtxtISBN.Text))
+                {
+                    MessageBox.Show("ISBN is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    mtxtISBN.Focus();
+                    return;
+                }
                 if (isAddingNewBook && bookControl.checkISBNControl(mtxtISBN.Text))
                 {
                     MessageBox.Show("This ISBN already exists in our database.");
@@ -170,14 +170,58 @@ namespace BookStoreMgt.Forms
                     return;
                 }
 
+                if (string.IsNullOrWhiteSpace(txtTitleBook.Text))
+                {
+                    MessageBox.Show("Title is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtTitleBook.Focus();
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(txtAuthorBook.Text))
+                {
+                    MessageBox.Show("Author is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtAuthorBook.Focus();
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtYearBook.Text) || !txtYearBook.Text.All(char.IsDigit) || txtYearBook.Text.Length > 5)
+                {
+                    MessageBox.Show("Please enter a valid year.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtYearBook.Focus();
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(txtEditorBook.Text))
+                {
+                    MessageBox.Show("Editor is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtEditorBook.Focus();
+                    return;
+                }
+                if (cbGenreBook.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Please, select a book genre!");
+                    cbGenreBook.Focus();
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(txtQuantityBook.Text) || !txtQuantityBook.Text.All(char.IsDigit))
+                {
+                    MessageBox.Show("Please enter a valid quantity.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtQuantityBook.Focus();
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(txtPriceBook.Text))
+                {
+                    MessageBox.Show("Please enter a valid amount.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtPriceBook.Focus();
+                    return;
+                }
+
                 string operationResult = "";
                 if (isAddingNewBook)
                 {
-                    operationResult = bookControl.insertBooksControl(mtxtISBN.Text, txtTitleBook.Text, txtAuthorBook.Text, txtYearBook.Text, txteditoraBook.Text, cbGenreBook.SelectedItem.ToString(), txtAmountBook.Text, txtPriceBook.Text);
+                    operationResult = bookControl.insertBooksControl(mtxtISBN.Text, txtTitleBook.Text, txtAuthorBook.Text, txtYearBook.Text, txtEditorBook.Text, cbGenreBook.SelectedItem.ToString(), txtQuantityBook.Text, txtPriceBook.Text);
                 }
                 else if (isUpdatingBook)
                 {
-                    operationResult = bookControl.updateDataControl(id, mtxtISBN.Text, txtTitleBook.Text, txtAuthorBook.Text, txtYearBook.Text, txteditoraBook.Text, cbGenreBook.SelectedItem.ToString(), txtAmountBook.Text, txtPriceBook.Text);
+                    operationResult = bookControl.updateDataControl(id, mtxtISBN.Text, txtTitleBook.Text, txtAuthorBook.Text, txtYearBook.Text, txtEditorBook.Text, cbGenreBook.SelectedItem.ToString(), txtQuantityBook.Text, txtPriceBook.Text);
                 }
 
                 if (operationResult.Equals("sucess"))
@@ -188,6 +232,8 @@ namespace BookStoreMgt.Forms
                     btnSaveBook.Text = "Add Book";
                     mtxtISBN.ReadOnly = !isAddingNewBook;
                     showBooksInDataGrid();
+                    clearAddNewTextBox();
+                    enableButtonsBooks(true);
                 }
                 else if (isAddingNewBook)
                 {
@@ -224,10 +270,10 @@ namespace BookStoreMgt.Forms
                     txtTitleBook.Text = dgvBooks.CurrentRow.Cells["title"].Value.ToString();
                     txtAuthorBook.Text = dgvBooks.CurrentRow.Cells["author"].Value.ToString();
                     txtYearBook.Text = dgvBooks.CurrentRow.Cells["published_year"].Value.ToString();
-                    txteditoraBook.Text = dgvBooks.CurrentRow.Cells["editor"].Value.ToString();
+                    txtEditorBook.Text = dgvBooks.CurrentRow.Cells["editor"].Value.ToString();
                     cbGenreBook.SelectedIndex = cbGenreBook.FindString(dgvBooks.CurrentRow.Cells["genre"].Value.ToString());
 
-                    txtAmountBook.Text = dgvBooks.CurrentRow.Cells["stock_quantity"].Value.ToString();
+                    txtQuantityBook.Text = dgvBooks.CurrentRow.Cells["stock_quantity"].Value.ToString();
                     txtPriceBook.Text = dgvBooks.CurrentRow.Cells["price"].Value.ToString();
                     this.id = dgvBooks.CurrentRow.Cells["book_id"].Value.ToString();
 
@@ -261,12 +307,12 @@ namespace BookStoreMgt.Forms
                     string result = bookControl.deleteDataControl(isbn);
                     if (result.Equals("sucess"))
                     {
-                        MessageBox.Show("Delete data has been sucessed!");
+                        MessageBox.Show("Book has been deleted successfully!");
                         showBooksInDataGrid();
                     }
                     else
                     {
-                        MessageBox.Show("Delete data it was possible!");
+                        MessageBox.Show("Oops something went wrong!");
                     }
                 }
 
