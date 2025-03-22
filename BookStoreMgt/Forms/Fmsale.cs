@@ -189,16 +189,16 @@ namespace BookStoreMgt.Forms
 
                 foreach (DataGridViewRow row in dgvShoppingCart.Rows)
                 {
-                    if (row.Cells[0].Value != null) // Check if row is not empty
+                    if (row.Cells[0].Value != null) 
                     {
-                        int bookId = Convert.ToInt32(row.Cells[0].Value); // Assuming book_id is in column 0
-                        int quantity = Convert.ToInt32(row.Cells[3].Value); // Assuming quantity is in column 3
-                        decimal price = Convert.ToDecimal(row.Cells[4].Value); // Assuming price is in column 4
+                        int bookId = Convert.ToInt32(row.Cells[0].Value); 
+                        int quantity = Convert.ToInt32(row.Cells[3].Value); 
+                        decimal price = Convert.ToDecimal(row.Cells[4].Value); 
 
                         books.Add((bookId, quantity, price));
                     }
                 }
-                List<(string? name, string? tp_no, string? address, int? age)> customer_details = new List<(string? name, string? tp_no, string? address, int? age)>();
+                List<(string? name, string? email, string? phone)> customer_details = new List<(string? name, string? email, string? phone)>();
 
                 if (pnlCustomerDetails.Visible == true)
                 {
@@ -230,12 +230,12 @@ namespace BookStoreMgt.Forms
                         return;
                     }
 
-                    customer_details.Add((txtCustomerName.Text, txtTPNo.Text, txtAddress.Text, Convert.ToInt32(txtAge.Text)));
-                    proceedSale(books);
+                    customer_details.Add((txtCustomerName.Text, txtTPNo.Text, txtAddress.Text));
+                    proceedSale(books, customer_details);
                 }
                 else
                 {
-                    proceedSale(books);
+                    proceedSale(books, customer_details);
                 }
 
                 
@@ -252,8 +252,8 @@ namespace BookStoreMgt.Forms
             }
         }
 
-        private void proceedSale(List<(int bookId, int quantity, decimal price)> books) {
-            string result = sControl.insertNewSale(books);
+        private void proceedSale(List<(int bookId, int quantity, decimal price)> books, List<(string? name, string? email, string? phone)>? customer_details) {
+            string result = sControl.insertNewSale(books, customer_details);
             if (result.Equals("sucess"))
             {
                 if (pnlPartSeachProd.Enabled != true)
@@ -265,7 +265,7 @@ namespace BookStoreMgt.Forms
                 txtPriceTotalSale.Text = "";
                 sp.priceTotal_prod = 0;
                 sp.priceFinal_prod = sp.priceTotal_prod;
-                MessageBox.Show("Saved to DB~");
+                MessageBox.Show("Book sold successfully!");
                 clearCustomerDetailsInputs();
             }
             else

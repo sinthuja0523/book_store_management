@@ -13,18 +13,29 @@ namespace BookStoreMgt.Database_Models
         private ConnectionSQLserver conn = new ConnectionSQLserver();
         SqlCommand command;
 
-        public string insertNewSale(List<(int bookId, int quantity, decimal price)> books)
+        public string insertNewSale(List<(int bookId, int quantity, decimal price)> books, List<(string? name, string? email, string? phone)>? customer_details)
         {
             string result = "";
             try
             {
                 DateTime purchasedDateTime = DateTime.Now;
-                string query = "insert into tbl_sales (customer_id) values (@customer_id);" +
-                   "SELECT SCOPE_IDENTITY()";
+
                 conn.openDB();
+
+                string CustomerQuery = "insert into tbl_customers (name,email,phone) values (@name,@email,@phone);" + "SELECT SCOPE_IDENTITY()";
+                SqlCommand customerCommand = new SqlCommand(CustomerQuery, conn.conn);
+                customerCommand.Parameters.AddWithValue("@name", customer_details[0].name);
+                customerCommand.Parameters.AddWithValue("@email", customer_details[0].email);
+                customerCommand.Parameters.AddWithValue("@phone", customer_details[0].phone);
+
+                int? customerId = Convert.ToInt32(customerCommand.ExecuteScalar());
+                MessageBox.Show(customerId.ToString());
+
+                string query = "insert into tbl_sales (customer_id) values (@customer_id);" + "SELECT SCOPE_IDENTITY()";
+                
                 object value = (object)DBNull.Value;
                 command = new SqlCommand(query, conn.conn);
-                command.Parameters.AddWithValue("@customer_id", value);
+                command.Parameters.AddWithValue("@customer_id", customerId!=null? customerId : value);
 
                 int salesId = Convert.ToInt32(command.ExecuteScalar());
 
@@ -39,6 +50,9 @@ namespace BookStoreMgt.Database_Models
 
                     salesBookCommand.ExecuteNonQuery();
                 }
+                // INSERT CUSTOMER DETAILS
+
+                
                 conn.closeDB();
                 if (salesId > 0)
                 {

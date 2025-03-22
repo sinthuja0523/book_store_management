@@ -18,7 +18,7 @@ namespace BookStoreMgt
         //public SqlCeConnection objConnection = new SqlCeConnection(ConfigurationManager.ConnectionStrings["bookstoreDB"].ToString().Trim());
 
         // public SqlCeConnection objConnection = new SqlCeConnection("Data Source = bookstoreDB.sdf");
-        public SqlConnection conn = new SqlConnection("Data Source=DESKTOP-DV35AK6;Initial Catalog=Bank_Customer;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
+        public SqlConnection conn = new SqlConnection("Data Source=DESKTOP-DV35AK6;Initial Catalog=book_store;Integrated Security=True;TrustServerCertificate=True");
         public ConnectionSQLserver()
         {
             
