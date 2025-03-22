@@ -198,7 +198,7 @@ namespace BookStoreMgt.Forms
                         books.Add((bookId, quantity, price));
                     }
                 }
-                List<(string? name, string? email, string? phone)> customer_details = new List<(string? name, string? email, string? phone)>();
+                List<(string? name, string? phone, string? address, string? age)> customer_details = new List<(string? name, string? phone, string? address, string? age)>();
 
                 if (pnlCustomerDetails.Visible == true)
                 {
@@ -230,15 +230,10 @@ namespace BookStoreMgt.Forms
                         return;
                     }
 
-                    customer_details.Add((txtCustomerName.Text, txtTPNo.Text, txtAddress.Text));
-                    proceedSale(books, customer_details);
+                    customer_details.Add((txtCustomerName.Text, txtTPNo.Text, txtAddress.Text, txtAge.Text));
                 }
-                else
-                {
-                    proceedSale(books, customer_details);
-                }
+                proceedSale(books, customer_details);
 
-                
             }
             catch (Exception ex)
             {
@@ -252,7 +247,10 @@ namespace BookStoreMgt.Forms
             }
         }
 
-        private void proceedSale(List<(int bookId, int quantity, decimal price)> books, List<(string? name, string? email, string? phone)>? customer_details) {
+ 
+
+        private void proceedSale(List<(int bookId, int quantity, decimal price)> books, List<(string? name, string? phone, string? address, string? age)>? customer_details) {
+            
             string result = sControl.insertNewSale(books, customer_details);
             if (result.Equals("sucess"))
             {

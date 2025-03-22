@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FmDashboard));
             pnlVerticalMenu = new Panel();
+            btnOrder = new Button();
             panel3 = new Panel();
             btnCustomers = new Button();
             panel2 = new Panel();
@@ -53,7 +54,8 @@
             pbMenuDash = new PictureBox();
             pnlContainers = new Panel();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
-            btnOrder = new Button();
+            btn_dashboard = new Button();
+            panel4 = new Panel();
             pnlVerticalMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbShutDownDash).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbLogoDash).BeginInit();
@@ -68,6 +70,8 @@
             // pnlVerticalMenu
             // 
             pnlVerticalMenu.BackColor = Color.MidnightBlue;
+            pnlVerticalMenu.Controls.Add(btn_dashboard);
+            pnlVerticalMenu.Controls.Add(panel4);
             pnlVerticalMenu.Controls.Add(btnOrder);
             pnlVerticalMenu.Controls.Add(panel3);
             pnlVerticalMenu.Controls.Add(btnCustomers);
@@ -90,10 +94,29 @@
             pnlVerticalMenu.Size = new Size(282, 1000);
             pnlVerticalMenu.TabIndex = 0;
             // 
+            // btnOrder
+            // 
+            btnOrder.Cursor = Cursors.Hand;
+            btnOrder.FlatAppearance.BorderSize = 0;
+            btnOrder.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 45, 48);
+            btnOrder.FlatStyle = FlatStyle.Flat;
+            btnOrder.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnOrder.ForeColor = Color.White;
+            btnOrder.Image = (Image)resources.GetObject("btnOrder.Image");
+            btnOrder.ImageAlign = ContentAlignment.MiddleLeft;
+            btnOrder.Location = new Point(5, 637);
+            btnOrder.Margin = new Padding(5, 4, 5, 4);
+            btnOrder.Name = "btnOrder";
+            btnOrder.Size = new Size(274, 65);
+            btnOrder.TabIndex = 13;
+            btnOrder.Text = "Orders";
+            btnOrder.UseVisualStyleBackColor = true;
+            btnOrder.Click += btnOrder_Click;
+            // 
             // panel3
             // 
             panel3.BackColor = Color.White;
-            panel3.Location = new Point(0, 273);
+            panel3.Location = new Point(0, 349);
             panel3.Margin = new Padding(5, 4, 5, 4);
             panel3.Name = "panel3";
             panel3.Size = new Size(7, 65);
@@ -109,7 +132,7 @@
             btnCustomers.ForeColor = Color.White;
             btnCustomers.Image = (Image)resources.GetObject("btnCustomers.Image");
             btnCustomers.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCustomers.Location = new Point(5, 472);
+            btnCustomers.Location = new Point(5, 541);
             btnCustomers.Margin = new Padding(5, 4, 5, 4);
             btnCustomers.Name = "btnCustomers";
             btnCustomers.Size = new Size(274, 65);
@@ -121,7 +144,7 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Location = new Point(0, 569);
+            panel2.Location = new Point(0, 637);
             panel2.Margin = new Padding(5, 4, 5, 4);
             panel2.Name = "panel2";
             panel2.Size = new Size(7, 65);
@@ -130,7 +153,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Location = new Point(0, 668);
+            panel1.Location = new Point(0, 733);
             panel1.Margin = new Padding(5, 4, 5, 4);
             panel1.Name = "panel1";
             panel1.Size = new Size(7, 65);
@@ -146,7 +169,7 @@
             button1.ForeColor = Color.White;
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(8, 668);
+            button1.Location = new Point(8, 733);
             button1.Margin = new Padding(5, 4, 5, 4);
             button1.Name = "button1";
             button1.Size = new Size(274, 65);
@@ -187,7 +210,7 @@
             // pnlBtnAbout
             // 
             pnlBtnAbout.BackColor = Color.White;
-            pnlBtnAbout.Location = new Point(0, 472);
+            pnlBtnAbout.Location = new Point(0, 541);
             pnlBtnAbout.Margin = new Padding(5, 4, 5, 4);
             pnlBtnAbout.Name = "pnlBtnAbout";
             pnlBtnAbout.Size = new Size(7, 65);
@@ -196,7 +219,7 @@
             // pnlBtnProductos
             // 
             pnlBtnProductos.BackColor = Color.White;
-            pnlBtnProductos.Location = new Point(0, 379);
+            pnlBtnProductos.Location = new Point(0, 445);
             pnlBtnProductos.Margin = new Padding(5, 4, 5, 4);
             pnlBtnProductos.Name = "pnlBtnProductos";
             pnlBtnProductos.Size = new Size(7, 65);
@@ -212,7 +235,7 @@
             btnAbout.ForeColor = Color.White;
             btnAbout.Image = (Image)resources.GetObject("btnAbout.Image");
             btnAbout.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAbout.Location = new Point(8, 379);
+            btnAbout.Location = new Point(8, 445);
             btnAbout.Margin = new Padding(5, 4, 5, 4);
             btnAbout.Name = "btnAbout";
             btnAbout.Size = new Size(274, 65);
@@ -231,7 +254,7 @@
             btnProductos.ForeColor = Color.White;
             btnProductos.Image = (Image)resources.GetObject("btnProductos.Image");
             btnProductos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProductos.Location = new Point(8, 273);
+            btnProductos.Location = new Point(8, 349);
             btnProductos.Margin = new Padding(5, 4, 5, 4);
             btnProductos.Name = "btnProductos";
             btnProductos.Size = new Size(274, 65);
@@ -250,7 +273,7 @@
             btnSale.ForeColor = Color.White;
             btnSale.Image = (Image)resources.GetObject("btnSale.Image");
             btnSale.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSale.Location = new Point(8, 179);
+            btnSale.Location = new Point(8, 253);
             btnSale.Margin = new Padding(5, 4, 5, 4);
             btnSale.Name = "btnSale";
             btnSale.Size = new Size(274, 65);
@@ -275,7 +298,7 @@
             // pnlBtnSale
             // 
             pnlBtnSale.BackColor = Color.White;
-            pnlBtnSale.Location = new Point(0, 179);
+            pnlBtnSale.Location = new Point(0, 253);
             pnlBtnSale.Margin = new Padding(5, 4, 5, 4);
             pnlBtnSale.Name = "pnlBtnSale";
             pnlBtnSale.Size = new Size(7, 65);
@@ -381,7 +404,7 @@
             // 
             // pnlContainers
             // 
-            pnlContainers.BackColor = Color.WhiteSmoke;
+            pnlContainers.BackColor = Color.Gainsboro;
             pnlContainers.Dock = DockStyle.Fill;
             pnlContainers.Location = new Point(282, 77);
             pnlContainers.Margin = new Padding(5, 4, 5, 4);
@@ -396,24 +419,32 @@
             mySqlCommand1.EnableCaching = false;
             mySqlCommand1.Transaction = null;
             // 
-            // btnOrder
+            // btn_dashboard
             // 
-            btnOrder.Cursor = Cursors.Hand;
-            btnOrder.FlatAppearance.BorderSize = 0;
-            btnOrder.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 45, 48);
-            btnOrder.FlatStyle = FlatStyle.Flat;
-            btnOrder.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnOrder.ForeColor = Color.White;
-            btnOrder.Image = (Image)resources.GetObject("btnOrder.Image");
-            btnOrder.ImageAlign = ContentAlignment.MiddleLeft;
-            btnOrder.Location = new Point(5, 569);
-            btnOrder.Margin = new Padding(5, 4, 5, 4);
-            btnOrder.Name = "btnOrder";
-            btnOrder.Size = new Size(274, 65);
-            btnOrder.TabIndex = 13;
-            btnOrder.Text = "Orders";
-            btnOrder.UseVisualStyleBackColor = true;
-            btnOrder.Click += btnOrder_Click;
+            btn_dashboard.Cursor = Cursors.Hand;
+            btn_dashboard.FlatAppearance.BorderSize = 0;
+            btn_dashboard.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 45, 48);
+            btn_dashboard.FlatStyle = FlatStyle.Flat;
+            btn_dashboard.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_dashboard.ForeColor = Color.White;
+            btn_dashboard.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_dashboard.Location = new Point(8, 157);
+            btn_dashboard.Margin = new Padding(5, 4, 5, 4);
+            btn_dashboard.Name = "btn_dashboard";
+            btn_dashboard.Size = new Size(274, 65);
+            btn_dashboard.TabIndex = 14;
+            btn_dashboard.Text = "Dashboard";
+            btn_dashboard.UseVisualStyleBackColor = true;
+            btn_dashboard.Click += button2_Click;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.White;
+            panel4.Location = new Point(0, 157);
+            panel4.Margin = new Padding(5, 4, 5, 4);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(7, 65);
+            panel4.TabIndex = 15;
             // 
             // FmDashboard
             // 
@@ -470,5 +501,7 @@
         // private Button btnOrders;
         private Panel panel3;
         private Button btnOrder;
+        private Button btn_dashboard;
+        private Panel panel4;
     }
 }

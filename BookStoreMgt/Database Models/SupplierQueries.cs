@@ -14,7 +14,16 @@ namespace BookStoreMgt.Database_Models
         SqlDataReader read;
         DataTable dataTable = new DataTable();
         SqlCommand command;
+        public int getSuppliersCount()
+        {
+            conn.openDB();
+            string query = "SELECT COUNT(*) FROM tbl_suppliers";
+            command = new SqlCommand(query, conn.conn);
+            int totalSuppliers = Convert.ToInt32(command.ExecuteScalar());
+            conn.closeDB();
+            return totalSuppliers;
 
+        }
         public DataTable showData()
         {
             try

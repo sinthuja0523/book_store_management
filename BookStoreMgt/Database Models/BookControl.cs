@@ -53,7 +53,11 @@ namespace BookStoreMgt.Database_Models
             string result = bookQuery.deleteData(isbn);
             return result;
         }
-        
 
+        public int getBooksCount()
+        {
+            int result = bookQuery.getBooksCount();
+            return result;
+        }
     }
 }

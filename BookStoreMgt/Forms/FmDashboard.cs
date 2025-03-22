@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.IO;
+using static System.Reflection.Metadata.BlobBuilder;
+using BookStoreMgt.Database_Models;
 
 namespace BookStoreMgt.Forms
 {
@@ -21,7 +23,7 @@ namespace BookStoreMgt.Forms
     public partial class FmDashboard : Form
     {
         Thread th;
-        //FmLogin fmLogin = new FmLogin();
+
         public FmDashboard()
         {
             //
@@ -50,6 +52,11 @@ namespace BookStoreMgt.Forms
             {
                 pnlVerticalMenu.Width = 250;
             }
+        }
+
+        private void clearPanel()
+        {
+            pnlContainers.Controls.Clear();
         }
 
         private void pbCloseWindowDash_Click(object sender, EventArgs e)
@@ -89,7 +96,7 @@ namespace BookStoreMgt.Forms
 
         private void pbLogoDash_Click(object sender, EventArgs e)
         {
-            //openFormInPainelContainer(new FmHomePage());
+
             lblTitleDashboard.Text = "Home";
             resetColors();
         }
@@ -133,6 +140,10 @@ namespace BookStoreMgt.Forms
 
         private void FmDashboard_Load(object sender, EventArgs e)
         {
+
+
+            openFormInPainelContainer(new FmDashboardItems());
+
             pbLogoDash_Click(null, e);
             if (receiveUserInfo() != "")
             {
@@ -151,6 +162,7 @@ namespace BookStoreMgt.Forms
 
         private void btnSale_Click(object sender, EventArgs e)
         {
+            clearPanel();
             openFormInPainelContainer(new FmBooks());
             lblTitleDashboard.Text = "Book Management";
             resetColors();
@@ -159,6 +171,7 @@ namespace BookStoreMgt.Forms
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
+            clearPanel();
             openFormInPainelContainer(new FmSuppliers());
             lblTitleDashboard.Text = "Supplier Management";
             resetColors();
@@ -202,6 +215,7 @@ namespace BookStoreMgt.Forms
         }
         private void btnProductos_Click(object sender, EventArgs e)
         {
+            clearPanel();
             openFormInPainelContainer(new FmSale());
             lblTitleDashboard.Text = "New Sale";
             resetColors();
@@ -210,7 +224,7 @@ namespace BookStoreMgt.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            clearPanel();
         }
 
         private void pnlVerticalMenu_Paint(object sender, PaintEventArgs e)
@@ -220,6 +234,7 @@ namespace BookStoreMgt.Forms
 
         private void btnCustomers_Click(object sender, EventArgs e)
         {
+            clearPanel();
             openFormInPainelContainer(new FmCustomers());
             lblTitleDashboard.Text = "Customer Management";
             resetColors();
@@ -233,10 +248,16 @@ namespace BookStoreMgt.Forms
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
+            clearPanel();
             openFormInPainelContainer(new FmOrders());
             lblTitleDashboard.Text = "Order Management";
             resetColors();
             pnlBtnAbout.BackColor = Color.White;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            openFormInPainelContainer(new FmDashboardItems());
         }
     }
 }

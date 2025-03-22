@@ -46,5 +46,10 @@ namespace BookStoreMgt.Database_Models
             string result = supplierQueries.deleteSupplier(contact_number);
             return result;
         }
+        public int getSuppliersCount()
+        {
+            int result = supplierQueries.getSuppliersCount();
+            return result;
+        }
     }
 }

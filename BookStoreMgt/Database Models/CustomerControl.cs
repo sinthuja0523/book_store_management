@@ -27,7 +27,11 @@ namespace BookStoreMgt.Database_Models
             string str = bookQuery.updateData(Convert.ToInt32(id), name, email, phone);
             return str;
         }
-
+        public int getCustomersCount()
+        {
+            int result = bookQuery.getCustomersCount();
+            return result;
+        }
 
     }
 }

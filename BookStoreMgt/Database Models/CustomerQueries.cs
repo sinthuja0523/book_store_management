@@ -15,7 +15,16 @@ namespace BookStoreMgt.Database_Models
         DataTable dataTable = new DataTable();
         SqlCommand command;
 
+        public int getCustomersCount()
+        {
+            conn.openDB();
+            string query = "SELECT COUNT(*) FROM tbl_customers";
+            command = new SqlCommand(query, conn.conn);
+            int totalCustomers = Convert.ToInt32(command.ExecuteScalar());
+            conn.closeDB();
+            return totalCustomers;
 
+        }
         public DataTable showData()
         {
             try
